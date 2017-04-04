@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#*   Updated: 2017/04/04 20:42:26 by upopee           ###   ########.fr       *#
+#*   Updated: 2017/04/04 20:50:04 by upopee           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ OBJ_DIR = ./obj
 # -- RULES --
 
 all: prep $(NAME)
-	echo >> /dev/null
 
 $(NAME):
 	printf "> \e[31;33;1m$(NAME)\e[0m : \e[32mCreating objects\e[0m "

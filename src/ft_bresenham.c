@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bresenham.c                                        :+:      :+:    :+:   */
+/*   ft_bresenham.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 09:49:25 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/01 09:49:28 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/04 20:43:37 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
-#include "libft.h"
+#include "libgraphic.h"
 
-void	bresenham(t_env *e, t_coord p1, t_coord p2)
+void	ft_bresenham(t_mlxenv *e, t_vertex2D p1, t_vertex2D p2)
 {
 	int	delta_x;
 	int	delta_y;
@@ -24,9 +24,9 @@ void	bresenham(t_env *e, t_coord p1, t_coord p2)
 	delta_y = ((p2.y - p1.y) << 1);
 	while (p1.x <= p2.x)
 	{
-		mlx_put_pixel(e->mlx_ptr, e->mlx_win, p1.x, p1.y, 0x00FFFFFF);
+		mlx_pixel_put(e->init_id, e->win.id, p1.x, p1.y, 0x00FFFFFF);
 		p1.x++;
-		if ((err -= delta_y) <= 0)
+		if ((error -= delta_y) <= 0)
 		{
 			p1.y++;
 			error += delta_x;

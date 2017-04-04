@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#*   Updated: 2017/04/04 20:16:59 by upopee           ###   ########.fr       *#
+#*   Updated: 2017/04/04 20:42:26 by upopee           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
 # Sources path
-VPATH = ./src/
+VPATH = ./src
 
 # Includes path
 INCLUDES = -I ./inc
 
 # Sources files
-LIB_FILES =		 \
+LIB_FILES =		ft_bresenham \
 
 LIB_SRCS = $(patsubst %,$(LIB_SRCS_DIR)/%,$(LIB_FILES:=.c))
 LIB_SRCS_DIR = ./src
@@ -49,7 +49,7 @@ $(NAME):
 	printf "> \e[31;33;1m$(NAME)\e[0m : \e[32mCreating Library\e[0m "
 	ar rc $(NAME) $(OBJECTS)
 	ar -s $(NAME)
-	printf "\t\t\e[37;1m[\e[32;1mDONE\e[0m\e[37;1m]\e[0m\n"
+	printf "\t\e[37;1m[\e[32;1mDONE\e[0m\e[37;1m]\e[0m\n"
 
 obj: $(OBJECTS)
 	echo >> /dev/null
@@ -61,12 +61,12 @@ $(OBJ_DIR)/%.o: %.c
 clean:
 	printf "> \e[31;33;1m$(NAME)\e[0m : \e[31mDeleting objects\e[0m "
 	rm -rf $(OBJ_DIR)
-	printf "\t\t\e[37;1m[\e[31;1mX\e[0m\e[37;1m]\e[0m\n"
+	printf "\t\e[37;1m[\e[31;1mX\e[0m\e[37;1m]\e[0m\n"
 
 fclean: clean
 	printf "> \e[31;33;1m$(NAME)\e[0m : \e[31mDeleting binary\e[0m "
 	rm -f $(NAME)
-	printf "\t\t\e[37;1m[\e[31;1mX\e[0m\e[37;1m]\e[0m\n"
+	printf "\t\e[37;1m[\e[31;1mX\e[0m\e[37;1m]\e[0m\n"
 
 re: fclean all
 

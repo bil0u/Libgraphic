@@ -6,12 +6,21 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/04 20:42:50 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/05 15:19:26 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBGRAPHIC_H
 # define LIBGRAPHIC_H
+
+# define M_PI 3.14159265358979323846f
+# define M_PI_2 1.57079632679489661923f
+# define M_PI_4 0.785398163397448309616f
+# define M_1_PI 0.318309886183790671538f
+# define M_2_PI 0.636619772367581343076f
+# define M_2_SQRTPI 1.12837916709551257390f
+# define TO_RADIAN(x) (float)(((x) * M_PI / 180.0f))
+# define TO_DEGREE(x) (float)(((x) * 180.0f / M_PI))
 
 /*
 ** +----------------+
@@ -64,20 +73,57 @@ typedef struct	s_colorCMJN
 	int			black;
 }				t_colorCMJN;
 
-typedef struct	s_vertex2D
+typedef struct	s_vertex2i
 {
 	int			x;
 	int			y;
-	float		w;
-}				t_vertex2D;
+}				t_vertex2i;
 
-typedef struct	s_vertex3D
+typedef struct	s_vertex3i
+{
+	int			x;
+	int			y;
+	int			z;
+}				t_vertex3i;
+
+typedef struct	s_vertex4i
 {
 	int			x;
 	int			y;
 	int			z;
 	float		w;
-}				t_vertex3D;
+}				t_vertex4i;
+
+typedef struct	s_vertex2f
+{
+	float		x;
+	float		y;
+}				t_vertex2f;
+
+typedef struct	s_vertex3f
+{
+	float		x;
+	float		y;
+	float		z;
+}				t_vertex3f;
+
+typedef struct	s_vertex4f
+{
+	float		x;
+	float		y;
+	float		z;
+	float		w;
+}				t_vertex4f;
+
+typedef struct	s_matrix4i
+{
+	int			m[4][4];
+}				t_matrix4i;
+
+typedef struct	s_matrix4f
+{
+	float		m[4][4];
+}				t_matrix4f;
 
 /*
 ** +-------------------+

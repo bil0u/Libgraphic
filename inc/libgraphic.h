@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/05 15:19:26 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/05 16:50:45 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # define M_1_PI 0.318309886183790671538f
 # define M_2_PI 0.636619772367581343076f
 # define M_2_SQRTPI 1.12837916709551257390f
-# define TO_RADIAN(x) (float)(((x) * M_PI / 180.0f))
-# define TO_DEGREE(x) (float)(((x) * 180.0f / M_PI))
+# define TO_RADIAN(deg) (float)(((deg) * M_PI / 180.0f))
+# define TO_DEGREE(rad) (float)(((rad) * 180.0f / M_PI))
 
 /*
 ** +----------------+

@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tovertex4i.c                                    :+:      :+:    :+:   */
+/*   ft_vector3add.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/05 16:37:12 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/05 16:44:58 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/06 05:23:34 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_vertex4i	*ft_tovertex4i(t_vertex3i *v, float *w)
-{
-	t_vertex4i	*dst;
+#include "libgraphic.h"
 
-	if ((dst = (t_vertex4i *)ft_memalloc(sizeof(t_vertex4i))) == NULL)
-		return (NULL);
-	dst->x = v->x;
-	dst->y = v->y;
-	dst->z = v->z;
-	dst->w = *w;
-	return (dst);
+/*
+**	->	Add two t_vector2 : v1 + v2
+**		modify the v1 value
+*/
+
+
+t_vector3	*ft_vector3add(t_vector3 *v1, t_vector3 *v2)
+{
+	v1->x += v2->x;
+	v1->y += v2->y;
+	v1->z += v2->z;
+	return (v1);
 }

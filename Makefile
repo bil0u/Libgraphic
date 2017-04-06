@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#*   Updated: 2017/04/04 20:50:04 by upopee           ###   ########.fr       *#
+#*   Updated: 2017/04/06 06:09:54 by upopee           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,16 +22,75 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
 # Sources path
-VPATH = ./src
+VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(MLX_SRCS_DIR)
 
 # Includes path
 INCLUDES = -I ./inc
 
 # Sources files
-LIB_FILES =		ft_bresenham \
+LIB_FILES =		ft_vertex2opp \
+				ft_vertex2opp_new \
+				ft_vertex2add \
+				ft_vertex2add_new \
+				ft_vertex2sub \
+				ft_vertex2sub_new \
+				ft_vertex2div \
+				ft_vertex2div_new \
+				ft_vertex2mul \
+				ft_vertex2mul_new \
+				\
+				ft_vertex3opp \
+				ft_vertex3opp_new \
+				ft_vertex3add \
+				ft_vertex3add_new \
+				ft_vertex3sub \
+				ft_vertex3sub_new \
+				ft_vertex3div \
+				ft_vertex3div_new \
+				ft_vertex3mul \
+				ft_vertex3mul_new \
+				\
+				ft_vertex3to4_new \
+				ft_vertex3to4 \
+				\
+				ft_vector2opp \
+				ft_vector2opp_new \
+				ft_vector2add \
+				ft_vector2add_new \
+				ft_vector2sub \
+				ft_vector2sub_new \
+				ft_vector2crossprod \
+				ft_vector2crossprod_new \
+				ft_vector2scal \
+				ft_vector2magn \
+				\
+				ft_vector3opp \
+				ft_vector3opp_new \
+				ft_vector3add \
+				ft_vector3add_new \
+				ft_vector3sub \
+				ft_vector3sub_new \
+				ft_vector3crossprod \
+				ft_vector3crossprod_new \
+				ft_vector3scal \
+				ft_vector3magn \
+				ft_vector4to3_new \
+				\
+				ft_vector3to4_new \
+				\
+				ft_bresenham \
 
-LIB_SRCS = $(patsubst %,$(LIB_SRCS_DIR)/%,$(LIB_FILES:=.c))
-LIB_SRCS_DIR = ./src
+VERTEX_SRCS = $(patsubst %,$(VERTEX_SRCS_DIR)/%,$(LIB_FILES:=.c))
+VERTEX_SRCS_DIR = ./src/vertex_functions
+
+VECTOR_SRCS = $(patsubst %,$(VECTOR_SRCS_DIR)/%,$(LIB_FILES:=.c))
+VECTOR_SRCS_DIR = ./src/vector_functions
+
+MATRIX_SRCS = $(patsubst %,$(MATRIX_SRCS_DIR)/%,$(LIB_FILES:=.c))
+MATRIX_SRCS_DIR = ./src/matrix_functions
+
+MLX_SRCS = $(patsubst %,$(MLX_SRCS_DIR)/%,$(LIB_FILES:=.c))
+MLX_SRCS_DIR = ./src/mlx_drawing_functions
 
 # Objects
 OBJECTS = $(patsubst %,$(OBJ_DIR)/%,$(LIB_FILES:=.o))

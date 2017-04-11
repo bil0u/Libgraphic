@@ -99,9 +99,17 @@ LIB_FILES =		ft_vertex2i_opp \
 				ft_vector3_crossprod_new \
 				ft_vector3_scal \
 				ft_vector3_magn \
-				ft_vector4_to3_new \
 				\
+				ft_vector4_to3_new \
 				ft_vector3_to4_new \
+				\
+				ft_matrix4i_id \
+				\
+				ft_matrix4f_id \
+				ft_matrix4f_mul_vertex4f \
+				ft_matrix4f_mul_vertex4f_new \
+				ft_matrix4f_mul_matrix4f \
+				ft_matrix4f_mul_matrix4f_new \
 				\
 				mlx_bresenham \
 

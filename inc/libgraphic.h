@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/11 01:37:35 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/11 06:49:50 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,15 +245,29 @@ typedef struct	s_vector4
 t_vector3	*ft_vector4_to3_new(t_vector4 *v);
 t_vector4	*ft_vector3_to4_new(t_vector3 *v, float *w);
 
+/*
+** +-------------+
+** | MATRIX PART |
+** +-------------+
+*/
+
 typedef struct	s_matrix4i
 {
 	int			m[4][4];
 }				t_matrix4i;
 
+t_matrix4i	ft_matrix4i_id(void);
+
 typedef struct	s_matrix4f
 {
 	float		m[4][4];
 }				t_matrix4f;
+
+t_matrix4f	ft_matrix4f_id(void);
+t_vertex4f	*ft_matrix4f_mul_vertex4f(t_matrix4f *m, t_vertex4f *v);
+t_vertex4f	*ft_matrix4f_mul_vertex4f_new(t_matrix4f *m, t_vertex4f *v);
+t_matrix4f	*ft_matrix4f_mul_matrix4f(t_matrix4f *m1, t_matrix4f *m2);
+t_matrix4f	*ft_matrix4f_mul_matrix4f_new(t_matrix4f *m1, t_matrix4f *m2);
 
 /*
 ** +-------------------+
@@ -261,6 +275,6 @@ typedef struct	s_matrix4f
 ** +-------------------+
 */
 
-void	ft_bresenham(t_mlxenv *e, t_vertex2i v1, t_vertex2i v2);
+void	mlx_bresenham(t_mlxenv *e, t_vertex2i v1, t_vertex2i v2);
 
 #endif

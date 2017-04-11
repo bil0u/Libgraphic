@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 08:14:56 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/11 11:53:02 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/11 22:20:44 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_matrix4f	ft_gen_rotation_matrix4f(float angle, float x, float y, float z)
 	float		s;
 	float		c;
 
+	angle = TO_RADIAN(angle);
 	s = sinf(angle);
 	c = cosf(angle);
 	m.m[0][0] = ((x * x) * (1.0 - c)) + c;

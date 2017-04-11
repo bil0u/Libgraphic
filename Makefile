@@ -28,57 +28,82 @@ VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(MLX_SRCS_DIR)
 INCLUDES = -I ./inc
 
 # Sources files
-LIB_FILES =		ft_vertex2opp \
-				ft_vertex2opp_new \
-				ft_vertex2add \
-				ft_vertex2add_new \
-				ft_vertex2sub \
-				ft_vertex2sub_new \
-				ft_vertex2div \
-				ft_vertex2div_new \
-				ft_vertex2mul \
-				ft_vertex2mul_new \
+LIB_FILES =		ft_vertex2i_opp \
+				ft_vertex2i_opp_new \
+				ft_vertex2i_add \
+				ft_vertex2i_add_new \
+				ft_vertex2i_sub \
+				ft_vertex2i_sub_new \
+				ft_vertex2i_div \
+				ft_vertex2i_div_new \
+				ft_vertex2i_mul \
+				ft_vertex2i_mul_new \
 				\
-				ft_vertex3opp \
-				ft_vertex3opp_new \
-				ft_vertex3add \
-				ft_vertex3add_new \
-				ft_vertex3sub \
-				ft_vertex3sub_new \
-				ft_vertex3div \
-				ft_vertex3div_new \
-				ft_vertex3mul \
-				ft_vertex3mul_new \
+				ft_vertex3i_opp \
+				ft_vertex3i_opp_new \
+				ft_vertex3i_add \
+				ft_vertex3i_add_new \
+				ft_vertex3i_sub \
+				ft_vertex3i_sub_new \
+				ft_vertex3i_div \
+				ft_vertex3i_div_new \
+				ft_vertex3i_mul \
+				ft_vertex3i_mul_new \
 				\
-				ft_vertex3to4_new \
-				ft_vertex3to4 \
+				ft_vertex3i_to4i_new \
+				ft_vertex3i_to4i \
 				\
-				ft_vector2opp \
-				ft_vector2opp_new \
-				ft_vector2add \
-				ft_vector2add_new \
-				ft_vector2sub \
-				ft_vector2sub_new \
-				ft_vector2crossprod \
-				ft_vector2crossprod_new \
-				ft_vector2scal \
-				ft_vector2magn \
+				ft_vertex2f_opp \
+				ft_vertex2f_opp_new \
+				ft_vertex2f_add \
+				ft_vertex2f_add_new \
+				ft_vertex2f_sub \
+				ft_vertex2f_sub_new \
+				ft_vertex2f_div \
+				ft_vertex2f_div_new \
+				ft_vertex2f_mul \
+				ft_vertex2f_mul_new \
 				\
-				ft_vector3opp \
-				ft_vector3opp_new \
-				ft_vector3add \
-				ft_vector3add_new \
-				ft_vector3sub \
-				ft_vector3sub_new \
-				ft_vector3crossprod \
-				ft_vector3crossprod_new \
-				ft_vector3scal \
-				ft_vector3magn \
-				ft_vector4to3_new \
+				ft_vertex3f_opp \
+				ft_vertex3f_opp_new \
+				ft_vertex3f_add \
+				ft_vertex3f_add_new \
+				ft_vertex3f_sub \
+				ft_vertex3f_sub_new \
+				ft_vertex3f_div \
+				ft_vertex3f_div_new \
+				ft_vertex3f_mul \
+				ft_vertex3f_mul_new \
 				\
-				ft_vector3to4_new \
+				ft_vertex3f_to4f_new \
+				ft_vertex3f_to4f \
 				\
-				ft_bresenham \
+				ft_vector2_opp \
+				ft_vector2_opp_new \
+				ft_vector2_add \
+				ft_vector2_add_new \
+				ft_vector2_sub \
+				ft_vector2_sub_new \
+				ft_vector2_crossprod \
+				ft_vector2_crossprod_new \
+				ft_vector2_scal \
+				ft_vector2_magn \
+				\
+				ft_vector3_opp \
+				ft_vector3_opp_new \
+				ft_vector3_add \
+				ft_vector3_add_new \
+				ft_vector3_sub \
+				ft_vector3_sub_new \
+				ft_vector3_crossprod \
+				ft_vector3_crossprod_new \
+				ft_vector3_scal \
+				ft_vector3_magn \
+				ft_vector4_to3_new \
+				\
+				ft_vector3_to4_new \
+				\
+				mlx_bresenham \
 
 VERTEX_SRCS = $(patsubst %,$(VERTEX_SRCS_DIR)/%,$(LIB_FILES:=.c))
 VERTEX_SRCS_DIR = ./src/vertex_functions

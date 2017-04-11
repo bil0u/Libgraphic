@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/10 22:25:10 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/11 01:37:35 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,51 +101,97 @@ typedef struct	s_colorCMJN
 ** +-------------+
 */
 
-typedef struct	s_vertex2
+typedef struct	s_vertex2i
 {
 	int			x;
 	int			y;
-}				t_vertex2;
+}				t_vertex2i;
 
-t_vertex2	*ft_vertex2_opp(t_vertex2 *v);
-t_vertex2	*ft_vertex2_opp_new(t_vertex2 *v1);
-t_vertex2	*ft_vertex2_add(t_vertex2 *v1, t_vertex2 *v2);
-t_vertex2	*ft_vertex2_add_new(t_vertex2 *v1, t_vertex2 *v2);
-t_vertex2	*ft_vertex2_sub(t_vertex2 *v1, t_vertex2 *v2);
-t_vertex2	*ft_vertex2_sub_new(t_vertex2 *v1, t_vertex2 *v2);
-t_vertex2	*ft_vertex2_div(t_vertex2 *v1, t_vertex2 *v2);
-t_vertex2	*ft_vertex2_div_new(t_vertex2 *v1, t_vertex2 *v2);
-t_vertex2	*ft_vertex2_mul(t_vertex2 *v1, t_vertex2 *v2);
-t_vertex2	*ft_vertex2_mul_new(t_vertex2 *v1, t_vertex2 *v2);
+t_vertex2i	*ft_vertex2i_opp(t_vertex2i *v);
+t_vertex2i	*ft_vertex2i_opp_new(t_vertex2i *v1);
+t_vertex2i	*ft_vertex2i_add(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_vertex2i_add_new(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_vertex2i_sub(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_vertex2i_sub_new(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_vertex2i_div(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_vertex2i_div_new(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_vertex2i_mul(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_vertex2i_mul_new(t_vertex2i *v1, t_vertex2i *v2);
 
-typedef struct	s_vertex3
+typedef struct	s_vertex2f
+{
+	float			x;
+	float			y;
+}				t_vertex2f;
+
+t_vertex2f	*ft_vertex2f_opp(t_vertex2f *v);
+t_vertex2f	*ft_vertex2f_opp_new(t_vertex2f *v1);
+t_vertex2f	*ft_vertex2f_add(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_vertex2f_add_new(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_vertex2f_sub(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_vertex2f_sub_new(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_vertex2f_div(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_vertex2f_div_new(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_vertex2f_mul(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_vertex2f_mul_new(t_vertex2f *v1, t_vertex2f *v2);
+
+typedef struct	s_vertex3i
 {
 	int			x;
 	int			y;
 	int			z;
-}				t_vertex3;
+}				t_vertex3i;
 
-t_vertex3	*ft_vertex3_opp(t_vertex3 *v);
-t_vertex3	*ft_vertex3_opp_new(t_vertex3 *v1);
-t_vertex3	*ft_vertex3_add(t_vertex3 *v1, t_vertex3 *v2);
-t_vertex3	*ft_vertex3_add_new(t_vertex3 *v1, t_vertex3 *v2);
-t_vertex3	*ft_vertex3_sub(t_vertex3 *v1, t_vertex3 *v2);
-t_vertex3	*ft_vertex3_sub_new(t_vertex3 *v1, t_vertex3 *v2);
-t_vertex3	*ft_vertex3_div(t_vertex3 *v1, t_vertex3 *v2);
-t_vertex3	*ft_vertex3_div_new(t_vertex3 *v1, t_vertex3 *v2);
-t_vertex3	*ft_vertex3_mul(t_vertex3 *v1, t_vertex3 *v2);
-t_vertex3	*ft_vertex3_mul_new(t_vertex3 *v1, t_vertex3 *v2);
+t_vertex3i	*ft_vertex3i_opp(t_vertex3i *v);
+t_vertex3i	*ft_vertex3i_opp_new(t_vertex3i *v1);
+t_vertex3i	*ft_vertex3i_add(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_vertex3i_add_new(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_vertex3i_sub(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_vertex3i_sub_new(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_vertex3i_div(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_vertex3i_div_new(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_vertex3i_mul(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_vertex3i_mul_new(t_vertex3i *v1, t_vertex3i *v2);
 
-typedef struct	s_vertex4
+typedef struct	s_vertex3f
+{
+	float			x;
+	float			y;
+	float			z;
+}				t_vertex3f;
+
+t_vertex3f	*ft_vertex3f_opp(t_vertex3f *v);
+t_vertex3f	*ft_vertex3f_opp_new(t_vertex3f *v1);
+t_vertex3f	*ft_vertex3f_add(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_vertex3f_add_new(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_vertex3f_sub(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_vertex3f_sub_new(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_vertex3f_div(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_vertex3f_div_new(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_vertex3f_mul(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_vertex3f_mul_new(t_vertex3f *v1, t_vertex3f *v2);
+
+typedef struct	s_vertex4i
 {
 	int			x;
 	int			y;
 	int			z;
 	float		w;
-}				t_vertex4;
+}				t_vertex4i;
 
-t_vertex4	*ft_vertex3_to4_new(t_vertex3 *v, float w);
-t_vertex4	*ft_vertex3_to4(t_vertex4 *dst, t_vertex3 *v, float w);
+t_vertex4i	*ft_vertex3i_to4i_new(t_vertex3i *v, float w);
+t_vertex4i	*ft_vertex3i_to4i(t_vertex4i *dst, t_vertex3i *v, float w);
+
+typedef struct	s_vertex4f
+{
+	float			x;
+	float			y;
+	float			z;
+	float		w;
+}				t_vertex4f;
+
+t_vertex4f	*ft_vertex3f_to4f_new(t_vertex3f *v, float w);
+t_vertex4f	*ft_vertex3f_to4f(t_vertex4f *dst, t_vertex3f *v, float w);
 
 /*
 ** +-------------+
@@ -215,6 +261,6 @@ typedef struct	s_matrix4f
 ** +-------------------+
 */
 
-void	ft_bresenham(t_mlxenv *e, t_vertex2 v1, t_vertex2 v2);
+void	ft_bresenham(t_mlxenv *e, t_vertex2i v1, t_vertex2i v2);
 
 #endif

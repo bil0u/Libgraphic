@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#*   Updated: 2017/04/06 06:09:54 by upopee           ###   ########.fr       *#
+#    Updated: 2017/04/12 08:10:04 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,88 +28,89 @@ VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(MLX_SRCS_DIR)
 INCLUDES = -I ./inc
 
 # Sources files
-LIB_FILES =		ft_vertex2i_opp \
-				ft_vertex2i_opp_new \
-				ft_vertex2i_add \
-				ft_vertex2i_add_new \
-				ft_vertex2i_sub \
-				ft_vertex2i_sub_new \
-				ft_vertex2i_div \
-				ft_vertex2i_div_new \
-				ft_vertex2i_mul \
-				ft_vertex2i_mul_new \
+LIB_FILES =		ft_ver2i_opp \
+				ft_ver2i_opp_new \
+				ft_ver2i_add \
+				ft_ver2i_add_new \
+				ft_ver2i_sub \
+				ft_ver2i_sub_new \
+				ft_ver2i_div \
+				ft_ver2i_div_new \
+				ft_ver2i_mul \
+				ft_ver2i_mul_new \
 				\
-				ft_vertex3i_opp \
-				ft_vertex3i_opp_new \
-				ft_vertex3i_add \
-				ft_vertex3i_add_new \
-				ft_vertex3i_sub \
-				ft_vertex3i_sub_new \
-				ft_vertex3i_div \
-				ft_vertex3i_div_new \
-				ft_vertex3i_mul \
-				ft_vertex3i_mul_new \
+				ft_ver3i_opp \
+				ft_ver3i_opp_new \
+				ft_ver3i_add \
+				ft_ver3i_add_new \
+				ft_ver3i_sub \
+				ft_ver3i_sub_new \
+				ft_ver3i_div \
+				ft_ver3i_div_new \
+				ft_ver3i_mul \
+				ft_ver3i_mul_new \
 				\
-				ft_vertex3i_to4i_new \
-				ft_vertex3i_to4i \
+				ft_ver3i_to_ver3f_new \
+				ft_ver3i_to_ver3f \
 				\
-				ft_vertex2f_opp \
-				ft_vertex2f_opp_new \
-				ft_vertex2f_add \
-				ft_vertex2f_add_new \
-				ft_vertex2f_sub \
-				ft_vertex2f_sub_new \
-				ft_vertex2f_div \
-				ft_vertex2f_div_new \
-				ft_vertex2f_mul \
-				ft_vertex2f_mul_new \
+				ft_ver2f_opp \
+				ft_ver2f_opp_new \
+				ft_ver2f_add \
+				ft_ver2f_add_new \
+				ft_ver2f_sub \
+				ft_ver2f_sub_new \
+				ft_ver2f_div \
+				ft_ver2f_div_new \
+				ft_ver2f_mul \
+				ft_ver2f_mul_new \
 				\
-				ft_vertex3f_opp \
-				ft_vertex3f_opp_new \
-				ft_vertex3f_add \
-				ft_vertex3f_add_new \
-				ft_vertex3f_sub \
-				ft_vertex3f_sub_new \
-				ft_vertex3f_div \
-				ft_vertex3f_div_new \
-				ft_vertex3f_mul \
-				ft_vertex3f_mul_new \
+				ft_ver3f_opp \
+				ft_ver3f_opp_new \
+				ft_ver3f_add \
+				ft_ver3f_add_new \
+				ft_ver3f_sub \
+				ft_ver3f_sub_new \
+				ft_ver3f_div \
+				ft_ver3f_div_new \
+				ft_ver3f_mul \
+				ft_ver3f_mul_new \
 				\
-				ft_vertex3f_to4f_new \
-				ft_vertex3f_to4f \
+				ft_ver3i_to_vec4 \
+				ft_ver3i_to_vec4_new \
+				ft_ver3f_to_vec4 \
+				ft_ver3f_to_vec4_new \
 				\
-				ft_vector2_opp \
-				ft_vector2_opp_new \
-				ft_vector2_add \
-				ft_vector2_add_new \
-				ft_vector2_sub \
-				ft_vector2_sub_new \
-				ft_vector2_crossprod \
-				ft_vector2_crossprod_new \
-				ft_vector2_scal \
-				ft_vector2_magn \
+				ft_vec2_opp \
+				ft_vec2_opp_new \
+				ft_vec2_add \
+				ft_vec2_add_new \
+				ft_vec2_sub \
+				ft_vec2_sub_new \
+				ft_vec2_scal \
+				ft_vec2_magn \
 				\
-				ft_vector3_opp \
-				ft_vector3_opp_new \
-				ft_vector3_add \
-				ft_vector3_add_new \
-				ft_vector3_sub \
-				ft_vector3_sub_new \
-				ft_vector3_crossprod \
-				ft_vector3_crossprod_new \
-				ft_vector3_scal \
-				ft_vector3_magn \
+				ft_vec3_opp \
+				ft_vec3_opp_new \
+				ft_vec3_add \
+				ft_vec3_add_new \
+				ft_vec3_sub \
+				ft_vec3_sub_new \
+				ft_vec3_crossprod \
+				ft_vec3_crossprod_new \
+				ft_vec3_scal \
+				ft_vec3_magn \
 				\
-				ft_vector4_to3_new \
-				ft_vector3_to4_new \
+				ft_vec4_to3_new \
+				ft_vec3_to4_new \
 				\
-				ft_matrix4i_id \
-				\
-				ft_matrix4f_id \
-				ft_matrix4f_mul_vertex4f \
-				ft_matrix4f_mul_vertex4f_new \
-				ft_matrix4f_mul_matrix4f \
-				ft_matrix4f_mul_matrix4f_new \
+				ft_mat4_id \
+				ft_gen_translate_mat4 \
+				ft_gen_scale_mat4 \
+				ft_gen_rotation_mat4 \
+				ft_mat4_mul_vec4 \
+				ft_mat4_mul_vec4_new \
+				ft_mat4_mul_mat4 \
+				ft_mat4_mul_mat4_new \
 				\
 				mlx_bresenham \
 

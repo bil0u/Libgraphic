@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/11 06:49:50 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/12 09:48:19 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 # define M_2_SQRTPI 1.12837916709551257390f
 #endif
 
-# define TO_RADIAN(deg) (float)(((deg) * M_PI / 180.0f))
-# define TO_DEGREE(rad) (float)(((rad) * 180.0f / M_PI))
+# define TO_RADIAN(deg) (deg * M_PI / 180.0f)
+# define TO_DEGREE(rad) (rad * 180.0f / M_PI)
 
 /*
 ** +----------+
@@ -107,33 +107,11 @@ typedef struct	s_vertex2i
 	int			y;
 }				t_vertex2i;
 
-t_vertex2i	*ft_vertex2i_opp(t_vertex2i *v);
-t_vertex2i	*ft_vertex2i_opp_new(t_vertex2i *v1);
-t_vertex2i	*ft_vertex2i_add(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	*ft_vertex2i_add_new(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	*ft_vertex2i_sub(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	*ft_vertex2i_sub_new(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	*ft_vertex2i_div(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	*ft_vertex2i_div_new(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	*ft_vertex2i_mul(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	*ft_vertex2i_mul_new(t_vertex2i *v1, t_vertex2i *v2);
-
 typedef struct	s_vertex2f
 {
-	float			x;
-	float			y;
+	float		x;
+	float		y;
 }				t_vertex2f;
-
-t_vertex2f	*ft_vertex2f_opp(t_vertex2f *v);
-t_vertex2f	*ft_vertex2f_opp_new(t_vertex2f *v1);
-t_vertex2f	*ft_vertex2f_add(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	*ft_vertex2f_add_new(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	*ft_vertex2f_sub(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	*ft_vertex2f_sub_new(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	*ft_vertex2f_div(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	*ft_vertex2f_div_new(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	*ft_vertex2f_mul(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	*ft_vertex2f_mul_new(t_vertex2f *v1, t_vertex2f *v2);
 
 typedef struct	s_vertex3i
 {
@@ -142,56 +120,59 @@ typedef struct	s_vertex3i
 	int			z;
 }				t_vertex3i;
 
-t_vertex3i	*ft_vertex3i_opp(t_vertex3i *v);
-t_vertex3i	*ft_vertex3i_opp_new(t_vertex3i *v1);
-t_vertex3i	*ft_vertex3i_add(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	*ft_vertex3i_add_new(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	*ft_vertex3i_sub(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	*ft_vertex3i_sub_new(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	*ft_vertex3i_div(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	*ft_vertex3i_div_new(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	*ft_vertex3i_mul(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	*ft_vertex3i_mul_new(t_vertex3i *v1, t_vertex3i *v2);
-
 typedef struct	s_vertex3f
 {
-	float			x;
-	float			y;
-	float			z;
+	float		x;
+	float		y;
+	float		z;
 }				t_vertex3f;
 
-t_vertex3f	*ft_vertex3f_opp(t_vertex3f *v);
-t_vertex3f	*ft_vertex3f_opp_new(t_vertex3f *v1);
-t_vertex3f	*ft_vertex3f_add(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	*ft_vertex3f_add_new(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	*ft_vertex3f_sub(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	*ft_vertex3f_sub_new(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	*ft_vertex3f_div(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	*ft_vertex3f_div_new(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	*ft_vertex3f_mul(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	*ft_vertex3f_mul_new(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex2i	ft_ver2i_opp(t_vertex2i *v);
+t_vertex2i	ft_ver2i_add(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	ft_ver2i_sub(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	ft_ver2i_div(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	ft_ver2i_mul(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_ver2i_opp_new(t_vertex2i *v1);
+t_vertex2i	*ft_ver2i_add_new(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_ver2i_sub_new(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_ver2i_div_new(t_vertex2i *v1, t_vertex2i *v2);
+t_vertex2i	*ft_ver2i_mul_new(t_vertex2i *v1, t_vertex2i *v2);
 
-typedef struct	s_vertex4i
-{
-	int			x;
-	int			y;
-	int			z;
-	float		w;
-}				t_vertex4i;
+t_vertex2f	ft_ver2f_opp(t_vertex2f *v);
+t_vertex2f	ft_ver2f_add(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	ft_ver2f_sub(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	ft_ver2f_div(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	ft_ver2f_mul(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_ver2f_opp_new(t_vertex2f *v1);
+t_vertex2f	*ft_ver2f_add_new(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_ver2f_sub_new(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_ver2f_div_new(t_vertex2f *v1, t_vertex2f *v2);
+t_vertex2f	*ft_ver2f_mul_new(t_vertex2f *v1, t_vertex2f *v2);
 
-t_vertex4i	*ft_vertex3i_to4i_new(t_vertex3i *v, float w);
-t_vertex4i	*ft_vertex3i_to4i(t_vertex4i *dst, t_vertex3i *v, float w);
+t_vertex3i	ft_ver3i_opp(t_vertex3i *v);
+t_vertex3i	ft_ver3i_add(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	ft_ver3i_sub(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	ft_ver3i_div(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	ft_ver3i_mul(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_ver3i_opp_new(t_vertex3i *v1);
+t_vertex3i	*ft_ver3i_add_new(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_ver3i_sub_new(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_ver3i_div_new(t_vertex3i *v1, t_vertex3i *v2);
+t_vertex3i	*ft_ver3i_mul_new(t_vertex3i *v1, t_vertex3i *v2);
 
-typedef struct	s_vertex4f
-{
-	float			x;
-	float			y;
-	float			z;
-	float		w;
-}				t_vertex4f;
+t_vertex3f	ft_ver3f_opp(t_vertex3f *v);
+t_vertex3f	ft_ver3f_add(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	ft_ver3f_sub(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	ft_ver3f_div(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	ft_ver3f_mul(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_ver3f_opp_new(t_vertex3f *v1);
+t_vertex3f	*ft_ver3f_add_new(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_ver3f_sub_new(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_ver3f_div_new(t_vertex3f *v1, t_vertex3f *v2);
+t_vertex3f	*ft_ver3f_mul_new(t_vertex3f *v1, t_vertex3f *v2);
 
-t_vertex4f	*ft_vertex3f_to4f_new(t_vertex3f *v, float w);
-t_vertex4f	*ft_vertex3f_to4f(t_vertex4f *dst, t_vertex3f *v, float w);
+t_vertex3f	ft_ver3i_to_ver3f(t_vertex3i *v);
+t_vertex3f	*ft_ver3i_to_ver3f_new(t_vertex3i *v);
 
 /*
 ** +-------------+
@@ -205,34 +186,12 @@ typedef struct	s_vector2
 	float		y;
 }				t_vector2;
 
-t_vector2	*ft_vector2_opp(t_vector2 *v);
-t_vector2	*ft_vector2_opp_new(t_vector2 *v1);
-t_vector2	*ft_vector2_add(t_vector2 *v1, t_vector2 *v2);
-t_vector2	*ft_vector2_add_new(t_vector2 *v1, t_vector2 *v2);
-t_vector2	*ft_vector2_sub(t_vector2 *v1, t_vector2 *v2);
-t_vector2	*ft_vector2_sub_new(t_vector2 *v1, t_vector2 *v2);
-t_vector2	*ft_vector2_crossprod(t_vector2 *v1, t_vector2 *v2);
-t_vector2	*ft_vector2_crossprod_new(t_vector2 *v1, t_vector2 *v2);
-float		ft_vector2_scal(t_vector2 *v1, t_vector2 *v2);
-float		ft_vector2_magn(t_vector2 *v);
-
 typedef struct	s_vector3
 {
 	float		x;
 	float		y;
 	float		z;
 }				t_vector3;
-
-t_vector3	*ft_vector3_opp(t_vector3 *v);
-t_vector3	*ft_vector3_opp_new(t_vector3 *v1);
-t_vector3	*ft_vector3_add(t_vector3 *v1, t_vector3 *v2);
-t_vector3	*ft_vector3_add_new(t_vector3 *v1, t_vector3 *v2);
-t_vector3	*ft_vector3_sub(t_vector3 *v1, t_vector3 *v2);
-t_vector3	*ft_vector3_sub_new(t_vector3 *v1, t_vector3 *v2);
-t_vector3	*ft_vector3_crossprod(t_vector3 *v1, t_vector3 *v2);
-t_vector3	*ft_vector3_crossprod_new(t_vector3 *v1, t_vector3 *v2);
-float		ft_vector3_scal(t_vector3 *v1, t_vector3 *v2);
-float		ft_vector3_magn(t_vector3 *v);
 
 typedef struct	s_vector4
 {
@@ -242,8 +201,33 @@ typedef struct	s_vector4
 	float		w;
 }				t_vector4;
 
-t_vector3	*ft_vector4_to3_new(t_vector4 *v);
-t_vector4	*ft_vector3_to4_new(t_vector3 *v, float *w);
+t_vector2	ft_vec2_opp(t_vector2 *v);
+t_vector2	ft_vec2_add(t_vector2 *v1, t_vector2 *v2);
+t_vector2	ft_vec2_sub(t_vector2 *v1, t_vector2 *v2);
+t_vector2	*ft_vec2_opp_new(t_vector2 *v1);
+t_vector2	*ft_vec2_add_new(t_vector2 *v1, t_vector2 *v2);
+t_vector2	*ft_vec2_sub_new(t_vector2 *v1, t_vector2 *v2);
+float		ft_vec2_scal(t_vector2 *v1, t_vector2 *v2);
+float		ft_vec2_magn(t_vector2 *v);
+
+t_vector3	ft_vec3_opp(t_vector3 *v);
+t_vector3	ft_vec3_add(t_vector3 *v1, t_vector3 *v2);
+t_vector3	ft_vec3_sub(t_vector3 *v1, t_vector3 *v2);
+t_vector3	ft_vec3_crossprod(t_vector3 *v1, t_vector3 *v2);
+t_vector3	*ft_vec3_opp_new(t_vector3 *v1);
+t_vector3	*ft_vec3_add_new(t_vector3 *v1, t_vector3 *v2);
+t_vector3	*ft_vec3_sub_new(t_vector3 *v1, t_vector3 *v2);
+t_vector3	*ft_vec3_crossprod_new(t_vector3 *v1, t_vector3 *v2);
+float		ft_vec3_scal(t_vector3 *v1, t_vector3 *v2);
+float		ft_vec3_magn(t_vector3 *v);
+
+t_vector3	*ft_vec4_to_vec3_new(t_vector4 *v);
+t_vector4	*ft_vec3_to_vec4_new(t_vector3 *v, float w);
+
+t_vector4	ft_ver3i_to_vec4(t_vertex3i *v, float w);
+t_vector4	ft_ver3f_to_vec4(t_vertex3f *v, float w);
+t_vector4	*ft_ver3i_to_vec4_new(t_vertex3i *v, float w);
+t_vector4	*ft_ver3f_to_vec4_new(t_vertex3f *v, float w);
 
 /*
 ** +-------------+
@@ -251,23 +235,30 @@ t_vector4	*ft_vector3_to4_new(t_vector3 *v, float *w);
 ** +-------------+
 */
 
-typedef struct	s_matrix4i
+typedef struct	s_matrix
 {
-	int			m[4][4];
-}				t_matrix4i;
+	float		array[4][4];
+}				t_matrix4;
 
-t_matrix4i	ft_matrix4i_id(void);
+t_matrix4	ft_mat4_id(void);
+t_matrix4	ft_gen_translate_mat4(float x, float y, float z);
+t_matrix4	ft_gen_scale_mat4(float x, float y, float z);
+t_matrix4	ft_gen_rotation_mat4(float deg_angle, float x, float y, float z);
+t_vector4	ft_mat4_mul_vec4(t_matrix4 *m, t_vector4 *v);
+t_matrix4	ft_mat4_mul_mat4(t_matrix4 *m1, t_matrix4 *m2);
+t_vector4	*ft_mat4_mul_vec4_new(t_matrix4 *m, t_vector4 *v);
+t_matrix4	*ft_mat4_mul_mat4_new(t_matrix4 *m1, t_matrix4 *m2);
 
-typedef struct	s_matrix4f
+/*
+** +-------------+
+** | CAMERA PART |
+** +-------------+
+*/
+
+typedef struct	s_camera
 {
-	float		m[4][4];
-}				t_matrix4f;
-
-t_matrix4f	ft_matrix4f_id(void);
-t_vertex4f	*ft_matrix4f_mul_vertex4f(t_matrix4f *m, t_vertex4f *v);
-t_vertex4f	*ft_matrix4f_mul_vertex4f_new(t_matrix4f *m, t_vertex4f *v);
-t_matrix4f	*ft_matrix4f_mul_matrix4f(t_matrix4f *m1, t_matrix4f *m2);
-t_matrix4f	*ft_matrix4f_mul_matrix4f_new(t_matrix4f *m1, t_matrix4f *m2);
+	t_vertex3f	eye;
+}				t_camera;
 
 /*
 ** +-------------------+

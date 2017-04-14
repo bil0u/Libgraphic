@@ -113,24 +113,26 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_mat4_mul_mat4_new \
 				\
 				mlx_bresenham \
+				mlx_init \
+				mlx_end \
 				\
 				print_vectors \
 				print_matrix \
 
 VERTEX_SRCS = $(patsubst %,$(VERTEX_SRCS_DIR)/%,$(LIB_FILES:=.c))
-VERTEX_SRCS_DIR = ./src/vertex_functions
+VERTEX_SRCS_DIR = ./src/vertex_utils
 
 VECTOR_SRCS = $(patsubst %,$(VECTOR_SRCS_DIR)/%,$(LIB_FILES:=.c))
-VECTOR_SRCS_DIR = ./src/vector_functions
+VECTOR_SRCS_DIR = ./src/vector_utils
 
 MATRIX_SRCS = $(patsubst %,$(MATRIX_SRCS_DIR)/%,$(LIB_FILES:=.c))
-MATRIX_SRCS_DIR = ./src/matrix_functions
+MATRIX_SRCS_DIR = ./src/matrix_utils
 
 MLX_SRCS = $(patsubst %,$(MLX_SRCS_DIR)/%,$(LIB_FILES:=.c))
-MLX_SRCS_DIR = ./src/mlx_drawing_functions
+MLX_SRCS_DIR = ./src/mlx_utils
 
 DEBUG_SRCS = $(patsubst %,$(DEBUG_SRCS_DIR)/%,$(LIB_FILES:=.c))
-DEBUG_SRCS_DIR = ./src/debug_functions
+DEBUG_SRCS_DIR = ./src/debug_utils
 
 # Objects
 OBJECTS = $(patsubst %,$(OBJ_DIR)/%,$(LIB_FILES:=.o))

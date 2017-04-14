@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/14 05:00:01 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/14 18:32:08 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #ifndef LIBGRAPHIC_H
 # define LIBGRAPHIC_H
 
-#include <mlx.h>
+#include "/usr/local/include/mlx.h"
 
 #ifndef M_PI
 # define M_PI 3.14159265358979323846f
@@ -55,11 +55,16 @@ typedef struct	s_mlxwin
 	void		*id;
 	int			sz_x;
 	int			sz_y;
+	char		*title;
 }				t_mlxwin;
+
+t_mlxwin	*init_mlxwin(void *mlx_id, int sz_x, int sz_y, char *title);
+void		del_mlxwin(void *mlx_id, t_mlxwin *m_win);
 
 typedef struct	s_mlximg
 {
 	void		*id;
+	char		*data;
 	int			sz_x;
 	int			sz_y;
 	int			bpp;
@@ -67,12 +72,16 @@ typedef struct	s_mlximg
 	int			endian;
 }				t_mlximg;
 
+t_mlximg	*init_mlximg(void *mlx_id, int sz_x, int sz_y);
+void		del_mlximg(void *mlx_id, t_mlximg *m_img);
+
 typedef struct	s_mlxenv
 {
-	void		*mlx_id;
-	t_mlxwin	win;
-	t_mlximg	img1;
+	void		*init_id;
 }				t_mlxenv;
+
+t_mlxenv	*init_mlxenv(void);
+void		del_mlxenv(t_mlxenv *m_env);
 
 /*
 ** +------------+
@@ -257,7 +266,7 @@ t_matrix4	*ft_mat4_mul_mat4_new(t_matrix4 *m1, t_matrix4 *m2);
 
 typedef struct	s_camera
 {
-	t_vertex3f	position;
+	t_vector4	position;
 	t_vector4	view_direction;
 	t_vector4	up_direction;
 	float		view_angle;
@@ -271,7 +280,7 @@ typedef struct	s_camera
 ** +-------------------+
 */
 
-void	mlx_bresenham(t_mlxenv *e, t_vertex2i v1, t_vertex2i v2);
+void	mlx_bresenham(void *mlx_id, void *win_id, t_vertex2i v1, t_vertex2i v2);
 
 /*
 ** +-----------------+

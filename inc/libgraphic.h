@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 09:48:19 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/14 05:00:01 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,7 +257,12 @@ t_matrix4	*ft_mat4_mul_mat4_new(t_matrix4 *m1, t_matrix4 *m2);
 
 typedef struct	s_camera
 {
-	t_vertex3f	eye;
+	t_vertex3f	position;
+	t_vector4	view_direction;
+	t_vector4	up_direction;
+	float		view_angle;
+	float		near;
+	float		far;
 }				t_camera;
 
 /*
@@ -267,5 +272,17 @@ typedef struct	s_camera
 */
 
 void	mlx_bresenham(t_mlxenv *e, t_vertex2i v1, t_vertex2i v2);
+
+/*
+** +-----------------+
+** | DEBUG FUNCTIONS |
+** +-----------------+
+*/
+
+void	print_vec2(t_vector2 *v);
+void	print_vec3(t_vector3 *v);
+void	print_vec4(t_vector4 *v);
+
+void	print_mat4(t_matrix4 *m, char *name);
 
 #endif

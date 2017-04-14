@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/12 08:10:04 by upopee           ###   ########.fr        #
+#*   Updated: 2017/04/14 01:55:54 by upopee           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
 # Sources path
-VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(MLX_SRCS_DIR)
+VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(MLX_SRCS_DIR):$(DEBUG_SRCS_DIR)
 
 # Includes path
 INCLUDES = -I ./inc
@@ -113,6 +113,9 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_mat4_mul_mat4_new \
 				\
 				mlx_bresenham \
+				\
+				print_vectors \
+				print_matrix \
 
 VERTEX_SRCS = $(patsubst %,$(VERTEX_SRCS_DIR)/%,$(LIB_FILES:=.c))
 VERTEX_SRCS_DIR = ./src/vertex_functions
@@ -125,6 +128,9 @@ MATRIX_SRCS_DIR = ./src/matrix_functions
 
 MLX_SRCS = $(patsubst %,$(MLX_SRCS_DIR)/%,$(LIB_FILES:=.c))
 MLX_SRCS_DIR = ./src/mlx_drawing_functions
+
+DEBUG_SRCS = $(patsubst %,$(DEBUG_SRCS_DIR)/%,$(LIB_FILES:=.c))
+DEBUG_SRCS_DIR = ./src/debug_functions
 
 # Objects
 OBJECTS = $(patsubst %,$(OBJ_DIR)/%,$(LIB_FILES:=.o))

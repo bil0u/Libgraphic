@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/15 19:07:44 by upopee           ###   ########.fr        #
+#    Updated: 2017/04/15 20:14:58 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,11 +75,6 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_ver3f_mul \
 				ft_ver3f_mul_new \
 				\
-				ft_ver3i_to_vec4 \
-				ft_ver3i_to_vec4_new \
-				ft_ver3f_to_vec4 \
-				ft_ver3f_to_vec4_new \
-				\
 				ft_vec2_opp \
 				ft_vec2_opp_new \
 				ft_vec2_add \
@@ -100,15 +95,12 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_vec3_scal \
 				ft_vec3_magn \
 				\
-				ft_vec4_to3_new \
-				ft_vec3_to4_new \
-				\
 				ft_mat4_id \
 				ft_gen_translate_mat4 \
 				ft_gen_scale_mat4 \
 				ft_gen_rotation_mat4 \
-				ft_mat4_mul_vec4 \
-				ft_mat4_mul_vec4_new \
+				ft_mat4_mul_quat \
+				ft_mat4_mul_quat_new \
 				ft_mat4_mul_mat4 \
 				ft_mat4_mul_mat4_new \
 				\
@@ -128,6 +120,10 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_spheric_rot_to_quat \
 				ft_mat4_to_quat \
 				ft_quat_to_mat4 \
+				ft_quat_to_vec3 \
+				ft_quat_to_vec3_new \
+				ft_vec3_to_quat \
+				ft_vec3_to_quat_new \
 				\
 				mlx_bresenham \
 				mlx_init \

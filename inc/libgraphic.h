@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/15 19:06:21 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/15 20:25:10 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,6 @@
 # define LIBGRAPHIC_H
 
 #include "/usr/local/include/mlx.h"
-
-#ifndef M_PI
-# define M_PI 3.14159265358979323846f
-#endif
-#ifndef M_PI_2
-# define M_PI_2 1.57079632679489661923f
-#endif
-#ifndef M_PI_4
-# define M_PI_4 0.785398163397448309616f
-#endif
-#ifndef M_1_PI
-# define M_1_PI 0.318309886183790671538f
-#endif
-#ifndef M_2_PI
-# define M_2_PI 0.636619772367581343076f
-#endif
-#ifndef M_2_SQRTPI
-# define M_2_SQRTPI 1.12837916709551257390f
-#endif
-
-# define TO_RADIAN(deg) (deg * M_PI / 180.0f)
-# define TO_DEGREE(rad) (rad * 180.0f / M_PI)
 
 /*
 ** +----------+
@@ -58,9 +36,6 @@ typedef struct	s_mlxwin
 	char		*title;
 }				t_mlxwin;
 
-t_mlxwin	*init_mlxwin(void *mlx_id, int sz_x, int sz_y, char *title);
-void		del_mlxwin(void *mlx_id, t_mlxwin *m_win);
-
 typedef struct	s_mlximg
 {
 	void		*id;
@@ -72,13 +47,16 @@ typedef struct	s_mlximg
 	int			endian;
 }				t_mlximg;
 
-t_mlximg	*init_mlximg(void *mlx_id, int sz_x, int sz_y);
-void		del_mlximg(void *mlx_id, t_mlximg *m_img);
-
 typedef struct	s_mlxenv
 {
 	void		*init_id;
 }				t_mlxenv;
+
+t_mlxwin	*init_mlxwin(void *mlx_id, int sz_x, int sz_y, char *title);
+void		del_mlxwin(void *mlx_id, t_mlxwin *m_win);
+
+t_mlximg	*init_mlximg(void *mlx_id, int sz_x, int sz_y);
+void		del_mlximg(void *mlx_id, t_mlximg *m_img);
 
 t_mlxenv	*init_mlxenv(void);
 void		del_mlxenv(t_mlxenv *m_env);
@@ -105,10 +83,32 @@ typedef struct	s_colorCMJN
 }				t_colorCMJN;
 
 /*
-** +-------------+
-** | VERTEX PART |
-** +-------------+
+** +---------------+
+** | GEOMETRY PART |
+** +---------------+
 */
+
+#ifndef M_PI
+# define M_PI 3.14159265358979323846f
+#endif
+#ifndef M_PI_2
+# define M_PI_2 1.57079632679489661923f
+#endif
+#ifndef M_PI_4
+# define M_PI_4 0.785398163397448309616f
+#endif
+#ifndef M_1_PI
+# define M_1_PI 0.318309886183790671538f
+#endif
+#ifndef M_2_PI
+# define M_2_PI 0.636619772367581343076f
+#endif
+#ifndef M_2_SQRTPI
+# define M_2_SQRTPI 1.12837916709551257390f
+#endif
+
+# define TO_RADIAN(deg) (deg * M_PI / 180.0f)
+# define TO_DEGREE(rad) (rad * 180.0f / M_PI)
 
 typedef struct	s_vertex2i
 {
@@ -135,6 +135,32 @@ typedef struct	s_vertex3f
 	float		y;
 	float		z;
 }				t_vertex3f;
+
+typedef struct	s_vector2
+{
+	float		x;
+	float		y;
+}				t_vector2;
+
+typedef struct	s_vector3
+{
+	float		x;
+	float		y;
+	float		z;
+}				t_vector3;
+
+typedef struct	s_quater
+{
+	float		x;
+	float		y;
+	float		z;
+	float		w;
+}				t_quater;
+
+typedef struct	s_matrix
+{
+	float		array[4][4];
+}				t_matrix4;
 
 t_vertex2i	ft_ver2i_opp(t_vertex2i *v);
 t_vertex2i	ft_ver2i_add(t_vertex2i *v1, t_vertex2i *v2);
@@ -189,27 +215,6 @@ t_vertex3f	*ft_ver3i_to_ver3f_new(t_vertex3i *v);
 ** +-------------+
 */
 
-typedef struct	s_vector2
-{
-	float		x;
-	float		y;
-}				t_vector2;
-
-typedef struct	s_vector3
-{
-	float		x;
-	float		y;
-	float		z;
-}				t_vector3;
-
-typedef struct	s_vector4
-{
-	float		x;
-	float		y;
-	float		z;
-	float		w;
-}				t_vector4;
-
 t_vector2	ft_vec2_opp(t_vector2 *v);
 t_vector2	ft_vec2_add(t_vector2 *v1, t_vector2 *v2);
 t_vector2	ft_vec2_sub(t_vector2 *v1, t_vector2 *v2);
@@ -230,47 +235,14 @@ t_vector3	*ft_vec3_crossprod_new(t_vector3 *v1, t_vector3 *v2);
 float		ft_vec3_scal(t_vector3 *v1, t_vector3 *v2);
 float		ft_vec3_magn(t_vector3 *v);
 
-t_vector4	ft_ver3i_to_vec4(t_vertex3i *v, float w);
-t_vector4	ft_ver3f_to_vec4(t_vertex3f *v, float w);
-t_vector4	*ft_ver3i_to_vec4_new(t_vertex3i *v, float w);
-t_vector4	*ft_ver3f_to_vec4_new(t_vertex3f *v, float w);
-
-t_vector3	*ft_vec4_to_vec3_new(t_vector4 *q);
-t_vector4	*ft_vec3_to_vec4_new(t_vector3 *v, float w);
-
-/*
-** +-------------+
-** | MATRIX PART |
-** +-------------+
-*/
-
-typedef struct	s_matrix
-{
-	float		array[4][4];
-}				t_matrix4;
-
 t_matrix4	ft_mat4_id(void);
 t_matrix4	ft_gen_translate_mat4(float x, float y, float z);
 t_matrix4	ft_gen_scale_mat4(float x, float y, float z);
 t_matrix4	ft_gen_rotation_mat4(float deg_angle, float x, float y, float z);
-t_vector4	ft_mat4_mul_vec4(t_matrix4 *m, t_vector4 *v);
+t_quater	ft_mat4_mul_quat(t_matrix4 *m, t_quater *q);
 t_matrix4	ft_mat4_mul_mat4(t_matrix4 *m1, t_matrix4 *m2);
-t_vector4	*ft_mat4_mul_vec4_new(t_matrix4 *m, t_vector4 *v);
+t_quater	*ft_mat4_mul_quat_new(t_matrix4 *m, t_quater *q);
 t_matrix4	*ft_mat4_mul_mat4_new(t_matrix4 *m1, t_matrix4 *m2);
-
-/*
-** +-----------------+
-** | QUATERNION PART |
-** +----------------+
-*/
-
-typedef struct	s_quater
-{
-	float		x;
-	float		y;
-	float		z;
-	float		w;
-}				t_quater;
 
 t_quater	ft_quat_add(t_quater *q1, t_quater *q2);
 t_quater	ft_quat_mul(t_quater *q1, t_quater *q2);
@@ -289,6 +261,10 @@ void		ft_quat_to_spheric_rot(t_quater *q, float *lon,
 t_quater	ft_spheric_rot_to_quat(float lat, float lon, float angle);
 t_quater	ft_mat4_to_quat(t_matrix4 *m);
 t_matrix4	ft_quat_to_mat4(t_quater *q);
+t_vector3	ft_quat_to_vec3(t_quater *q);
+t_vector3	*ft_quat_to_vec3_new(t_quater *q);
+t_quater	ft_vec3_to_quat(t_vector3 *v, float w);
+t_quater	*ft_vec3_to_quat_new(t_vector3 *v, float w);
 
 /*
 ** +-------------+
@@ -298,9 +274,9 @@ t_matrix4	ft_quat_to_mat4(t_quater *q);
 
 typedef struct	s_camera
 {
-	t_vector4	position;
-	t_vector4	view_direction;
-	t_vector4	up_direction;
+	t_quater	position;
+	t_quater	view_direction;
+	t_quater	up_direction;
 	float		view_angle;
 	float		near;
 	float		far;
@@ -322,7 +298,7 @@ void	mlx_bresenham(void *mlx_id, void *win_id, t_vertex2i v1, t_vertex2i v2);
 
 void	print_vec2(t_vector2 *v);
 void	print_vec3(t_vector3 *v);
-void	print_vec4(t_vector4 *v);
+void	print_quat(t_quater *v);
 
 void	print_mat4(t_matrix4 *m, char *name);
 

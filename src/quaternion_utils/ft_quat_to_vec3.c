@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ver3i_to_vec4_new.c                             :+:      :+:    :+:   */
+/*   ft_quat_to_vec3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:37:12 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 07:39:16 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/15 20:22:20 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 #include "libgraphic.h"
 
 /*
-**	->	t_vertex3i to t_vector4
-**		return in a new t_vector4 (malloc used)
+**	->	Convert t_vector4 to t_quater
 */
 
-t_vector4	*ft_ver3i_to_vec4_new(t_vertex3i *v, float w)
+t_vector3	ft_quat_to_vec3(t_quater *v)
 {
-	t_vector4	*dst;
+	t_vector3	dst;
 
-	if ((dst = (t_vector4 *)malloc(sizeof(t_vector4))) == NULL)
-		return (NULL);
-	dst->x = (float)v->x;
-	dst->y = (float)v->y;
-	dst->z = (float)v->z;
-	dst->w = w;
+	dst.x = v->x / v->w;
+	dst.y = v->y / v->w;
+	dst.z = v->z / v->w;
 	return (dst);
 }

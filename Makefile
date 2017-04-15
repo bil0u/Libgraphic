@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#*   Updated: 2017/04/14 01:55:54 by upopee           ###   ########.fr       *#
+#    Updated: 2017/04/15 19:07:44 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
 # Sources path
-VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(MLX_SRCS_DIR):$(DEBUG_SRCS_DIR)
+VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(QUAT_SRCS_DIR):$(MLX_SRCS_DIR):$(DEBUG_SRCS_DIR)
 
 # Includes path
 INCLUDES = -I ./inc
@@ -112,6 +112,23 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_mat4_mul_mat4 \
 				ft_mat4_mul_mat4_new \
 				\
+				ft_quat_add \
+				ft_quat_mul \
+				ft_quat_add_number \
+				ft_quat_mul_number \
+				ft_quat_conjugate \
+				ft_quat_norm \
+				ft_quat_normalize \
+				ft_quat_inv \
+				ft_quat_neg \
+				ft_quat_equal \
+				ft_rot_to_quat \
+				ft_quat_to_rot \
+				ft_quat_to_spheric_rot \
+				ft_spheric_rot_to_quat \
+				ft_mat4_to_quat \
+				ft_quat_to_mat4 \
+				\
 				mlx_bresenham \
 				mlx_init \
 				mlx_end \
@@ -127,6 +144,9 @@ VECTOR_SRCS_DIR = ./src/vector_utils
 
 MATRIX_SRCS = $(patsubst %,$(MATRIX_SRCS_DIR)/%,$(LIB_FILES:=.c))
 MATRIX_SRCS_DIR = ./src/matrix_utils
+
+QUAT_SRCS = $(patsubst %,$(QUAT_SRCS_DIR)/%,$(LIB_FILES:=.c))
+QUAT_SRCS_DIR = ./src/quaternion_utils
 
 MLX_SRCS = $(patsubst %,$(MLX_SRCS_DIR)/%,$(LIB_FILES:=.c))
 MLX_SRCS_DIR = ./src/mlx_utils

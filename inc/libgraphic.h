@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/14 18:32:08 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/15 19:06:21 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,13 +230,13 @@ t_vector3	*ft_vec3_crossprod_new(t_vector3 *v1, t_vector3 *v2);
 float		ft_vec3_scal(t_vector3 *v1, t_vector3 *v2);
 float		ft_vec3_magn(t_vector3 *v);
 
-t_vector3	*ft_vec4_to_vec3_new(t_vector4 *v);
-t_vector4	*ft_vec3_to_vec4_new(t_vector3 *v, float w);
-
 t_vector4	ft_ver3i_to_vec4(t_vertex3i *v, float w);
 t_vector4	ft_ver3f_to_vec4(t_vertex3f *v, float w);
 t_vector4	*ft_ver3i_to_vec4_new(t_vertex3i *v, float w);
 t_vector4	*ft_ver3f_to_vec4_new(t_vertex3f *v, float w);
+
+t_vector3	*ft_vec4_to_vec3_new(t_vector4 *q);
+t_vector4	*ft_vec3_to_vec4_new(t_vector3 *v, float w);
 
 /*
 ** +-------------+
@@ -257,6 +257,38 @@ t_vector4	ft_mat4_mul_vec4(t_matrix4 *m, t_vector4 *v);
 t_matrix4	ft_mat4_mul_mat4(t_matrix4 *m1, t_matrix4 *m2);
 t_vector4	*ft_mat4_mul_vec4_new(t_matrix4 *m, t_vector4 *v);
 t_matrix4	*ft_mat4_mul_mat4_new(t_matrix4 *m1, t_matrix4 *m2);
+
+/*
+** +-----------------+
+** | QUATERNION PART |
+** +----------------+
+*/
+
+typedef struct	s_quater
+{
+	float		x;
+	float		y;
+	float		z;
+	float		w;
+}				t_quater;
+
+t_quater	ft_quat_add(t_quater *q1, t_quater *q2);
+t_quater	ft_quat_mul(t_quater *q1, t_quater *q2);
+t_quater	ft_quat_add_number(t_quater *q, float n);
+t_quater	ft_quat_mul_number(t_quater *q, float n);
+t_quater	ft_quat_conjugate(t_quater *q);
+float		ft_quat_norm(t_quater *q);
+t_quater	ft_quat_normalize(t_quater *q);
+t_quater	ft_quat_inv(t_quater *q);
+t_quater	ft_quat_neg(t_quater *q);
+int			ft_quat_equal(t_quater *q1, t_quater *q2);
+t_quater	ft_rot_to_quat(float a_x, float a_y, float a_z, float angle);
+float		ft_quat_to_rot(t_quater *qr, float *a_x, float *a_y, float *a_z);
+void		ft_quat_to_spheric_rot(t_quater *q, float *lon,
+									float *lat, float *angle);
+t_quater	ft_spheric_rot_to_quat(float lat, float lon, float angle);
+t_quater	ft_mat4_to_quat(t_matrix4 *m);
+t_matrix4	ft_quat_to_mat4(t_quater *q);
 
 /*
 ** +-------------+

@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/15 20:25:10 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/17 22:54:38 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,6 +295,8 @@ void	mlx_bresenham(void *mlx_id, void *win_id, t_vertex2i v1, t_vertex2i v2);
 ** | DEBUG FUNCTIONS |
 ** +-----------------+
 */
+
+# define FLOAT_PRECISION 2
 
 void	print_vec2(t_vector2 *v);
 void	print_vec3(t_vector3 *v);

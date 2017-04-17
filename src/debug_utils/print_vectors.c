@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 01:43:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/15 20:26:18 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/17 23:03:18 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,30 @@
 
 void	print_vec2(t_vector2 *v)
 {
-	if (!v)
-		return ;
-	printf("{% .2f % .2f }", v->x, v->y);
+	int		precision;
+
+	precision = FLOAT_PRECISION;
+	if (v)
+		printf("{%2$ .*1$f %3$ .*1$f }",
+											precision, v->x, v->y);
 }
 
 void	print_vec3(t_vector3 *v)
 {
-	if (!v)
-		return ;
-	printf("{% .2f % .2f % .2f }", v->x, v->y, v->z);
+	int		precision;
+
+	precision = FLOAT_PRECISION;
+	if (v)
+		printf("{%2$ .*1$f %3$ .*1$f %4$ .*1$f }",
+											precision, v->x, v->y, v->z);
 }
 
-void	print_quat(t_quater *v)
+void	print_quat(t_quater *q)
 {
-	if (!v)
-		return ;
-	printf("(% .2f){% .2f % .2f % .2f }", v->w, v->x, v->y, v->z);
+	int		precision;
+
+	precision = FLOAT_PRECISION;
+	if (q)
+		printf("(%2$ .*1$f){%3$ .*1$f %4$ .*1$f %5$ .*1$f }",
+											precision, q->w, q->x, q->y, q->z);
 }

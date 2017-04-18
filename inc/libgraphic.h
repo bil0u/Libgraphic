@@ -6,10 +6,9 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/17 22:54:38 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/18 05:31:16 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBGRAPHIC_H
 # define LIBGRAPHIC_H
@@ -28,6 +27,11 @@
 # define MLXWIN_MARGEX (MLXWIN_SIZEX_MAX / 10)
 # define MLXWIN_MARGEY (MLXWIN_SIZEY_MAX / 10)
 
+typedef struct	s_mlxenv
+{
+	void		*init_id;
+}				t_mlxenv;
+
 typedef struct	s_mlxwin
 {
 	void		*id;
@@ -40,6 +44,8 @@ typedef struct	s_mlximg
 {
 	void		*id;
 	char		*data;
+	char		*limit;
+	char		*center;
 	int			sz_x;
 	int			sz_y;
 	int			bpp;
@@ -47,19 +53,14 @@ typedef struct	s_mlximg
 	int			endian;
 }				t_mlximg;
 
-typedef struct	s_mlxenv
-{
-	void		*init_id;
-}				t_mlxenv;
+t_mlxenv	*init_mlxenv(void);
+void		del_mlxenv(t_mlxenv *m_env);
 
 t_mlxwin	*init_mlxwin(void *mlx_id, int sz_x, int sz_y, char *title);
 void		del_mlxwin(void *mlx_id, t_mlxwin *m_win);
 
 t_mlximg	*init_mlximg(void *mlx_id, int sz_x, int sz_y);
 void		del_mlximg(void *mlx_id, t_mlximg *m_img);
-
-t_mlxenv	*init_mlxenv(void);
-void		del_mlxenv(t_mlxenv *m_env);
 
 /*
 ** +------------+

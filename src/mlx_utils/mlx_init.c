@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 16:54:56 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/14 17:35:28 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/18 05:29:12 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,55 +15,57 @@
 
 t_mlxenv	*init_mlxenv()
 {
-	t_mlxenv	*m_env;
+	t_mlxenv	*env;
 
-	m_env = (t_mlxenv *)malloc(sizeof(t_mlxenv));
-	if (m_env == NULL)
+	env = (t_mlxenv *)malloc(sizeof(t_mlxenv));
+	if (env == NULL)
 		return (NULL);
-	m_env->init_id = mlx_init();
-	if (m_env->init_id == NULL)
+	env->init_id = mlx_init();
+	if (env->init_id == NULL)
 	{
-		free(&m_env);
+		free(&env);
 		return (NULL);
 	}
-	return (m_env);
+	return (env);
 }
 
 t_mlxwin	*init_mlxwin(void *mlx_ptr, int sz_x, int sz_y, char *title)
 {
-	t_mlxwin	*m_win;
+	t_mlxwin	*win;
 
-	m_win = (t_mlxwin *)malloc(sizeof(t_mlxwin));
-	if (m_win == NULL)
+	win = (t_mlxwin *)malloc(sizeof(t_mlxwin));
+	if (win == NULL)
 		return (NULL);
-	m_win->id = mlx_new_window(mlx_ptr, sz_x, sz_y, title);
-	if (m_win->id == NULL)
+	win->id = mlx_new_window(mlx_ptr, sz_x, sz_y, title);
+	if (win->id == NULL)
 	{
-		free(&m_win);
+		free(&win);
 		return (NULL);
 	}
-	m_win->sz_x = sz_x;
-	m_win->sz_y = sz_y;
-	m_win->title = title;
-	return (m_win);
+	win->sz_x = sz_x;
+	win->sz_y = sz_y;
+	win->title = title;
+	return (win);
 }
 
 t_mlximg	*init_mlximg(void *mlx_ptr, int	sz_x, int sz_y)
 {
-	t_mlximg	*m_img;
+	t_mlximg	*img;
 
-	m_img = (t_mlximg *)malloc(sizeof(t_mlximg));
-	if (m_img == NULL)
+	img = (t_mlximg *)malloc(sizeof(t_mlximg));
+	if (img == NULL)
 		return (NULL);
-	m_img->id = mlx_new_image(mlx_ptr, sz_x, sz_y);
-	if (m_img->id == NULL)
+	img->id = mlx_new_image(mlx_ptr, sz_x, sz_y);
+	if (img->id == NULL)
 	{
-		free(&m_img);
+		free(&img);
 		return (NULL);
 	}
-	m_img->sz_x = sz_x;
-	m_img->sz_y = sz_y;
-	m_img->data = mlx_get_data_addr(mlx_ptr, &(m_img->bpp),
-										&(m_img->sz_line), &(m_img->endian));
-	return (m_img);
+	img->data = mlx_get_data_addr(img->id, &img->bpp, \
+									&img->sz_line, &img->endian);
+	img->sz_x = sz_x;
+	img->sz_y = sz_y;
+	img->limit = img->data + img->sz_x * img->bpp + img->sz_y * img->sz_line;
+	img->center = img->data + ((img->limit - img->data) / 2);
+	return (img);
 }

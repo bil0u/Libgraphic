@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_conjugate.c                                :+:      :+:    :+:   */
+/*   ft_vec2_normalize.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 16:56:00 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/15 17:21:42 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/15 16:49:31 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/19 00:04:53 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_quater	ft_quat_conjugate(t_quater *q)
+void	ft_vec2_normalize(t_vector2 *v)
 {
-	t_quater	dst;
+	float	n;
 
-	dst.w = q->w;
-	dst.x = -(q->x);
-	dst.y = -(q->y);
-	dst.z = -(q->z);
-	return (dst);
+	n = ft_vec2_norm(v);
+	v->x /= n;
+	v->y /= n;
 }

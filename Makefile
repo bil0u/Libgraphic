@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/15 20:14:58 by upopee           ###   ########.fr        #
+#    Updated: 2017/04/19 00:25:23 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
 # Sources path
-VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(QUAT_SRCS_DIR):$(MLX_SRCS_DIR):$(DEBUG_SRCS_DIR)
+VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(QUAT_SRCS_DIR):$(MLX_SRCS_DIR):$(CAMERA_SRCS_DIR):$(DEBUG_SRCS_DIR)
 
 # Includes path
 INCLUDES = -I ./inc
@@ -82,7 +82,8 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_vec2_sub \
 				ft_vec2_sub_new \
 				ft_vec2_scal \
-				ft_vec2_magn \
+				ft_vec2_norm \
+				ft_vec2_normalize \
 				\
 				ft_vec3_opp \
 				ft_vec3_opp_new \
@@ -93,7 +94,8 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_vec3_crossprod \
 				ft_vec3_crossprod_new \
 				ft_vec3_scal \
-				ft_vec3_magn \
+				ft_vec3_norm \
+				ft_vec3_normalize \
 				\
 				ft_mat4_id \
 				ft_gen_translate_mat4 \
@@ -105,14 +107,20 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_mat4_mul_mat4_new \
 				\
 				ft_quat_add \
-				ft_quat_mul \
+				ft_quat_add_new \
 				ft_quat_add_number \
+				ft_quat_sub \
+				ft_quat_sub_new \
+				ft_quat_crossprod \
+				ft_quat_crossprod_new \
+				ft_quat_mul \
 				ft_quat_mul_number \
-				ft_quat_conjugate \
+				ft_quat_scal \
 				ft_quat_norm \
 				ft_quat_normalize \
 				ft_quat_inv \
-				ft_quat_neg \
+				ft_quat_opp \
+				ft_quat_opp_new \
 				ft_quat_equal \
 				ft_rot_to_quat \
 				ft_quat_to_rot \
@@ -124,6 +132,10 @@ LIB_FILES =		ft_ver2i_opp \
 				ft_quat_to_vec3_new \
 				ft_vec3_to_quat \
 				ft_vec3_to_quat_new \
+				\
+				ft_init_camera \
+				ft_init_camera_new \
+				ft_lookat \
 				\
 				mlx_bresenham \
 				mlx_init \
@@ -146,6 +158,9 @@ QUAT_SRCS_DIR = ./src/quaternion_utils
 
 MLX_SRCS = $(patsubst %,$(MLX_SRCS_DIR)/%,$(LIB_FILES:=.c))
 MLX_SRCS_DIR = ./src/mlx_utils
+
+CAMERA_SRCS = $(patsubst %,$(CAMERA_SRCS_DIR)/%,$(LIB_FILES:=.c))
+CAMERA_SRCS_DIR = ./src/camera_utils
 
 DEBUG_SRCS = $(patsubst %,$(DEBUG_SRCS_DIR)/%,$(LIB_FILES:=.c))
 DEBUG_SRCS_DIR = ./src/debug_utils

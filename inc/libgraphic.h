@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 05:31:16 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/19 00:26:55 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ typedef struct	s_quater
 	float		w;
 }				t_quater;
 
-typedef struct	s_matrix
+typedef struct	s_matrix4
 {
 	float		array[4][4];
 }				t_matrix4;
@@ -223,7 +223,8 @@ t_vector2	*ft_vec2_opp_new(t_vector2 *v1);
 t_vector2	*ft_vec2_add_new(t_vector2 *v1, t_vector2 *v2);
 t_vector2	*ft_vec2_sub_new(t_vector2 *v1, t_vector2 *v2);
 float		ft_vec2_scal(t_vector2 *v1, t_vector2 *v2);
-float		ft_vec2_magn(t_vector2 *v);
+float		ft_vec2_norm(t_vector2 *v);
+void		ft_vec2_normalize(t_vector2 *v);
 
 t_vector3	ft_vec3_opp(t_vector3 *v);
 t_vector3	ft_vec3_add(t_vector3 *v1, t_vector3 *v2);
@@ -234,7 +235,8 @@ t_vector3	*ft_vec3_add_new(t_vector3 *v1, t_vector3 *v2);
 t_vector3	*ft_vec3_sub_new(t_vector3 *v1, t_vector3 *v2);
 t_vector3	*ft_vec3_crossprod_new(t_vector3 *v1, t_vector3 *v2);
 float		ft_vec3_scal(t_vector3 *v1, t_vector3 *v2);
-float		ft_vec3_magn(t_vector3 *v);
+float		ft_vec3_norm(t_vector3 *v);
+void		ft_vec3_normalize(t_vector3 *v);
 
 t_matrix4	ft_mat4_id(void);
 t_matrix4	ft_gen_translate_mat4(float x, float y, float z);
@@ -246,14 +248,20 @@ t_quater	*ft_mat4_mul_quat_new(t_matrix4 *m, t_quater *q);
 t_matrix4	*ft_mat4_mul_mat4_new(t_matrix4 *m1, t_matrix4 *m2);
 
 t_quater	ft_quat_add(t_quater *q1, t_quater *q2);
-t_quater	ft_quat_mul(t_quater *q1, t_quater *q2);
+t_quater	*ft_quat_add_new(t_quater *q1, t_quater *q2);
 t_quater	ft_quat_add_number(t_quater *q, float n);
+t_quater	ft_quat_sub(t_quater *q1, t_quater *q2);
+t_quater	*ft_quat_sub_new(t_quater *q1, t_quater *q2);
+t_quater	ft_quat_mul(t_quater *q1, t_quater *q2);
 t_quater	ft_quat_mul_number(t_quater *q, float n);
-t_quater	ft_quat_conjugate(t_quater *q);
+t_quater	ft_quat_opp(t_quater *q);
+t_quater	*ft_quat_opp_new(t_quater *q);
+float		ft_quat_scal(t_quater *q1, t_quater *q2);
 float		ft_quat_norm(t_quater *q);
-t_quater	ft_quat_normalize(t_quater *q);
+void		ft_quat_normalize(t_quater *q);
+t_quater	ft_quat_crossprod(t_quater *q1, t_quater *q2);
+t_quater	*ft_quat_crossprod_new(t_quater *q1, t_quater *q2);
 t_quater	ft_quat_inv(t_quater *q);
-t_quater	ft_quat_neg(t_quater *q);
 int			ft_quat_equal(t_quater *q1, t_quater *q2);
 t_quater	ft_rot_to_quat(float a_x, float a_y, float a_z, float angle);
 float		ft_quat_to_rot(t_quater *qr, float *a_x, float *a_y, float *a_z);
@@ -273,15 +281,27 @@ t_quater	*ft_vec3_to_quat_new(t_vector3 *v, float w);
 ** +-------------+
 */
 
+# define DFLT_VANGLE 70.0
+# define DFLT_NEAR 0.0001
+# define DFLT_FAR 1000.0
+
 typedef struct	s_camera
 {
-	t_quater	position;
-	t_quater	view_direction;
-	t_quater	up_direction;
+	t_quater	eye;
+	t_quater	center;
+	t_quater	up;
+	t_quater	forward;
+	t_quater	side;
 	float		view_angle;
+	float		aspect_ratio;
 	float		near;
 	float		far;
 }				t_camera;
+
+t_camera	ft_init_camera(float view_angle, float near, float far);
+t_camera	*ft_init_camera_new(float view_angle, float near, float far);
+t_matrix4	ft_lookat(t_camera *cam, t_quater *eye,
+										t_quater *center, t_quater *up);
 
 /*
 ** +-------------------+

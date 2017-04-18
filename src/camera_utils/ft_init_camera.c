@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_normalize.c                                :+:      :+:    :+:   */
+/*   ft_init_camera.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 16:49:31 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 22:27:07 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/18 17:47:03 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/18 22:07:17 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-void	ft_quat_normalize(t_quater *q)
+t_camera	ft_init_camera(float view_angle, float near, float far)
 {
-	float		n;
+	t_camera	cam;
 
-	n = ft_quat_norm(q);
-	q->x /= n;
-	q->y /= n;
-	q->z /= n;
-	q->w /= n;
+	cam.view_angle = view_angle;
+	cam.near = near;
+	cam.far = far;
+	return (cam);
 }

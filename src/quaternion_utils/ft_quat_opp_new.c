@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_normalize.c                                :+:      :+:    :+:   */
+/*   ft_quat_opp_new.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 16:49:31 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 22:27:07 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/19 00:24:52 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libgraphic.h"
 
-void	ft_quat_normalize(t_quater *q)
-{
-	float		n;
+/*
+**	->	Opposite t_quater value : v = -v
+**		return a new t_quater (malloc used)
+*/
 
-	n = ft_quat_norm(q);
-	q->x /= n;
-	q->y /= n;
-	q->z /= n;
-	q->w /= n;
+t_quater	*ft_quat_opp_new(t_quater *q)
+{
+	t_quater	*dst;
+
+	if ((dst = (t_quater *)malloc(sizeof(t_quater))) == NULL)
+		return (NULL);
+	dst->w = q->w;
+	dst->x = -(q->x);
+	dst->y = -(q->y);
+	dst->z = -(q->z);
+	return (dst);
 }

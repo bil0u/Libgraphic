@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_normalize.c                                :+:      :+:    :+:   */
+/*   ft_vec2_magn.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 16:49:31 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 22:27:07 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/19 00:03:48 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "libgraphic.h"
 
-void	ft_quat_normalize(t_quater *q)
-{
-	float		n;
+/*
+**	->	Magnitude t_vector2 value
+**		return the lenght of v (float value)
+*/
 
-	n = ft_quat_norm(q);
-	q->x /= n;
-	q->y /= n;
-	q->z /= n;
-	q->w /= n;
+float	ft_vec2_norm(t_vector2 *v)
+{
+	return (sqrtf(v->x * v->x + v->y * v->y));
 }

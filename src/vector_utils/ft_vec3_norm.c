@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec2_magn.c                                     :+:      :+:    :+:   */
+/*   ft_vec3_norm.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 07:46:37 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/15 16:14:22 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/18 22:25:44 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "libgraphic.h"
 
-/*
-**	->	Magnitude t_vector2 value
-**		return the lenght of v (float value)
-*/
-
-float	ft_vec2_magn(t_vector2 *v)
+float	ft_vec3_norm(t_vector3 *v)
 {
-	return (sqrtf(powf(v->x, 2.0) + powf(v->y, 2.0)));
+	return (sqrtf(v->x * v->x + v->y * v->y + v->z * v->z));
 }

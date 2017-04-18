@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_normalize.c                                :+:      :+:    :+:   */
+/*   ft_quat_scal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 16:49:31 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 22:27:07 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/18 23:35:56 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-void	ft_quat_normalize(t_quater *q)
-{
-	float		n;
+/*
+**	->	Scalar product of two t_quater
+**		return the float result of q1 . q2
+*/
 
-	n = ft_quat_norm(q);
-	q->x /= n;
-	q->y /= n;
-	q->z /= n;
-	q->w /= n;
+float	ft_quat_scal(t_quater *q1, t_quater *q2)
+{
+	return ((q1->x * q2->x) + (q1->y * q2->y)
+						+ (q1->z * q2->z) + (q1->w * q2->w));
 }

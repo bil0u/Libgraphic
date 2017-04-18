@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_normalize.c                                :+:      :+:    :+:   */
+/*   ft_vec3_normalize.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/15 16:49:31 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 22:27:07 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/18 22:26:50 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-void	ft_quat_normalize(t_quater *q)
+void	ft_vec3_normalize(t_vector3 *v)
 {
-	float		n;
+	float	n;
 
-	n = ft_quat_norm(q);
-	q->x /= n;
-	q->y /= n;
-	q->z /= n;
-	q->w /= n;
+	n = ft_vec3_norm(v);
+	v->x /= n;
+	v->y /= n;
+	v->z /= n;
 }

@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/19 00:25:23 by upopee           ###   ########.fr        #
+#    Updated: 2017/04/19 04:47:28 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,118 +28,84 @@ VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(QUAT_SRCS_DIR)
 INCLUDES = -I ./inc
 
 # Sources files
-LIB_FILES =		ft_ver2i_opp \
-				ft_ver2i_opp_new \
+LIB_FILES =		mlx_init \
+				mlx_end \
+				\
 				ft_ver2i_add \
-				ft_ver2i_add_new \
 				ft_ver2i_sub \
-				ft_ver2i_sub_new \
 				ft_ver2i_div \
-				ft_ver2i_div_new \
 				ft_ver2i_mul \
-				ft_ver2i_mul_new \
+				ft_ver2i_opp \
 				\
-				ft_ver3i_opp \
-				ft_ver3i_opp_new \
+				ft_ver2f_add \
+				ft_ver2f_sub \
+				ft_ver2f_div \
+				ft_ver2f_mul \
+				ft_ver2f_opp \
+				\
 				ft_ver3i_add \
-				ft_ver3i_add_new \
 				ft_ver3i_sub \
-				ft_ver3i_sub_new \
 				ft_ver3i_div \
-				ft_ver3i_div_new \
 				ft_ver3i_mul \
-				ft_ver3i_mul_new \
+				ft_ver3i_opp \
 				\
-				ft_ver3i_to_ver3f_new \
+				ft_ver3f_add \
+				ft_ver3f_sub \
+				ft_ver3f_div \
+				ft_ver3f_mul \
+				ft_ver3f_opp \
 				ft_ver3i_to_ver3f \
 				\
-				ft_ver2f_opp \
-				ft_ver2f_opp_new \
-				ft_ver2f_add \
-				ft_ver2f_add_new \
-				ft_ver2f_sub \
-				ft_ver2f_sub_new \
-				ft_ver2f_div \
-				ft_ver2f_div_new \
-				ft_ver2f_mul \
-				ft_ver2f_mul_new \
-				\
-				ft_ver3f_opp \
-				ft_ver3f_opp_new \
-				ft_ver3f_add \
-				ft_ver3f_add_new \
-				ft_ver3f_sub \
-				ft_ver3f_sub_new \
-				ft_ver3f_div \
-				ft_ver3f_div_new \
-				ft_ver3f_mul \
-				ft_ver3f_mul_new \
-				\
-				ft_vec2_opp \
-				ft_vec2_opp_new \
 				ft_vec2_add \
-				ft_vec2_add_new \
 				ft_vec2_sub \
-				ft_vec2_sub_new \
-				ft_vec2_scal \
+				ft_vec2_opp \
+				ft_vec2_scalprod \
 				ft_vec2_norm \
 				ft_vec2_normalize \
 				\
-				ft_vec3_opp \
-				ft_vec3_opp_new \
 				ft_vec3_add \
-				ft_vec3_add_new \
 				ft_vec3_sub \
-				ft_vec3_sub_new \
+				ft_vec3_opp \
 				ft_vec3_crossprod \
-				ft_vec3_crossprod_new \
-				ft_vec3_scal \
+				ft_vec3_scalprod \
 				ft_vec3_norm \
 				ft_vec3_normalize \
 				\
-				ft_mat4_id \
-				ft_gen_translate_mat4 \
-				ft_gen_scale_mat4 \
-				ft_gen_rotation_mat4 \
-				ft_mat4_mul_quat \
-				ft_mat4_mul_quat_new \
-				ft_mat4_mul_mat4 \
-				ft_mat4_mul_mat4_new \
-				\
 				ft_quat_add \
-				ft_quat_add_new \
-				ft_quat_add_number \
+				ft_quat_add_n \
 				ft_quat_sub \
-				ft_quat_sub_new \
-				ft_quat_crossprod \
-				ft_quat_crossprod_new \
+				ft_quat_sub_n \
 				ft_quat_mul \
-				ft_quat_mul_number \
-				ft_quat_scal \
+				ft_quat_mul_n \
+				ft_quat_opp \
+				ft_quat_inv \
+				ft_quat_crossprod \
+				ft_quat_scalprod \
 				ft_quat_norm \
 				ft_quat_normalize \
-				ft_quat_inv \
-				ft_quat_opp \
-				ft_quat_opp_new \
-				ft_quat_equal \
 				ft_rot_to_quat \
 				ft_quat_to_rot \
 				ft_quat_to_spheric_rot \
 				ft_spheric_rot_to_quat \
+				ft_quat_equal \
+				\
+				ft_gen_identity_mat4 \
+				ft_gen_translate_mat4 \
+				ft_gen_scale_mat4 \
+				ft_gen_rotation_mat4 \
+				ft_mat4_mul_quat \
+				ft_mat4_mul_mat4 \
+				ft_transpose_mat4 \
 				ft_mat4_to_quat \
 				ft_quat_to_mat4 \
 				ft_quat_to_vec3 \
-				ft_quat_to_vec3_new \
 				ft_vec3_to_quat \
-				ft_vec3_to_quat_new \
 				\
 				ft_init_camera \
 				ft_init_camera_new \
 				ft_lookat \
 				\
 				mlx_bresenham \
-				mlx_init \
-				mlx_end \
 				\
 				print_vectors \
 				print_matrix \

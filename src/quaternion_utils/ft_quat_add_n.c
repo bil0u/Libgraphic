@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mat4_id.c                                       :+:      :+:    :+:   */
+/*   ft_quat_add_n.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 06:42:15 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 09:47:34 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/15 04:46:28 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/19 04:14:15 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_matrix4	ft_mat4_id(void)
+t_quater	ft_quat_add_n(t_quater *q, float n)
 {
-	t_matrix4	dst;
+	t_quater	dst;
 
-	dst.array[0][0] = 1.0;
-	dst.array[0][1] = 0.0;
-	dst.array[0][2] = 0.0;
-	dst.array[0][3] = 0.0;
-	dst.array[1][0] = 0.0;
-	dst.array[1][1] = 1.0;
-	dst.array[1][2] = 0.0;
-	dst.array[1][3] = 0.0;
-	dst.array[2][0] = 0.0;
-	dst.array[2][1] = 0.0;
-	dst.array[2][2] = 1.0;
-	dst.array[2][3] = 0.0;
-	dst.array[3][0] = 0.0;
-	dst.array[3][1] = 0.0;
-	dst.array[3][2] = 0.0;
-	dst.array[3][3] = 1.0;
+	dst.w = q->w + n;
+	dst.x = q->x;
+	dst.y = q->y;
+	dst.z = q->z;
 	return (dst);
 }

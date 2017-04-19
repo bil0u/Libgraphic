@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ver2f_add_new.c                                 :+:      :+:    :+:   */
+/*   ft_vec3_scalprod.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 07:20:16 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/19 04:48:05 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libgraphic.h"
 
 /*
-**	->	Add two t_vertex2f : v1 + v2
-**		result is stored in a new t_vertex2f (malloc used)
+**	->	Scalar product of two t_vector3
+**		return the float result of v1 . v2
 */
 
-t_vertex2f	*ft_ver2f_add_new(t_vertex2f *v1, t_vertex2f *v2)
+float	ft_vec3_scalprod(t_vector3 *v1, t_vector3 *v2)
 {
-	t_vertex2f	*dst;
-
-	if ((dst = (t_vertex2f *)malloc(sizeof(t_vertex2f))) == NULL)
-		return (NULL);
-	dst->x = v1->x + v2->x;
-	dst->y = v1->y + v2->y;
-	return (dst);
+	return ((v1->x * v2->x) + (v1->y * v2->y) + (v1->z * v2->z));
 }

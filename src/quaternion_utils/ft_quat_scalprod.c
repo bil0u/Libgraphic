@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ver2f_div_new.c                                 :+:      :+:    :+:   */
+/*   ft_quat_scalprod.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 07:20:01 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/19 04:48:26 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libgraphic.h"
 
 /*
-**	->	Divide two t_vertexZ : v1 / v2
-**		result is stored in a new t_vertex2f (malloc used)
+**	->	Scalar product of two t_quater
+**		return the float result of q1 . q2
 */
 
-t_vertex2f	*ft_ver2f_div_new(t_vertex2f *v1, t_vertex2f *v2)
+float	ft_quat_scalprod(t_quater *q1, t_quater *q2)
 {
-	t_vertex2f	*dst;
-
-	if ((dst = (t_vertex2f *)malloc(sizeof(t_vertex2f))) == NULL)
-		return (NULL);
-	dst->x = v1->x / v2->x;
-	dst->y = v1->y / v2->y;
-	return (dst);
+	return ((q1->x * q2->x) + (q1->y * q2->y)
+						+ (q1->z * q2->z) + (q1->w * q2->w));
 }

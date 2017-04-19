@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ver2f_sub_new.c                                 :+:      :+:    :+:   */
+/*   ft_quat_sub_n.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 07:18:49 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/15 04:46:28 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/19 04:37:58 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libgraphic.h"
 
-/*
-**	->	Substract two t_vertex2f : v1 - v2
-**		result is stored in a new t_vertex2f (malloc used)
-*/
-
-t_vertex2f	*ft_ver2f_sub_new(t_vertex2f *v1, t_vertex2f *v2)
+t_quater	ft_quat_sub_n(t_quater *q, float n)
 {
-	t_vertex2f	*dst;
+	t_quater	dst;
 
-	if ((dst = (t_vertex2f *)malloc(sizeof(t_vertex2f))) == NULL)
-		return (NULL);
-	dst->x = v1->x - v2->x;
-	dst->y = v1->y - v2->y;
+	dst.w = q->w - n;
+	dst.x = q->x;
+	dst.y = q->y;
+	dst.z = q->z;
 	return (dst);
 }

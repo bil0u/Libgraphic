@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/19 04:42:09 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/19 06:32:30 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define LIBGRAPHIC_H
 
 #include "/usr/local/include/mlx.h"
+
+# define ABS(x) (x < 0 ? -x : x)
+# define OPP(x) (-(x))
+# define MIN(x1, x2) (x1 < x2 ? x1 : x2)
+# define MAX(x1, x2) (x1 < x2 ? x2 : x1)
 
 /*
 ** +----------+
@@ -263,11 +268,11 @@ t_quater	ft_vec3_to_quat(t_vector3 *v, float w);
 
 typedef struct	s_camera
 {
-	t_quater	eye;
-	t_quater	center;
-	t_quater	up;
-	t_quater	forward;
-	t_quater	side;
+	t_vector3	eye;
+	t_vector3	center;
+	t_vector3	up;
+	t_vector3	forward;
+	t_vector3	side;
 	float		view_angle;
 	float		aspect_ratio;
 	float		near;
@@ -275,9 +280,9 @@ typedef struct	s_camera
 }				t_camera;
 
 t_camera	ft_init_camera(float view_angle, float near, float far);
-t_camera	*ft_init_camera_new(float view_angle, float near, float far);
-t_matrix4	ft_lookat(t_camera *cam, t_quater *eye,
-										t_quater *center, t_quater *up);
+t_camera	*ft_init_camera_new(t_camera *cam, t_vector3 *eye,
+								t_vector3 *center, t_vector3 *up);
+t_matrix4	ft_lookat(t_camera *cam);
 
 /*
 ** +-------------------+
@@ -298,7 +303,7 @@ void	mlx_bresenham(void *mlx_id, void *win_id, t_vertex2i v1, t_vertex2i v2);
 void	print_vec2(t_vector2 *v);
 void	print_vec3(t_vector3 *v);
 void	print_quat(t_quater *v);
-
 void	print_mat4(t_matrix4 *m, char *name);
+void	print_cam(t_camera *cam);
 
 #endif

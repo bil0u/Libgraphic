@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/19 04:47:28 by upopee           ###   ########.fr        #
+#    Updated: 2017/04/19 05:56:16 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,8 +107,9 @@ LIB_FILES =		mlx_init \
 				\
 				mlx_bresenham \
 				\
-				print_vectors \
+				print_vector \
 				print_matrix \
+				print_camera \
 
 VERTEX_SRCS = $(patsubst %,$(VERTEX_SRCS_DIR)/%,$(LIB_FILES:=.c))
 VERTEX_SRCS_DIR = ./src/vertex_utils

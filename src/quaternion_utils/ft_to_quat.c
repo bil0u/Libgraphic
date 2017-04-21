@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_norm.c                                     :+:      :+:    :+:   */
+/*   ft_to_quat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 16:14:22 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 19:12:33 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/20 01:29:29 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/20 01:30:32 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include "libgraphic.h"
 
-float	ft_quat_norm(t_quater *q)
+t_quater	ft_to_quat(float x, float y, float z, float w)
 {
-	return (sqrtf(q->x * q->x + q->y * q->y + q->z * q->z + q->w * q->w));
+	t_quater	dst;
+
+	dst.x = x;
+	dst.y = y;
+	dst.z = z;
+	dst.w = w;
+	return (dst);
 }

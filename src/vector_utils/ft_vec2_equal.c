@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_camera.c                                   :+:      :+:    :+:   */
+/*   ft_vec2_equal.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/18 17:47:03 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/19 06:20:28 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/20 20:06:48 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/20 20:07:43 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_camera	ft_init_camera(float view_angle, float near, float far)
+int		ft_vec2_equal(t_vector2 *v1, t_vector2 *v2)
 {
-	t_camera	cam;
-
-	cam.view_angle = view_angle;
-	cam.near = near;
-	cam.far = far;
-	return (cam);
+	if (v1->x != v2->x || v1->y != v2->y)
+		return (0);
+	return (1);
 }

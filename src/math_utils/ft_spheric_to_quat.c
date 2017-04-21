@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vec3_norm.c                                     :+:      :+:    :+:   */
+/*   ft_spheric_to_quat.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 16:14:22 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 22:25:44 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/20 03:46:10 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/20 03:49:33 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "libgraphic.h"
 
-float	ft_vec3_norm(t_vector3 *v)
+t_quater	ft_spheric_to_quat(float *theta, float *phi)
 {
-	return (sqrtf(v->x * v->x + v->y * v->y + v->z * v->z));
-}
+	t_quater	dst;
+
+	dst.x = cosf(*phi) * sinf(*theta);
+	dst.y = sinf(*phi) * sinf(*theta);
+	dst.z = cosf(*theta);
+	dst.w = 1.0;
+    return (dst);
+};

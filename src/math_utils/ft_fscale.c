@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mat4_mul_mat4.c                                 :+:      :+:    :+:   */
+/*   ft_fscale.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 04:43:54 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/20 01:01:22 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/20 03:32:06 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/20 03:40:17 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_matrix4	ft_mat4_mul_mat4(t_matrix4 *m1, t_matrix4 *m2)
+float	ft_fscale(float n, float min, float max, float smallest, float largest)
 {
-	t_matrix4	dst;
-	int			i;
-	int			j;
+	float	ratio;
 
-	i = 4;
-	while (i--)
-	{
-		j = 4;
-		while (j--)
-		{
-				dst.array[i][j] = m1->array[i][0] * m2->array[0][j]
-								+ m1->array[i][1] * m2->array[1][j]
-								+ m1->array[i][2] * m2->array[2][j]
-								+ m1->array[i][3] * m2->array[3][j];
-		}
-	}
-	return (dst);
+	ratio = (max - min) / (largest - smallest);
+	return (min + ratio * (n - smallest));
 }

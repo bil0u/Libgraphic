@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_scalprod.c                                 :+:      :+:    :+:   */
+/*   ft_vec2_dotprod.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/19 04:48:26 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/20 00:27:14 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
 /*
-**	->	Scalar product of two t_quater
-**		return the float result of q1 . q2
+**	->	Scalar product of two t_vector2
+**		return the float result of v1 . v2
 */
 
-float	ft_quat_scalprod(t_quater *q1, t_quater *q2)
+float	ft_vec2_dotprod(t_vector2 *v1, t_vector2 *v2)
 {
-	return ((q1->x * q2->x) + (q1->y * q2->y)
-						+ (q1->z * q2->z) + (q1->w * q2->w));
+	return ((v1->x * v2->x) + (v1->y * v2->y));
 }

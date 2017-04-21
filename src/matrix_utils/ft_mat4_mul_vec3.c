@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_camera_new.c                               :+:      :+:    :+:   */
+/*   ft_mat4_mul_vec3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/18 17:47:03 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/19 06:20:54 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/11 04:43:54 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/20 22:08:28 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libgraphic.h"
 
-t_camera	*ft_init_camera_new(float view_angle, float near, float far)
+t_vector3	ft_mat4_mul_vec3(t_matrix4 *m, t_vector3 *v)
 {
-	t_camera	*cam;
+	t_vector3	dst;
 
-	if (!(cam = (t_camera *)malloc(sizeof(t_camera))))
-		return (NULL);
-	cam->view_angle = view_angle;
-	cam->near = near;
-	cam->far = far;
-	return (cam);
+	dst.x = m->array[0][0] * v->x + m->array[0][1] * v->y
+			+ m->array[0][2] * v->z + m->array[0][3];
+	dst.y = m->array[1][0] * v->x + m->array[1][1] * v->y
+			+ m->array[1][2] * v->z + m->array[1][3];
+	dst.z = m->array[2][0] * v->x + m->array[2][1] * v->y
+			+ m->array[2][2] * v->z + m->array[2][3];
+	return (dst);
 }

@@ -6,19 +6,25 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/15 16:49:31 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 22:27:07 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/20 18:24:17 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "libgraphic.h"
 
 void	ft_quat_normalize(t_quater *q)
 {
-	float		n;
+	float		norm;
+	float		norm_inv;
 
-	n = ft_quat_norm(q);
-	q->x /= n;
-	q->y /= n;
-	q->z /= n;
-	q->w /= n;
+	norm = sqrtf(q->x * q->x + q->y * q->y + q->z * q->z + q->w * q->w);
+	if (norm != 0.0)
+	{
+		norm_inv = 1.0 / norm;
+		q->x *= norm_inv;
+		q->y *= norm_inv;
+		q->z *= norm_inv;
+		q->w *= norm_inv;
+	}
 }

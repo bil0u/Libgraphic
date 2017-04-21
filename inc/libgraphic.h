@@ -6,19 +6,26 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/19 06:32:30 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/21 03:37:20 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**	IMPORTANT NOTE :
+**
+**	This graphics library is still in alpha phase,
+**	some bugs and errors may not have been fixed yet.
+*/
 
 #ifndef LIBGRAPHIC_H
 # define LIBGRAPHIC_H
 
 #include "/usr/local/include/mlx.h"
 
-# define ABS(x) (x < 0 ? -x : x)
+# define ABS(x) ((x) < 0 ? -(x) : (x))
 # define OPP(x) (-(x))
-# define MIN(x1, x2) (x1 < x2 ? x1 : x2)
-# define MAX(x1, x2) (x1 < x2 ? x2 : x1)
+# define MIN(x1, x2) ((x1) < (x2) ? (x1) : (x2))
+# define MAX(x1, x2) ((x1) < (x2) ? (x2) : (x1))
 
 /*
 ** +----------+
@@ -26,11 +33,11 @@
 ** +----------+
 */
 
-# define MLXWIN_SIZEX_MAX 2300
-# define MLXWIN_SIZEY_MAX 1400
+# define MLXWIN_SIZEX_MAX 1500
+# define MLXWIN_SIZEY_MAX 1500
 # define MLXWIN_DEFAULT_OFFSET 50
-# define MLXWIN_MARGEX (MLXWIN_SIZEX_MAX / 10)
-# define MLXWIN_MARGEY (MLXWIN_SIZEY_MAX / 10)
+# define MLXWIN_MARGEX (MLXWIN_SIZEX_MAX * 0.1)
+# define MLXWIN_MARGEY (MLXWIN_SIZEY_MAX * 0.1)
 
 typedef struct	s_mlxenv
 {
@@ -40,8 +47,8 @@ typedef struct	s_mlxenv
 typedef struct	s_mlxwin
 {
 	void		*id;
-	int			sz_x;
-	int			sz_y;
+	int			width;
+	int			height;
 	char		*title;
 }				t_mlxwin;
 
@@ -51,8 +58,8 @@ typedef struct	s_mlximg
 	char		*data;
 	char		*limit;
 	char		*center;
-	int			sz_x;
-	int			sz_y;
+	int			width;
+	int			height;
 	int			bpp;
 	int			sz_line;
 	int			endian;
@@ -113,8 +120,8 @@ typedef struct	s_colorCMJN
 # define M_2_SQRTPI 1.12837916709551257390f
 #endif
 
-# define TO_RADIAN(deg) (deg * M_PI / 180.0f)
-# define TO_DEGREE(rad) (rad * 180.0f / M_PI)
+# define TO_RADIAN(deg) (((deg) * M_PI) / 180.0f)
+# define TO_DEGREE(rad) (((rad) * 180.0f) / M_PI)
 
 typedef struct	s_vertex2i
 {
@@ -173,12 +180,14 @@ typedef struct	s_vector2
 	float		y;
 }				t_vector2;
 
+t_vector2	ft_to_vec2(float x, float y);
 t_vector2	ft_vec2_add(t_vector2 *v1, t_vector2 *v2);
 t_vector2	ft_vec2_sub(t_vector2 *v1, t_vector2 *v2);
 t_vector2	ft_vec2_opp(t_vector2 *v);
-float		ft_vec2_scalprod(t_vector2 *v1, t_vector2 *v2);
-float		ft_vec2_norm(t_vector2 *v);
+float		ft_vec2_dotprod(t_vector2 *v1, t_vector2 *v2);
+float		ft_vec2_magn(t_vector2 *v);
 void		ft_vec2_normalize(t_vector2 *v);
+int			ft_vec2_equal(t_vector2 *v1, t_vector2 *v2);
 
 typedef struct	s_vector3
 {
@@ -187,13 +196,15 @@ typedef struct	s_vector3
 	float		z;
 }				t_vector3;
 
+t_vector3	ft_to_vec3(float x, float y, float z);
 t_vector3	ft_vec3_add(t_vector3 *v1, t_vector3 *v2);
 t_vector3	ft_vec3_sub(t_vector3 *v1, t_vector3 *v2);
 t_vector3	ft_vec3_opp(t_vector3 *v);
 t_vector3	ft_vec3_crossprod(t_vector3 *v1, t_vector3 *v2);
-float		ft_vec3_scalprod(t_vector3 *v1, t_vector3 *v2);
-float		ft_vec3_norm(t_vector3 *v);
+float		ft_vec3_dotprod(t_vector3 *v1, t_vector3 *v2);
+float		ft_vec3_magn(t_vector3 *v);
 void		ft_vec3_normalize(t_vector3 *v);
+int			ft_vec3_equal(t_vector3 *v1, t_vector3 *v2);
 
 /*
 ** +-----------------+
@@ -209,6 +220,7 @@ typedef struct	s_quater
 	float		w;
 }				t_quater;
 
+t_quater	ft_to_quat(float x, float y, float z, float w);
 t_quater	ft_quat_add(t_quater *q1, t_quater *q2);
 t_quater	ft_quat_add_n(t_quater *q, float n);
 t_quater	ft_quat_sub(t_quater *q1, t_quater *q2);
@@ -219,9 +231,10 @@ t_quater	ft_quat_opp(t_quater *q);
 t_quater	ft_quat_inv(t_quater *q);
 
 t_quater	ft_quat_crossprod(t_quater *q1, t_quater *q2);
-float		ft_quat_scalprod(t_quater *q1, t_quater *q2);
-float		ft_quat_norm(t_quater *q);
+float		ft_quat_dotprod(t_quater *q1, t_quater *q2);
+float		ft_quat_magn(t_quater *q);
 void		ft_quat_normalize(t_quater *q);
+void		ft_quat_dotnormalize(t_quater *q);
 
 t_quater	ft_rot_to_quat(float a_x, float a_y, float a_z, float angle);
 float		ft_quat_to_rot(t_quater *qr, float *a_x, float *a_y, float *a_z);
@@ -247,7 +260,9 @@ t_matrix4	ft_gen_translate_mat4(float x, float y, float z);
 t_matrix4	ft_gen_scale_mat4(float x, float y, float z);
 t_matrix4	ft_gen_rotation_mat4(float deg_angle, float x, float y, float z);
 
+t_vector3	ft_mat4_mul_vec3(t_matrix4 *m, t_vector3 *v);
 t_quater	ft_mat4_mul_quat(t_matrix4 *m, t_quater *q);
+t_quater	ft_mat4_mulnorm_quat(t_matrix4 *m, t_quater *v);
 t_matrix4	ft_mat4_mul_mat4(t_matrix4 *m1, t_matrix4 *m2);
 t_matrix4	ft_transpose_mat4(t_matrix4 *m);
 
@@ -263,8 +278,8 @@ t_quater	ft_vec3_to_quat(t_vector3 *v, float w);
 */
 
 # define DFLT_VANGLE 70.0
-# define DFLT_NEAR 0.0001
-# define DFLT_FAR 1000.0
+# define DFLT_NEAR 0.1
+# define DFLT_FAR 100.0
 
 typedef struct	s_camera
 {
@@ -273,16 +288,22 @@ typedef struct	s_camera
 	t_vector3	up;
 	t_vector3	forward;
 	t_vector3	side;
+	t_matrix4	view_matrix;
 	float		view_angle;
 	float		aspect_ratio;
 	float		near;
 	float		far;
 }				t_camera;
 
-t_camera	ft_init_camera(float view_angle, float near, float far);
-t_camera	*ft_init_camera_new(t_camera *cam, t_vector3 *eye,
-								t_vector3 *center, t_vector3 *up);
-t_matrix4	ft_lookat(t_camera *cam);
+t_camera	ft_init_cam(float view_angle, float aspect_ratio,
+						float near, float far);
+t_camera	*ft_init_cam_new(float view_angle, float aspect_ratio,
+								float near, float far);
+t_matrix4	ft_lookat(t_camera *cam, t_vector3 *eye,
+						t_vector3 *center, t_vector3 *up);
+t_matrix4	ft_world_to_eye_mat4(t_vector3 *side, t_vector3 *up,
+									t_vector3 *forward, t_vector3 *eye);
+t_matrix4	ft_perspective_proj_mat4(float view_angle, float near, float far);
 
 /*
 ** +-------------------+
@@ -291,6 +312,14 @@ t_matrix4	ft_lookat(t_camera *cam);
 */
 
 void	mlx_bresenham(void *mlx_id, void *win_id, t_vertex2i v1, t_vertex2i v2);
+
+/*
+** +----------------+
+** | MATH FUNCTIONS |
+** +----------------+
+*/
+
+float	ft_fscale(float n, float min, float max, float smallest, float largest);
 
 /*
 ** +-----------------+

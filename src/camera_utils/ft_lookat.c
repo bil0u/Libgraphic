@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/18 18:53:00 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/21 04:44:11 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/22 00:20:47 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_matrix4	ft_lookat(t_camera *cam, t_vector3 *eye,
 	cam->up = ft_vec3_crossprod(&cam->forward, &cam->side);
 	cam->eye = *eye;
 	cam->center = *center;
-	cam->view_matrix = ft_world_to_eye_mat4(&cam->side, &cam->up,
-											&cam->forward, &cam->eye);
+	cam->view_matrix = ft_world_to_eye_mat4(cam);
 	return (cam->view_matrix);
 }

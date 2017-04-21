@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/21 05:09:34 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/22 01:30:34 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,22 +288,24 @@ typedef struct	s_camera
 	t_vector3	up;
 	t_vector3	forward;
 	t_vector3	side;
-	t_matrix4	view_matrix;
 	float		view_angle;
 	float		aspect_ratio;
 	float		near;
 	float		far;
+	float		top_limit;
+	float		bottom_limit;
+	float		right_limit;
+	float		left_limit;
+	t_matrix4	view_matrix;
+	t_matrix4	projection_matrix;
 }				t_camera;
 
-t_camera	ft_init_cam(float view_angle, float aspect_ratio,
-						float near, float far);
-t_camera	*ft_init_cam_new(float view_angle, float aspect_ratio,
-								float near, float far);
+t_camera	ft_init_cam(float fov, float ratio, float near, float far);
+t_camera	*ft_init_cam_new(float fov, float ratio, float near, float far);
 t_matrix4	ft_lookat(t_camera *cam, t_vector3 *eye,
 						t_vector3 *center, t_vector3 *up);
-t_matrix4	ft_world_to_eye_mat4(t_vector3 *side, t_vector3 *up,
-									t_vector3 *forward, t_vector3 *eye);
-t_matrix4	ft_perspective_proj_mat4(float view_angle, float near, float far);
+t_matrix4	ft_world_to_eye_mat4(t_camera *cam);
+t_matrix4	ft_persproj_mat4(t_camera *cam);
 
 /*
 ** +-------------------+

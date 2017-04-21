@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/20 23:42:22 by upopee           ###   ########.fr        #
+#    Updated: 2017/04/22 00:17:05 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,7 +113,8 @@ LIB_FILES =		mlx_init \
 				ft_init_cam_new \
 				ft_lookat \
 				ft_world_to_eye_mat4 \
-				ft_perspective_proj_mat4 \
+				ft_persproj_mat4 \
+				ft_orthoproj_mat4 \
 				\
 				mlx_bresenham \
 				\

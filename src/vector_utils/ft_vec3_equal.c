@@ -6,15 +6,15 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 20:06:48 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/20 20:07:52 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 00:43:15 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-int		ft_vec3_equal(t_vector3 *v1, t_vector3 *v2)
+int		ft_vec3_equal(t_vector3 v1, t_vector3 v2)
 {
-	if (v1->x != v2->x || v1->y != v2->y || v1->z != v2->z)
+	if (v1.x != v2.x || v1.y != v2.y || v1.z != v2.z)
 		return (0);
 	return (1);
 }

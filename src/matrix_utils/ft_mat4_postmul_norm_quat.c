@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mat4_mul_mat4.c                                 :+:      :+:    :+:   */
+/*   ft_mat4_postmul_norm_quat.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 04:43:54 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 01:00:21 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 10:37:18 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_matrix4	ft_mat4_mul_mat4(t_matrix4 m1, t_matrix4 m2)
+t_quater	ft_mat4_postmul_norm_quat(t_quater q, t_matrix4 m)
 {
-	t_matrix4	dst;
-	int			i;
-	int			j;
+	t_quater	dst;
+	float		w_inv;
 
-	i = 4;
-	while (i--)
+	dst.x = q.x * m.array[0][0] + q.y * m.array[0][1]
+			+ q.z * m.array[0][2] + q.w * m.array[0][3];
+	dst.y = q.x * m.array[1][0] + q.y * m.array[1][1]
+			+ q.z * m.array[1][2] + q.w * m.array[1][3];
+	dst.z = q.x * m.array[2][0] + q.y * m.array[2][1]
+			+ q.z * m.array[2][2] + q.w * m.array[2][3];
+	dst.w = q.x * m.array[3][0] + q.y * m.array[3][1]
+			+ q.z * m.array[3][2] + q.w * m.array[3][3];
+	if (dst.w != 1.0 && dst.w != 0.0)
 	{
-		j = 4;
-		while (j--)
-		{
-				dst.array[i][j] = m1.array[i][0] * m2.array[0][j]
-								+ m1.array[i][1] * m2.array[1][j]
-								+ m1.array[i][2] * m2.array[2][j]
-								+ m1.array[i][3] * m2.array[3][j];
-		}
+		w_inv = 1.0 / dst.w;
+		dst.x *= w_inv;
+		dst.y *= w_inv;
+		dst.z *= w_inv;
+		dst.w *= w_inv;
 	}
 	return (dst);
 }

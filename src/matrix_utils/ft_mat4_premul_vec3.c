@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_add_n.c                                    :+:      :+:    :+:   */
+/*   ft_mat4_premul_vec3.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 04:46:28 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 00:31:32 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/11 04:43:54 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/25 10:37:31 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_quater	ft_quat_add_n(t_quater q, float n)
+t_vector3	ft_mat4_premul_vec3(t_matrix4 m, t_vector3 v)
 {
-	t_quater	dst;
+	t_vector3	dst;
 
-	dst.w = q.w + n;
-	dst.x = q.x;
-	dst.y = q.y;
-	dst.z = q.z;
+	dst.x = m.array[0][0] * v.x + m.array[0][1] * v.y
+			+ m.array[0][2] * v.z + m.array[0][3];
+	dst.y = m.array[1][0] * v.x + m.array[1][1] * v.y
+			+ m.array[1][2] * v.z + m.array[1][3];
+	dst.z = m.array[2][0] * v.x + m.array[2][1] * v.y
+			+ m.array[2][2] * v.z + m.array[2][3];
 	return (dst);
 }

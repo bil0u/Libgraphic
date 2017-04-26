@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 08:14:56 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/20 18:26:52 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 10:16:38 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 
 
-static t_matrix4	ft_gen_matrix(float rad_angle, t_vector3 *v)
+static t_matrix4	ft_gen_matrix(float rad_angle, t_vector3 v)
 {
 	t_matrix4	dst;
 	float		s;
@@ -25,17 +25,17 @@ static t_matrix4	ft_gen_matrix(float rad_angle, t_vector3 *v)
 	s = sinf(rad_angle);
 	c = cosf(rad_angle);
 	t = 1.0 - c;
-	dst.array[0][0] = (v->x * v->x * t) + c;
-	dst.array[0][1] = (v->x * v->y * t) - (v->z * s);
-	dst.array[0][2] = (v->x * v->z * t) + (v->y * s);
+	dst.array[0][0] = (v.x * v.x * t) + c;
+	dst.array[0][1] = (v.x * v.y * t) - (v.z * s);
+	dst.array[0][2] = (v.x * v.z * t) + (v.y * s);
 	dst.array[0][3] = 0.0;
-	dst.array[1][0] = (v->y * v->x * t) + (v->z * s);
-	dst.array[1][1] = (v->y * v->y * t) + c;
-	dst.array[1][2] = (v->y * v->z * t) - (v->x * s);
+	dst.array[1][0] = (v.y * v.x * t) + (v.z * s);
+	dst.array[1][1] = (v.y * v.y * t) + c;
+	dst.array[1][2] = (v.y * v.z * t) - (v.x * s);
 	dst.array[1][3] = 0.0;
-	dst.array[2][0] = (v->z * v->x * t) - (v->y * s);
-	dst.array[2][1] = (v->z * v->y * t) + (v->x * s);
-	dst.array[2][2] = (v->z * v->z * t) + c;
+	dst.array[2][0] = (v.z * v.x * t) - (v.y * s);
+	dst.array[2][1] = (v.z * v.y * t) + (v.x * s);
+	dst.array[2][2] = (v.z * v.z * t) + c;
 	dst.array[2][3] = 0.0;
 	dst.array[3][0] = 0.0;
 	dst.array[3][1] = 0.0;
@@ -45,13 +45,8 @@ static t_matrix4	ft_gen_matrix(float rad_angle, t_vector3 *v)
 }
 
 
-t_matrix4	ft_gen_rotation_mat4(float deg_angle, float x, float y, float z)
+t_matrix4	ft_gen_rotation_mat4(float deg_angle, t_vector3 v)
 {
-	t_vector3	v;
-
-	v.x = x;
-	v.y = y;
-	v.z = z;
-	ft_vec3_normalize(&v);
-	return (ft_gen_matrix(TO_RADIAN(deg_angle), &v));
+	ft_vec3_normalize(v);
+	return (ft_gen_matrix(TO_RADIAN(deg_angle), v));
 }

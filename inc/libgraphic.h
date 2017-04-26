@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/22 01:30:34 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/26 16:58:44 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #ifndef LIBGRAPHIC_H
 # define LIBGRAPHIC_H
 
-#include "/usr/local/include/mlx.h"
+#include <mlx.h>
 
 # define ABS(x) ((x) < 0 ? -(x) : (x))
 # define OPP(x) (-(x))
@@ -33,11 +33,11 @@
 ** +----------+
 */
 
-# define MLXWIN_SIZEX_MAX 1500
-# define MLXWIN_SIZEY_MAX 1500
+# define MLXWIN_WIDTH_MAX 1400
+# define MLXWIN_HEIGHT_MAX 800
 # define MLXWIN_DEFAULT_OFFSET 50
-# define MLXWIN_MARGEX (MLXWIN_SIZEX_MAX * 0.1)
-# define MLXWIN_MARGEY (MLXWIN_SIZEY_MAX * 0.1)
+# define MLXWIN_MARGEX (MLXWIN_WIDTH_MAX * 0.1)
+# define MLXWIN_MARGEY (MLXWIN_HEIGHT_MAX * 0.1)
 
 typedef struct	s_mlxenv
 {
@@ -129,11 +129,11 @@ typedef struct	s_vertex2i
 	int			y;
 }				t_vertex2i;
 
-t_vertex2i	ft_ver2i_add(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	ft_ver2i_sub(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	ft_ver2i_div(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	ft_ver2i_mul(t_vertex2i *v1, t_vertex2i *v2);
-t_vertex2i	ft_ver2i_opp(t_vertex2i *v);
+t_vertex2i	ft_ver2i_add(t_vertex2i v1, t_vertex2i v2);
+t_vertex2i	ft_ver2i_sub(t_vertex2i v1, t_vertex2i v2);
+t_vertex2i	ft_ver2i_div(t_vertex2i v1, t_vertex2i v2);
+t_vertex2i	ft_ver2i_mul(t_vertex2i v1, t_vertex2i v2);
+t_vertex2i	ft_ver2i_opp(t_vertex2i v);
 
 typedef struct	s_vertex2f
 {
@@ -141,11 +141,11 @@ typedef struct	s_vertex2f
 	float		y;
 }				t_vertex2f;
 
-t_vertex2f	ft_ver2f_add(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	ft_ver2f_sub(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	ft_ver2f_div(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	ft_ver2f_mul(t_vertex2f *v1, t_vertex2f *v2);
-t_vertex2f	ft_ver2f_opp(t_vertex2f *v);
+t_vertex2f	ft_ver2f_add(t_vertex2f v1, t_vertex2f v2);
+t_vertex2f	ft_ver2f_sub(t_vertex2f v1, t_vertex2f v2);
+t_vertex2f	ft_ver2f_div(t_vertex2f v1, t_vertex2f v2);
+t_vertex2f	ft_ver2f_mul(t_vertex2f v1, t_vertex2f v2);
+t_vertex2f	ft_ver2f_opp(t_vertex2f v);
 
 typedef struct	s_vertex3i
 {
@@ -154,11 +154,11 @@ typedef struct	s_vertex3i
 	int			z;
 }				t_vertex3i;
 
-t_vertex3i	ft_ver3i_add(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	ft_ver3i_sub(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	ft_ver3i_div(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	ft_ver3i_mul(t_vertex3i *v1, t_vertex3i *v2);
-t_vertex3i	ft_ver3i_opp(t_vertex3i *v);
+t_vertex3i	ft_ver3i_add(t_vertex3i v1, t_vertex3i v2);
+t_vertex3i	ft_ver3i_sub(t_vertex3i v1, t_vertex3i v2);
+t_vertex3i	ft_ver3i_div(t_vertex3i v1, t_vertex3i v2);
+t_vertex3i	ft_ver3i_mul(t_vertex3i v1, t_vertex3i v2);
+t_vertex3i	ft_ver3i_opp(t_vertex3i v);
 
 typedef struct	s_vertex3f
 {
@@ -167,12 +167,12 @@ typedef struct	s_vertex3f
 	float		z;
 }				t_vertex3f;
 
-t_vertex3f	ft_ver3f_add(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	ft_ver3f_sub(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	ft_ver3f_div(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	ft_ver3f_mul(t_vertex3f *v1, t_vertex3f *v2);
-t_vertex3f	ft_ver3f_opp(t_vertex3f *v);
-t_vertex3f	ft_ver3i_to_ver3f(t_vertex3i *v);
+t_vertex3f	ft_ver3f_add(t_vertex3f v1, t_vertex3f v2);
+t_vertex3f	ft_ver3f_sub(t_vertex3f v1, t_vertex3f v2);
+t_vertex3f	ft_ver3f_div(t_vertex3f v1, t_vertex3f v2);
+t_vertex3f	ft_ver3f_mul(t_vertex3f v1, t_vertex3f v2);
+t_vertex3f	ft_ver3f_opp(t_vertex3f v);
+t_vertex3f	ft_ver3i_to_ver3f(t_vertex3i v);
 
 typedef struct	s_vector2
 {
@@ -181,13 +181,13 @@ typedef struct	s_vector2
 }				t_vector2;
 
 t_vector2	ft_to_vec2(float x, float y);
-t_vector2	ft_vec2_add(t_vector2 *v1, t_vector2 *v2);
-t_vector2	ft_vec2_sub(t_vector2 *v1, t_vector2 *v2);
-t_vector2	ft_vec2_opp(t_vector2 *v);
-float		ft_vec2_dotprod(t_vector2 *v1, t_vector2 *v2);
-float		ft_vec2_magn(t_vector2 *v);
-void		ft_vec2_normalize(t_vector2 *v);
-int			ft_vec2_equal(t_vector2 *v1, t_vector2 *v2);
+t_vector2	ft_vec2_add(t_vector2 v1, t_vector2 v2);
+t_vector2	ft_vec2_sub(t_vector2 v1, t_vector2 v2);
+t_vector2	ft_vec2_opp(t_vector2 v);
+float		ft_vec2_dotprod(t_vector2 v1, t_vector2 v2);
+float		ft_vec2_magn(t_vector2 v);
+t_vector2	ft_vec2_normalize(t_vector2 v);
+int			ft_vec2_equal(t_vector2 v1, t_vector2 v2);
 
 typedef struct	s_vector3
 {
@@ -197,14 +197,14 @@ typedef struct	s_vector3
 }				t_vector3;
 
 t_vector3	ft_to_vec3(float x, float y, float z);
-t_vector3	ft_vec3_add(t_vector3 *v1, t_vector3 *v2);
-t_vector3	ft_vec3_sub(t_vector3 *v1, t_vector3 *v2);
-t_vector3	ft_vec3_opp(t_vector3 *v);
-t_vector3	ft_vec3_crossprod(t_vector3 *v1, t_vector3 *v2);
-float		ft_vec3_dotprod(t_vector3 *v1, t_vector3 *v2);
-float		ft_vec3_magn(t_vector3 *v);
-void		ft_vec3_normalize(t_vector3 *v);
-int			ft_vec3_equal(t_vector3 *v1, t_vector3 *v2);
+t_vector3	ft_vec3_add(t_vector3 v1, t_vector3 v2);
+t_vector3	ft_vec3_sub(t_vector3 v1, t_vector3 v2);
+t_vector3	ft_vec3_opp(t_vector3 v);
+t_vector3	ft_vec3_crossprod(t_vector3 v1, t_vector3 v2);
+float		ft_vec3_dotprod(t_vector3 v1, t_vector3 v2);
+float		ft_vec3_magn(t_vector3 v);
+t_vector3	ft_vec3_normalize(t_vector3 v);
+int			ft_vec3_equal(t_vector3 v1, t_vector3 v2);
 
 /*
 ** +-----------------+
@@ -221,28 +221,28 @@ typedef struct	s_quater
 }				t_quater;
 
 t_quater	ft_to_quat(float x, float y, float z, float w);
-t_quater	ft_quat_add(t_quater *q1, t_quater *q2);
-t_quater	ft_quat_add_n(t_quater *q, float n);
-t_quater	ft_quat_sub(t_quater *q1, t_quater *q2);
-t_quater	ft_quat_sub_n(t_quater *q1, float n);
-t_quater	ft_quat_mul(t_quater *q1, t_quater *q2);
-t_quater	ft_quat_mul_n(t_quater *q, float n);
-t_quater	ft_quat_opp(t_quater *q);
-t_quater	ft_quat_inv(t_quater *q);
+t_quater	ft_quat_add(t_quater q1, t_quater q2);
+t_quater	ft_quat_add_n(t_quater q, float n);
+t_quater	ft_quat_sub(t_quater q1, t_quater q2);
+t_quater	ft_quat_sub_n(t_quater q1, float n);
+t_quater	ft_quat_mul(t_quater q1, t_quater q2);
+t_quater	ft_quat_mul_n(t_quater q, float n);
+t_quater	ft_quat_opp(t_quater q);
+t_quater	ft_quat_inv(t_quater q);
 
-t_quater	ft_quat_crossprod(t_quater *q1, t_quater *q2);
-float		ft_quat_dotprod(t_quater *q1, t_quater *q2);
-float		ft_quat_magn(t_quater *q);
-void		ft_quat_normalize(t_quater *q);
-void		ft_quat_dotnormalize(t_quater *q);
+t_quater	ft_quat_crossprod(t_quater q1, t_quater q2);
+float		ft_quat_dotprod(t_quater q1, t_quater q2);
+float		ft_quat_magn(t_quater q);
+t_quater	ft_quat_normalize(t_quater q);
+t_quater	ft_quat_dotnormalize(t_quater q);
 
 t_quater	ft_rot_to_quat(float a_x, float a_y, float a_z, float angle);
-float		ft_quat_to_rot(t_quater *qr, float *a_x, float *a_y, float *a_z);
-void		ft_quat_to_spheric_rot(t_quater *q, float *lon,
+float		ft_quat_to_rot(t_quater qr, float *a_x, float *a_y, float *a_z);
+void		ft_quat_to_spheric_rot(t_quater q, float *lon,
 									float *lat, float *angle);
 t_quater	ft_spheric_rot_to_quat(float lat, float lon, float angle);
 
-int			ft_quat_equal(t_quater *q1, t_quater *q2);
+int			ft_quat_equal(t_quater q1, t_quater q2);
 
 /*
 ** +-------------+
@@ -256,20 +256,23 @@ typedef struct	s_matrix4
 }				t_matrix4;
 
 t_matrix4	ft_gen_identity_mat4(void);
-t_matrix4	ft_gen_translate_mat4(float x, float y, float z);
-t_matrix4	ft_gen_scale_mat4(float x, float y, float z);
-t_matrix4	ft_gen_rotation_mat4(float deg_angle, float x, float y, float z);
+t_matrix4	ft_gen_translate_mat4(t_vector3 v);
+t_matrix4	ft_gen_scale_mat4(t_vector3 v);
+t_matrix4	ft_gen_rotation_mat4(float deg_angle, t_vector3 v);
 
-t_vector3	ft_mat4_mul_vec3(t_matrix4 *m, t_vector3 *v);
-t_quater	ft_mat4_mul_quat(t_matrix4 *m, t_quater *q);
-t_quater	ft_mat4_mulnorm_quat(t_matrix4 *m, t_quater *v);
-t_matrix4	ft_mat4_mul_mat4(t_matrix4 *m1, t_matrix4 *m2);
-t_matrix4	ft_transpose_mat4(t_matrix4 *m);
+t_vector3	ft_mat4_premul_vec3(t_matrix4 m, t_vector3 v);
+t_vector3	ft_mat4_postmul_vec3(t_vector3 v, t_matrix4 m);
+t_quater	ft_mat4_premul_quat(t_matrix4 m, t_quater q);
+t_quater	ft_mat4_postmul_quat(t_quater q, t_matrix4 m);
+t_quater	ft_mat4_premul_norm_quat(t_matrix4 m, t_quater q);
+t_quater	ft_mat4_postmul_norm_quat(t_quater q, t_matrix4 m);
+t_matrix4	ft_mat4_mul_mat4(t_matrix4 m1, t_matrix4 m2);
+t_matrix4	ft_transpose_mat4(t_matrix4 m);
 
-t_quater	ft_mat4_to_quat(t_matrix4 *m);
-t_matrix4	ft_quat_to_mat4(t_quater *q);
-t_vector3	ft_quat_to_vec3(t_quater *q);
-t_quater	ft_vec3_to_quat(t_vector3 *v, float w);
+t_quater	ft_mat4_to_quat(t_matrix4 m);
+t_matrix4	ft_quat_to_mat4(t_quater q);
+t_vector3	ft_quat_to_vec3(t_quater q);
+t_quater	ft_vec3_to_quat(t_vector3 v, float w);
 
 /*
 ** +-------------+
@@ -302,10 +305,12 @@ typedef struct	s_camera
 
 t_camera	ft_init_cam(float fov, float ratio, float near, float far);
 t_camera	*ft_init_cam_new(float fov, float ratio, float near, float far);
-t_matrix4	ft_lookat(t_camera *cam, t_vector3 *eye,
-						t_vector3 *center, t_vector3 *up);
-t_matrix4	ft_world_to_eye_mat4(t_camera *cam);
-t_matrix4	ft_persproj_mat4(t_camera *cam);
+t_matrix4	ft_lookat(t_camera *cam, t_vector3 eye,
+						t_vector3 center, t_vector3 up);
+t_matrix4	ft_view_mat4(t_vector3 eye, t_vector3 up,
+							t_vector3 side, t_vector3 forward);
+t_matrix4	ft_persproj_mat4(float fov, float near, float far, float ratio);
+t_matrix4	ft_orthoproj_mat4(float fov, float near, float far, float ratio);
 
 /*
 ** +-------------------+
@@ -320,8 +325,12 @@ void	mlx_bresenham(void *mlx_id, void *win_id, t_vertex2i v1, t_vertex2i v2);
 ** | MATH FUNCTIONS |
 ** +----------------+
 */
-
-float	ft_fscale(float n, float min, float max, float smallest, float largest);
+t_vector3	ft_spheric_to_vec3(float theta, float phi);
+t_quater	ft_spheric_to_quat(float theta, float phi);
+t_vertex2i	ft_viewport_tlc(t_vector3 ndc, t_vertex2i origin,
+							unsigned int width, unsigned int height);
+t_vertex2i	ft_viewport_llc(t_vector3 ndc, t_vertex2i origin,
+							unsigned int width, unsigned int height);
 
 /*
 ** +-----------------+
@@ -331,10 +340,10 @@ float	ft_fscale(float n, float min, float max, float smallest, float largest);
 
 # define FLOAT_PRECISION 2
 
-void	print_vec2(t_vector2 *v);
-void	print_vec3(t_vector3 *v);
-void	print_quat(t_quater *v);
-void	print_mat4(t_matrix4 *m, char *name);
-void	print_cam(t_camera *cam);
+void	print_vec2(t_vector2 v);
+void	print_vec3(t_vector3 v);
+void	print_quat(t_quater v);
+void	print_mat4(t_matrix4 m, char *name);
+void	print_camera(t_camera cam);
 
 #endif

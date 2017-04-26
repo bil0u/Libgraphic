@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/20 00:19:13 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 00:40:59 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 **		return the lenght of v (float value)
 */
 
-float	ft_vec2_magn(t_vector2 *v)
+float	ft_vec2_magn(t_vector2 v)
 {
-	return (sqrtf(v->x * v->x + v->y * v->y));
+	return (sqrtf(v.x * v.x + v.y * v.y));
 }

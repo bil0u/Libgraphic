@@ -6,14 +6,14 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/15 04:23:55 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/15 19:09:46 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 00:35:18 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "libgraphic.h"
 
-void		ft_quat_to_spheric_rot(t_quater *q, float *lon,
+void		ft_quat_to_spheric_rot(t_quater q, float *lon,
 									float *lat, float *angle)
 {
 	float	a_x;
@@ -21,10 +21,10 @@ void		ft_quat_to_spheric_rot(t_quater *q, float *lon,
 	float	a_z;
 	float	norm;
 
-	*angle = acosf(q->w) * 2.0;
-	a_x = q->x;
-	a_y = q->y;
-	a_z = q->z;
+	*angle = acosf(q.w) * 2.0;
+	a_x = q.x;
+	a_y = q.y;
+	a_z = q.z;
 	norm = sqrtf(a_x * a_x + a_y * a_y + a_z * a_z);
 	if (norm > 0.0005)
 	{

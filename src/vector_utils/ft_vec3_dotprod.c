@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/20 00:27:15 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 10:12:39 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **		return the float result of v1 . v2
 */
 
-float	ft_vec3_dotprod(t_vector3 *v1, t_vector3 *v2)
+float	ft_vec3_dotprod(t_vector3 v1, t_vector3 v2)
 {
-	return ((v1->x * v2->x) + (v1->y * v2->y) + (v1->z * v2->z));
+	return ((v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z));
 }

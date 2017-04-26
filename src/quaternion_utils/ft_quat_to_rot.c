@@ -6,21 +6,19 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/15 04:23:55 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/18 22:28:35 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 00:34:58 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "libgraphic.h"
 
-float		ft_quat_to_rot(t_quater *qr, float *a_x, float *a_y, float *a_z)
+float		ft_quat_to_rot(t_quater q, float *a_x, float *a_y, float *a_z)
 {
-	t_quater	q;
 	float		angle;
 	float		norm;
 
-	q = *qr;
-	ft_quat_normalize(&q);
+	q = ft_quat_normalize(q);
 	angle = acosf(q.w) * 2;
 	norm = sqrtf(q.x * q.x + q.y * q.y + q.z * q.z);
 	*a_x = q.x;

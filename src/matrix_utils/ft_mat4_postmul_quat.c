@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_add_n.c                                    :+:      :+:    :+:   */
+/*   ft_mat4_postmul_quat.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 04:46:28 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 00:31:32 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/11 04:43:54 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/25 00:24:36 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_quater	ft_quat_add_n(t_quater q, float n)
+t_quater	ft_mat4_postmul_quat(t_quater q, t_matrix4 m)
 {
 	t_quater	dst;
 
-	dst.w = q.w + n;
-	dst.x = q.x;
-	dst.y = q.y;
-	dst.z = q.z;
+	dst.x = q.x * m.array[0][0] + q.y * m.array[0][1]
+			+ q.z * m.array[0][2] + q.w * m.array[0][3];
+	dst.y = q.x * m.array[1][0] + q.y * m.array[1][1]
+			+ q.z * m.array[1][2] + q.w * m.array[1][3];
+	dst.z = q.x * m.array[2][0] + q.y * m.array[2][1]
+			+ q.z * m.array[2][2] + q.w * m.array[2][3];
+	dst.w = q.x * m.array[3][0] + q.y * m.array[3][1]
+			+ q.z * m.array[3][2] + q.w * m.array[3][3];
 	return (dst);
 }

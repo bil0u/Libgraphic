@@ -6,23 +6,27 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/15 16:49:31 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/20 00:16:24 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 00:47:35 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "libgraphic.h"
 
-void	ft_vec2_normalize(t_vector2 *v)
+t_vector2	ft_vec2_normalize(t_vector2 v)
 {
-	float	norm;
-	float	norm_inv;
+	t_vector2	dst;
+	float		norm;
+	float		norm_inv;
 
-	norm = sqrtf(v->x * v->x + v->y * v->y);
+	dst.x = v.x;
+	dst.y = v.y;
+	norm = sqrtf(v.x * v.x + v.y * v.y);
 	if (norm != 0.0)
 	{
 		norm_inv = 1.0 / norm;
-		v->x *= norm_inv;
-		v->y *= norm_inv;
+		dst.x *= norm_inv;
+		dst.y *= norm_inv;
 	}
+	return (dst);
 }

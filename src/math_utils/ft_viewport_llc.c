@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_add_n.c                                    :+:      :+:    :+:   */
+/*   ft_viewport_llc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 04:46:28 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 00:31:32 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/23 19:07:25 by upopee            #+#    #+#             */
+/*   Updated: 2017/04/25 09:50:28 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_quater	ft_quat_add_n(t_quater q, float n)
+t_vertex2i	ft_viewport_llc(t_vector3 ndc, t_vertex2i origin,
+							unsigned int width, unsigned int height)
 {
-	t_quater	dst;
+	t_vertex2i	window;
 
-	dst.w = q.w + n;
-	dst.x = q.x;
-	dst.y = q.y;
-	dst.z = q.z;
-	return (dst);
+	window.x = (int)((ndc.x + 1.0) * (float)--width * 0.5 + (float)origin.x);
+	window.y = (int)((ndc.y + 1.0) * (float)--height * 0.5 + (float)origin.y);
+	return (window);
 }

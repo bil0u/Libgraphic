@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 09:36:29 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 10:05:36 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 **		modify the v1 value
 */
 
-t_vertex2i	ft_ver2i_mul(t_vertex2i *v1, t_vertex2i *v2)
+t_vertex2i	ft_ver2i_mul(t_vertex2i v1, t_vertex2i v2)
 {
 	t_vertex2i	dst;
 
-	dst.x = v1->x * v2->x;
-	dst.y = v1->y * v2->y;
+	dst.x = v1.x * v2.x;
+	dst.y = v1.y * v2.y;
 	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/12 09:30:42 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 00:40:22 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 **		modify the v1 value
 */
 
-t_vector2	ft_vec2_add(t_vector2 *v1, t_vector2 *v2)
+t_vector2	ft_vec2_add(t_vector2 v1, t_vector2 v2)
 {
 	t_vector2	dst;
 
-	dst.x = v1->x +v2->x;
-	dst.y = v1->y + v2->y;
+	dst.x = v1.x +v2.x;
+	dst.y = v1.y + v2.y;
 	return (dst);
 }

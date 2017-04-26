@@ -6,15 +6,15 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/15 17:30:58 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/15 19:08:55 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/25 00:32:25 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-int		ft_quat_equal(t_quater *q1, t_quater *q2)
+int		ft_quat_equal(t_quater q1, t_quater q2)
 {
-	if (q1->w != q2->w || q1->x != q2->x || q1->y != q2->y || q1->z != q2->z)
+	if (q1.w != q2.w || q1.x != q2.x || q1.y != q2.y || q1.z != q2.z)
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/22 00:17:05 by upopee           ###   ########.fr        #
+#    Updated: 2017/04/25 10:30:53 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,9 +99,12 @@ LIB_FILES =		mlx_init \
 				ft_gen_translate_mat4 \
 				ft_gen_scale_mat4 \
 				ft_gen_rotation_mat4 \
-				ft_mat4_mul_vec3 \
-				ft_mat4_mul_quat \
-				ft_mat4_mulnorm_quat \
+				ft_mat4_premul_vec3 \
+				ft_mat4_postmul_vec3 \
+				ft_mat4_premul_quat \
+				ft_mat4_postmul_quat \
+				ft_mat4_premul_norm_quat \
+				ft_mat4_postmul_norm_quat \
 				ft_mat4_mul_mat4 \
 				ft_transpose_mat4 \
 				ft_mat4_to_quat \
@@ -112,13 +115,16 @@ LIB_FILES =		mlx_init \
 				ft_init_cam \
 				ft_init_cam_new \
 				ft_lookat \
-				ft_world_to_eye_mat4 \
+				ft_view_mat4 \
 				ft_persproj_mat4 \
 				ft_orthoproj_mat4 \
 				\
 				mlx_bresenham \
 				\
-				ft_fscale \
+				ft_spheric_to_vec3 \
+				ft_spheric_to_quat \
+				ft_viewport_tlc \
+				ft_viewport_llc \
 				\
 				print_vector \
 				print_matrix \

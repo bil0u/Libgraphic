@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/25 10:30:53 by upopee           ###   ########.fr        #
+#    Updated: 2017/04/27 00:45:26 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,24 +31,28 @@ INCLUDES = -I ./inc
 LIB_FILES =		mlx_init \
 				mlx_end \
 				\
+				ft_to_ver2i \
 				ft_ver2i_add \
 				ft_ver2i_sub \
 				ft_ver2i_div \
 				ft_ver2i_mul \
 				ft_ver2i_opp \
 				\
+				ft_to_ver2f \
 				ft_ver2f_add \
 				ft_ver2f_sub \
 				ft_ver2f_div \
 				ft_ver2f_mul \
 				ft_ver2f_opp \
 				\
+				ft_to_ver3i \
 				ft_ver3i_add \
 				ft_ver3i_sub \
 				ft_ver3i_div \
 				ft_ver3i_mul \
 				ft_ver3i_opp \
 				\
+				ft_to_ver3f \
 				ft_ver3f_add \
 				ft_ver3f_sub \
 				ft_ver3f_div \

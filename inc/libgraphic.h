@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/26 16:58:44 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/27 00:44:51 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ typedef struct	s_vertex2i
 	int			y;
 }				t_vertex2i;
 
+t_vertex2i	ft_to_ver2i(int x, int y);
 t_vertex2i	ft_ver2i_add(t_vertex2i v1, t_vertex2i v2);
 t_vertex2i	ft_ver2i_sub(t_vertex2i v1, t_vertex2i v2);
 t_vertex2i	ft_ver2i_div(t_vertex2i v1, t_vertex2i v2);
@@ -141,6 +142,7 @@ typedef struct	s_vertex2f
 	float		y;
 }				t_vertex2f;
 
+t_vertex2f	ft_to_ver2f(float x, float y);
 t_vertex2f	ft_ver2f_add(t_vertex2f v1, t_vertex2f v2);
 t_vertex2f	ft_ver2f_sub(t_vertex2f v1, t_vertex2f v2);
 t_vertex2f	ft_ver2f_div(t_vertex2f v1, t_vertex2f v2);
@@ -154,6 +156,7 @@ typedef struct	s_vertex3i
 	int			z;
 }				t_vertex3i;
 
+t_vertex3i	ft_to_ver3i(int x, int y, int z);
 t_vertex3i	ft_ver3i_add(t_vertex3i v1, t_vertex3i v2);
 t_vertex3i	ft_ver3i_sub(t_vertex3i v1, t_vertex3i v2);
 t_vertex3i	ft_ver3i_div(t_vertex3i v1, t_vertex3i v2);
@@ -167,6 +170,7 @@ typedef struct	s_vertex3f
 	float		z;
 }				t_vertex3f;
 
+t_vertex3f	ft_to_ver3f(float x, float y, float z);
 t_vertex3f	ft_ver3f_add(t_vertex3f v1, t_vertex3f v2);
 t_vertex3f	ft_ver3f_sub(t_vertex3f v1, t_vertex3f v2);
 t_vertex3f	ft_ver3f_div(t_vertex3f v1, t_vertex3f v2);

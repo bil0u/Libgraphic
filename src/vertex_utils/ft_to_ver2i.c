@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_vec2.c                                       :+:      :+:    :+:   */
+/*   ft_to_ver2i.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 01:31:21 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/27 00:42:00 by upopee           ###   ########.fr       */
+/*   Updated: 2017/04/27 00:42:42 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_vector2	ft_to_vec2(float x, float y)
+t_vertex2i	ft_to_ver2i(int x, int y)
 {
-	t_vector2	dst;
+	t_vertex2i	dst;
 
 	dst.x = x;
 	dst.y = y;

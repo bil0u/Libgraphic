@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/04/30 18:48:33 by upopee           ###   ########.fr        #
+#    Updated: 2017/05/01 17:52:55 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,6 +103,7 @@ LIB_FILES =		mlx_init \
 				ft_gen_translate_mat4 \
 				ft_gen_scale_mat4 \
 				ft_gen_rotation_mat4 \
+				ft_gen_euler_rotation_mat4 \
 				ft_mat4_premul_vec3 \
 				ft_mat4_postmul_vec3 \
 				ft_mat4_premul_quat \

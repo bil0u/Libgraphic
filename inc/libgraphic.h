@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/30 18:23:17 by upopee           ###   ########.fr       */
+/*   Updated: 2017/05/01 17:50:35 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 # define MLXWIN_WIDTH_MAX 1400
 # define MLXWIN_HEIGHT_MAX 800
 # define MLXWIN_DEFAULT_OFFSET 50
-# define MLXWIN_MARGEX (MLXWIN_WIDTH_MAX * 0.1)
-# define MLXWIN_MARGEY (MLXWIN_HEIGHT_MAX * 0.1)
+# define MLXWIN_MARGEX (MLXWIN_WIDTH_MAX * 0.15)
+# define MLXWIN_MARGEY (MLXWIN_HEIGHT_MAX * 0.15)
 
 typedef struct	s_mlxenv
 {
@@ -263,6 +263,7 @@ t_matrix4	ft_gen_identity_mat4(void);
 t_matrix4	ft_gen_translate_mat4(t_vector3 v);
 t_matrix4	ft_gen_scale_mat4(t_vector3 v);
 t_matrix4	ft_gen_rotation_mat4(float deg_angle, t_vector3 v);
+t_matrix4	ft_gen_euler_rotation_mat4(float deg_x, float deg_y, float deg_z);
 
 t_vector3	ft_mat4_premul_vec3(t_matrix4 m, t_vector3 v);
 t_vector3	ft_mat4_postmul_vec3(t_vector3 v, t_matrix4 m);

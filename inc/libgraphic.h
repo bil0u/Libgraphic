@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/05/01 17:50:35 by upopee           ###   ########.fr       */
+/*   Updated: 2017/05/04 10:38:09 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,7 @@ typedef struct	s_vector2
 t_vector2	ft_to_vec2(float x, float y);
 t_vector2	ft_vec2_add(t_vector2 v1, t_vector2 v2);
 t_vector2	ft_vec2_sub(t_vector2 v1, t_vector2 v2);
+t_vector2	ft_vec2_muln(t_vector2 v, float n);
 t_vector2	ft_vec2_opp(t_vector2 v);
 float		ft_vec2_dotprod(t_vector2 v1, t_vector2 v2);
 float		ft_vec2_magn(t_vector2 v);
@@ -203,6 +204,7 @@ typedef struct	s_vector3
 t_vector3	ft_to_vec3(float x, float y, float z);
 t_vector3	ft_vec3_add(t_vector3 v1, t_vector3 v2);
 t_vector3	ft_vec3_sub(t_vector3 v1, t_vector3 v2);
+t_vector3	ft_vec3_muln(t_vector3 v, float n);
 t_vector3	ft_vec3_opp(t_vector3 v);
 t_vector3	ft_vec3_crossprod(t_vector3 v1, t_vector3 v2);
 float		ft_vec3_dotprod(t_vector3 v1, t_vector3 v2);
@@ -345,6 +347,7 @@ t_vertex2i	ft_viewport_llc(t_vector3 ndc, t_vertex2i origin,
 
 # define FLOAT_PRECISION 2
 
+void	print_ver2i(t_vertex2i v);
 void	print_vec2(t_vector2 v);
 void	print_vec3(t_vector3 v);
 void	print_quat(t_quater v);

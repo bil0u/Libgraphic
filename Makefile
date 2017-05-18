@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/05/01 17:52:55 by upopee           ###   ########.fr        #
+#    Updated: 2017/05/04 10:38:07 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ LIB_FILES =		mlx_init \
 				ft_to_vec2 \
 				ft_vec2_add \
 				ft_vec2_sub \
+				ft_vec2_muln \
 				ft_vec2_opp \
 				ft_vec2_dotprod \
 				ft_vec2_magn\
@@ -72,6 +73,7 @@ LIB_FILES =		mlx_init \
 				ft_to_vec3 \
 				ft_vec3_add \
 				ft_vec3_sub \
+				ft_vec3_muln \
 				ft_vec3_opp \
 				ft_vec3_crossprod \
 				ft_vec3_dotprod \

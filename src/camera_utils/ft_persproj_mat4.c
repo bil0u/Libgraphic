@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 23:03:27 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 10:32:10 by upopee           ###   ########.fr       */
+/*   Updated: 2017/05/02 21:58:29 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static t_matrix4	zero_values(void)
 	return (dst);
 }
 
-t_matrix4			ft_persproj_mat4(float fov, float far,
-										float near, float ratio)
+t_matrix4			ft_persproj_mat4(float fov, float near,
+										float far, float ratio)
 {
 	t_matrix4	dst;
 	float		top;

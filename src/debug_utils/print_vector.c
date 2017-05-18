@@ -6,12 +6,21 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 01:43:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 10:33:28 by upopee           ###   ########.fr       */
+/*   Updated: 2017/05/04 09:53:52 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 #include <stdio.h>
+
+void	print_ver2i(t_vertex2i v)
+{
+	int		precision;
+
+	precision = FLOAT_PRECISION;
+	printf("{%2$ .*1$d %3$ .*1$d }",
+											precision, v.x, v.y);
+}
 
 void	print_vec2(t_vector2 v)
 {

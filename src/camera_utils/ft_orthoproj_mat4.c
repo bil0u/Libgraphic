@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 23:03:27 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 11:23:25 by upopee           ###   ########.fr       */
+/*   Updated: 2017/05/04 10:18:47 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ t_matrix4			ft_orthoproj_mat4(float fov, float near,
 	left = bottom * ratio;
 	right = top * ratio;
 	dst = zero_values();
-	dst.array[0][0] = 2 / (right - left);
-	dst.array[0][3] = (right + left) / (right - left);
-	dst.array[1][1] = 2 / (top - bottom);
-	dst.array[1][3] = (top + bottom) / (top - bottom);
-	dst.array[2][2] = -2 / (far - near);
-	dst.array[2][3] = (far + near) / (far - near);
+	dst.array[0][0] = 2.0 / (right - left);
+	dst.array[0][3] = -(right + left) / (right - left);
+	dst.array[1][1] = 2.0 / (top - bottom);
+	dst.array[1][3] = -(top + bottom) / (top - bottom);
+	dst.array[2][2] = -2.0 / (far - near);
+	dst.array[2][3] = -(far + near) / (far - near);
 	dst.array[3][3] = 1.0;
 	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/05/04 10:38:09 by upopee           ###   ########.fr       */
+/*   Updated: 2017/05/20 00:04:18 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void		del_mlxwin(void *mlx_id, t_mlxwin *m_win);
 
 t_mlximg	*init_mlximg(void *mlx_id, int sz_x, int sz_y);
 void		del_mlximg(void *mlx_id, t_mlximg *m_img);
+
+void		pixel_to_img(t_mlximg *img, int x, int y, unsigned int color);
 
 /*
 ** +------------+
@@ -325,7 +327,7 @@ t_matrix4	ft_orthoproj_mat4(float fov, float near, float far, float ratio);
 ** +-------------------+
 */
 
-void	mlx_bresenham(void *mlx_id, void *win_id, t_vertex2i v1, t_vertex2i v2);
+void	mlx_bresenham(t_mlximg *img, t_vertex2i v1, t_vertex2i v2);
 
 /*
 ** +----------------+

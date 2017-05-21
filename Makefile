@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/05/04 10:38:07 by upopee           ###   ########.fr        #
+#    Updated: 2017/05/19 23:09:33 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ INCLUDES = -I ./inc
 # Sources files
 LIB_FILES =		mlx_init \
 				mlx_end \
+				pixel_to_img \
 				\
 				ft_to_ver2i \
 				ft_ver2i_add \

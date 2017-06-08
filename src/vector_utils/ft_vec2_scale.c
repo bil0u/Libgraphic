@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_ver2i.c                                      :+:      :+:    :+:   */
+/*   ft_vec2_scale.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/20 01:31:21 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/04 23:04:16 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
+/*   Updated: 2017/06/03 14:54:11 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_vertex2i	ft_to_ver2i(int x, int y)
-{
-	t_vertex2i	dst;
+/*
+**	->	Multiply a vector with a scalar : v * n
+*/
 
-	dst.x = x;
-	dst.y = y;
-	dst.color = ft_rgba_default();
+
+t_vector2	ft_vec2_scale(t_vector2 v, float n)
+{
+	t_vector2	dst;
+
+	dst.x = v.x * n;
+	dst.y = v.y * n;
 	return (dst);
 }

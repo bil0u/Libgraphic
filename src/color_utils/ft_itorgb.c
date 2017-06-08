@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_ver2i.c                                      :+:      :+:    :+:   */
+/*   ft_itorgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/20 01:31:21 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/04 23:04:16 by upopee           ###   ########.fr       */
+/*   Created: 2017/06/05 08:55:52 by upopee            #+#    #+#             */
+/*   Updated: 2017/06/05 09:29:01 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_vertex2i	ft_to_ver2i(int x, int y)
+t_colorRGB		ft_itorgb(int color)
 {
-	t_vertex2i	dst;
+	t_colorRGB		dst;
 
-	dst.x = x;
-	dst.y = y;
-	dst.color = ft_rgba_default();
+	dst.blue = color & 0xFF;
+	dst.green = (color >> 8) & 0xFF;
+	dst.red = (color >> 16) & 0xFF;
 	return (dst);
 }

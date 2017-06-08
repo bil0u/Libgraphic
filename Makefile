@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/05/19 23:09:33 by upopee           ###   ########.fr        #
+#    Updated: 2017/06/05 09:12:47 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ NAME = libgraphic.a
 CC = gcc
 
 # Flags
-CFLAGS = -Wall -Werror -Wextra $(INCLUDES)
+CFLAGS = -Wall -Werror -Wextra $(INCLUDES) -g -O0
 
 # Sources path
-VPATH =$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(QUAT_SRCS_DIR):$(MLX_SRCS_DIR):$(CAMERA_SRCS_DIR):$(MATH_SRCS_DIR):$(DEBUG_SRCS_DIR)
+VPATH =$(COLOR_SRCS_DIR):$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(QUAT_SRCS_DIR):$(MLX_SRCS_DIR):$(CAMERA_SRCS_DIR):$(MATH_SRCS_DIR):$(DEBUG_SRCS_DIR)
 
 # Includes path
 INCLUDES = -I ./inc
@@ -31,6 +31,17 @@ INCLUDES = -I ./inc
 LIB_FILES =		mlx_init \
 				mlx_end \
 				pixel_to_img \
+				\
+				ft_rgb_default \
+				ft_rgb_set \
+				ft_rgba_default \
+				ft_rgba_set \
+				ft_rgba_add \
+				ft_rgba_sub \
+				ft_itorgb \
+				ft_itorgba \
+				ft_rgbtoi \
+				ft_rgbatoi \
 				\
 				ft_to_ver2i \
 				ft_ver2i_add \
@@ -64,7 +75,7 @@ LIB_FILES =		mlx_init \
 				ft_to_vec2 \
 				ft_vec2_add \
 				ft_vec2_sub \
-				ft_vec2_muln \
+				ft_vec2_scale \
 				ft_vec2_opp \
 				ft_vec2_dotprod \
 				ft_vec2_magn\
@@ -74,7 +85,7 @@ LIB_FILES =		mlx_init \
 				ft_to_vec3 \
 				ft_vec3_add \
 				ft_vec3_sub \
-				ft_vec3_muln \
+				ft_vec3_scale \
 				ft_vec3_opp \
 				ft_vec3_crossprod \
 				ft_vec3_dotprod \
@@ -88,7 +99,7 @@ LIB_FILES =		mlx_init \
 				ft_quat_sub \
 				ft_quat_sub_n \
 				ft_quat_mul \
-				ft_quat_mul_n \
+				ft_quat_scale \
 				ft_quat_opp \
 				ft_quat_inv \
 				ft_quat_crossprod \
@@ -128,6 +139,7 @@ LIB_FILES =		mlx_init \
 				ft_orthoproj_mat4 \
 				\
 				mlx_bresenham \
+				fast_line \
 				\
 				ft_spheric_to_vec3 \
 				ft_spheric_to_quat \
@@ -137,6 +149,9 @@ LIB_FILES =		mlx_init \
 				print_vector \
 				print_matrix \
 				print_camera \
+
+COLOR_SRCS = $(patsubst %,$(COLOR_SRCS_DIR)/%,$(LIB_FILES:=.c))
+COLOR_SRCS_DIR = ./src/color_utils
 
 VERTEX_SRCS = $(patsubst %,$(VERTEX_SRCS_DIR)/%,$(LIB_FILES:=.c))
 VERTEX_SRCS_DIR = ./src/vertex_utils

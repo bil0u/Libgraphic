@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/05/20 00:04:18 by upopee           ###   ########.fr       */
+/*   Updated: 2017/06/05 09:12:18 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define LIBGRAPHIC_H
 
 #include <mlx.h>
+#include <stdint.h>
 
 # define ABS(x) ((x) < 0 ? -(x) : (x))
 # define OPP(x) (-(x))
@@ -82,20 +83,38 @@ void		pixel_to_img(t_mlximg *img, int x, int y, unsigned int color);
 ** +------------+
 */
 
+# define DEFAULT_RED_VALUE 0xFF
+# define DEFAULT_GREEN_VALUE 0xFF
+# define DEFAULT_BLUE_VALUE 0xFF
+# define DEFAULT_ALPHA_VALUE 0x0
+
 typedef struct	s_colorRGB
 {
-	int			red;
-	int			green;
-	int			blue;
+	uint8_t		blue;
+	uint8_t		green;
+	uint8_t		red;
 }				t_colorRGB;
 
-typedef struct	s_colorCMJN
+t_colorRGB	ft_rgb_default(void);
+t_colorRGB	ft_rgb_set(uint8_t red, uint8_t green, uint8_t blue);
+
+typedef struct	s_colorRGBA
 {
-	int			cyan;
-	int			magenta;
-	int			yellow;
-	int			black;
-}				t_colorCMJN;
+	uint8_t		blue;
+	uint8_t		green;
+	uint8_t		red;
+	uint8_t		alpha;
+}				t_colorRGBA;
+
+t_colorRGBA	ft_rgba_default(void);
+t_colorRGBA	ft_rgba_set(uint8_t red, uint8_t green, uint8_t blue,
+							uint8_t alpha);
+t_colorRGBA	ft_rgba_add(t_colorRGBA color, t_colorRGBA add);
+t_colorRGBA	ft_rgba_sub(t_colorRGBA color, t_colorRGBA sub);
+t_colorRGB	ft_itorgb(int color);
+t_colorRGBA	ft_itorgba(int color);
+int			ft_rgbtoi(t_colorRGB color);
+int			ft_rgbatoi(t_colorRGBA color);
 
 /*
 ** +----------------------+
@@ -129,6 +148,7 @@ typedef struct	s_vertex2i
 {
 	int			x;
 	int			y;
+	t_colorRGBA	color;
 }				t_vertex2i;
 
 t_vertex2i	ft_to_ver2i(int x, int y);
@@ -142,6 +162,7 @@ typedef struct	s_vertex2f
 {
 	float		x;
 	float		y;
+	t_colorRGBA	color;
 }				t_vertex2f;
 
 t_vertex2f	ft_to_ver2f(float x, float y);
@@ -156,6 +177,7 @@ typedef struct	s_vertex3i
 	int			x;
 	int			y;
 	int			z;
+	t_colorRGBA	color;
 }				t_vertex3i;
 
 t_vertex3i	ft_to_ver3i(int x, int y, int z);
@@ -170,6 +192,7 @@ typedef struct	s_vertex3f
 	float		x;
 	float		y;
 	float		z;
+	t_colorRGBA	color;
 }				t_vertex3f;
 
 t_vertex3f	ft_to_ver3f(float x, float y, float z);
@@ -189,7 +212,7 @@ typedef struct	s_vector2
 t_vector2	ft_to_vec2(float x, float y);
 t_vector2	ft_vec2_add(t_vector2 v1, t_vector2 v2);
 t_vector2	ft_vec2_sub(t_vector2 v1, t_vector2 v2);
-t_vector2	ft_vec2_muln(t_vector2 v, float n);
+t_vector2	ft_vec2_scale(t_vector2 v, float n);
 t_vector2	ft_vec2_opp(t_vector2 v);
 float		ft_vec2_dotprod(t_vector2 v1, t_vector2 v2);
 float		ft_vec2_magn(t_vector2 v);
@@ -206,7 +229,7 @@ typedef struct	s_vector3
 t_vector3	ft_to_vec3(float x, float y, float z);
 t_vector3	ft_vec3_add(t_vector3 v1, t_vector3 v2);
 t_vector3	ft_vec3_sub(t_vector3 v1, t_vector3 v2);
-t_vector3	ft_vec3_muln(t_vector3 v, float n);
+t_vector3	ft_vec3_scale(t_vector3 v, float n);
 t_vector3	ft_vec3_opp(t_vector3 v);
 t_vector3	ft_vec3_crossprod(t_vector3 v1, t_vector3 v2);
 float		ft_vec3_dotprod(t_vector3 v1, t_vector3 v2);
@@ -234,7 +257,7 @@ t_quater	ft_quat_add_n(t_quater q, float n);
 t_quater	ft_quat_sub(t_quater q1, t_quater q2);
 t_quater	ft_quat_sub_n(t_quater q1, float n);
 t_quater	ft_quat_mul(t_quater q1, t_quater q2);
-t_quater	ft_quat_mul_n(t_quater q, float n);
+t_quater	ft_quat_scale(t_quater q, float n);
 t_quater	ft_quat_opp(t_quater q);
 t_quater	ft_quat_inv(t_quater q);
 
@@ -327,7 +350,8 @@ t_matrix4	ft_orthoproj_mat4(float fov, float near, float far, float ratio);
 ** +-------------------+
 */
 
-void	mlx_bresenham(t_mlximg *img, t_vertex2i v1, t_vertex2i v2);
+void	mlx_bresenham(t_mlximg *img, t_vertex2i a, t_vertex2i b);
+void	fast_line(t_mlximg *img, t_vertex2i a, t_vertex2i b);
 
 /*
 ** +----------------+

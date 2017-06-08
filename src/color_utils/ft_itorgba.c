@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quat_mul_n.c                                    :+:      :+:    :+:   */
+/*   ft_itorgba.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/15 04:46:28 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 00:32:51 by upopee           ###   ########.fr       */
+/*   Created: 2017/06/05 08:55:52 by upopee            #+#    #+#             */
+/*   Updated: 2017/06/07 00:57:20 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_quater	ft_quat_mul_n(t_quater q, float n)
+t_colorRGBA		ft_itorgba(int color)
 {
-	t_quater	dst;
+	t_colorRGBA		dst;
 
-	dst.w = q.w * n;
-	dst.x = q.x * n;
-	dst.y = q.y * n;
-	dst.z = q.z * n;
+	dst.blue = color & 0xFF;
+	dst.green = (color >> 8) & 0xFF;
+	dst.red = (color >> 16) & 0xFF;
+	dst.alpha = (color >> 24) & 0xFF;
 	return (dst);
 }

@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_ver2i.c                                      :+:      :+:    :+:   */
+/*   ft_rgba_add.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/20 01:31:21 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/04 23:04:16 by upopee           ###   ########.fr       */
+/*   Created: 2017/06/03 16:57:07 by upopee            #+#    #+#             */
+/*   Updated: 2017/06/05 04:00:13 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_vertex2i	ft_to_ver2i(int x, int y)
+t_colorRGBA	ft_rgba_add(t_colorRGBA color, t_colorRGBA add)
 {
-	t_vertex2i	dst;
-
-	dst.x = x;
-	dst.y = y;
-	dst.color = ft_rgba_default();
-	return (dst);
+	color.red += add.red;
+	color.green += add.green;
+	color.blue += add.blue;
+	color.alpha += add.alpha;
+	return (color);
 }

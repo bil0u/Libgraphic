@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_ver2i.c                                      :+:      :+:    :+:   */
+/*   ft_quat_scale.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/20 01:31:21 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/04 23:04:16 by upopee           ###   ########.fr       */
+/*   Created: 2017/04/15 04:46:28 by upopee            #+#    #+#             */
+/*   Updated: 2017/06/03 14:55:19 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_vertex2i	ft_to_ver2i(int x, int y)
+t_quater	ft_quat_scale(t_quater q, float n)
 {
-	t_vertex2i	dst;
+	t_quater	dst;
 
-	dst.x = x;
-	dst.y = y;
-	dst.color = ft_rgba_default();
+	dst.w = q.w * n;
+	dst.x = q.x * n;
+	dst.y = q.y * n;
+	dst.z = q.z * n;
 	return (dst);
 }

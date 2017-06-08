@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_ver2i.c                                      :+:      :+:    :+:   */
+/*   ft_rgb_set.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/20 01:31:21 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/04 23:04:16 by upopee           ###   ########.fr       */
+/*   Created: 2017/06/03 16:57:07 by upopee            #+#    #+#             */
+/*   Updated: 2017/06/04 22:49:46 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_vertex2i	ft_to_ver2i(int x, int y)
+t_colorRGB	ft_rgb_set(uint8_t red, uint8_t green, uint8_t blue)
 {
-	t_vertex2i	dst;
+	t_colorRGB	dst;
 
-	dst.x = x;
-	dst.y = y;
-	dst.color = ft_rgba_default();
+	dst.red = red;
+	dst.green = green;
+	dst.blue = blue;
 	return (dst);
 }

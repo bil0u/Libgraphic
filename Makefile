@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/06/05 09:12:47 by upopee           ###   ########.fr        #
+#*   Updated: 2017/06/28 00:51:11 by upopee           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -145,6 +145,7 @@ LIB_FILES =		mlx_init \
 				ft_spheric_to_quat \
 				ft_viewport_tlc \
 				ft_viewport_llc \
+				ft_to_frange \
 				\
 				print_vector \
 				print_matrix \

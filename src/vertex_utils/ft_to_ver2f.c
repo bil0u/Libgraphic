@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/20 01:31:21 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/04 23:04:12 by upopee           ###   ########.fr       */
+/*   Updated: 2017/06/28 01:49:48 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ t_vertex2f	ft_to_ver2f(float x, float y)
 
 	dst.x = x;
 	dst.y = y;
-	dst.color = ft_rgba_default();
 	return (dst);
 }

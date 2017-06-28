@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/26 22:00:52 by upopee           ###   ########.fr       */
+/*   Updated: 2017/06/28 01:40:35 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ typedef struct	s_vertex2i
 {
 	int			x;
 	int			y;
-	t_colorRGBA	color;
+	int			color;
 }				t_vertex2i;
 
 t_vertex2i	ft_to_ver2i(int x, int y);
@@ -162,7 +162,7 @@ typedef struct	s_vertex2f
 {
 	float		x;
 	float		y;
-	t_colorRGBA	color;
+	int			color;
 }				t_vertex2f;
 
 t_vertex2f	ft_to_ver2f(float x, float y);
@@ -177,7 +177,7 @@ typedef struct	s_vertex3i
 	int			x;
 	int			y;
 	int			z;
-	t_colorRGBA	color;
+	int			color;
 }				t_vertex3i;
 
 t_vertex3i	ft_to_ver3i(int x, int y, int z);
@@ -192,7 +192,7 @@ typedef struct	s_vertex3f
 	float		x;
 	float		y;
 	float		z;
-	t_colorRGBA	color;
+	int			color;
 }				t_vertex3f;
 
 t_vertex3f	ft_to_ver3f(float x, float y, float z);

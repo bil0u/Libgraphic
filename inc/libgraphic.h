@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/28 01:40:35 by upopee           ###   ########.fr       */
+/*   Updated: 2017/06/28 21:55:03 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ void		pixel_to_img(t_mlximg *img, int x, int y, unsigned int color);
 
 typedef struct	s_colorRGB
 {
-	uint8_t		blue;
-	uint8_t		green;
 	uint8_t		red;
+	uint8_t		green;
+	uint8_t		blue;
 }				t_colorRGB;
 
 t_colorRGB	ft_rgb_default(void);
@@ -100,10 +100,10 @@ t_colorRGB	ft_rgb_set(uint8_t red, uint8_t green, uint8_t blue);
 
 typedef struct	s_colorRGBA
 {
-	uint8_t		blue;
-	uint8_t		green;
-	uint8_t		red;
 	uint8_t		alpha;
+	uint8_t		red;
+	uint8_t		green;
+	uint8_t		blue;
 }				t_colorRGBA;
 
 t_colorRGBA	ft_rgba_default(void);
@@ -115,6 +115,9 @@ t_colorRGB	ft_itorgb(int color);
 t_colorRGBA	ft_itorgba(int color);
 int			ft_rgbtoi(t_colorRGB color);
 int			ft_rgbatoi(t_colorRGBA color);
+t_colorRGB	ft_rgb_lerp(t_colorRGB a, t_colorRGB b, float i);
+t_colorRGBA	ft_rgba_lerp(t_colorRGBA a, t_colorRGBA b, float i);
+int			ft_icolor_lerp(int a, int b, float i);
 
 /*
 ** +----------------------+

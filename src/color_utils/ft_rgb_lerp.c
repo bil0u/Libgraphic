@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rgbatoi.c                                       :+:      :+:    :+:   */
+/*   ft_rgb_lerp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/05 08:55:52 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/28 22:10:43 by upopee           ###   ########.fr       */
+/*   Created: 2017/06/28 21:06:05 by upopee            #+#    #+#             */
+/*   Updated: 2017/06/28 21:46:25 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-int		ft_rgbatoi(t_colorRGBA color)
+t_colorRGB	ft_rgb_lerp(t_colorRGB a, t_colorRGB b, float i)
 {
-	int		dst;
+	t_colorRGB	shade;
 
-	dst = color.blue | (color.green << 8) |
-			(color.red << 16) | (color.alpha << 24);
-	return (dst);
+	shade.red = a.red + (b.red - a.red) * i;
+	shade.green = a.green + (b.green - a.green) * i;
+	shade.blue = a.blue + (b.blue - a.blue) * i;
+	return (shade);
 }

@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#*   Updated: 2017/06/28 00:51:11 by upopee           ###   ########.fr       *#
+#    Updated: 2017/06/28 21:45:47 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,8 @@ LIB_FILES =		mlx_init \
 				pixel_to_img \
 				\
 				ft_rgb_default \
-				ft_rgb_set \
 				ft_rgba_default \
+				ft_rgb_set \
 				ft_rgba_set \
 				ft_rgba_add \
 				ft_rgba_sub \
@@ -42,6 +42,9 @@ LIB_FILES =		mlx_init \
 				ft_itorgba \
 				ft_rgbtoi \
 				ft_rgbatoi \
+				ft_rgb_lerp \
+				ft_rgba_lerp \
+				ft_icolor_lerp \
 				\
 				ft_to_ver2i \
 				ft_ver2i_add \

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rgbatoi.c                                       :+:      :+:    :+:   */
+/*   ft_icolor_lerp.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/05 08:55:52 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/28 22:10:43 by upopee           ###   ########.fr       */
+/*   Created: 2017/06/28 21:06:05 by upopee            #+#    #+#             */
+/*   Updated: 2017/06/29 01:27:57 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-int		ft_rgbatoi(t_colorRGBA color)
+int		ft_icolor_lerp(int a, int b, float i)
 {
-	int		dst;
+	int		bm;
+	int		gm;
+	int		rm;
+	int		am;
 
-	dst = color.blue | (color.green << 8) |
-			(color.red << 16) | (color.alpha << 24);
-	return (dst);
+	bm = 0xFF;
+	gm = 0xFF00;
+	rm = 0xFF0000;
+	am = 0xFF000000;
+	return ((int)(((a & bm) + ((b & bm) - (a & bm)) * i))
+		| ((int)(((a & gm) >> 8) + (((b & gm) - (a & gm)) >> 8) * i) << 8)
+		| ((int)(((a & rm) >> 16) + (((b & rm) - (a & rm)) >> 16) * i) << 16)
+		| ((int)(((a & am) >> 24) + (((b & am) - (a & am)) >> 24) * i) << 24) );
 }

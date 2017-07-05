@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/07/01 14:41:16 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/05 04:11:11 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -391,6 +391,7 @@ t_vertex2i	ft_viewport_tlc(t_vector3 ndc, t_vertex2i origin,
 t_vertex2i	ft_viewport_llc(t_vector3 ndc, t_vertex2i origin,
 							unsigned int width, unsigned int height);
 float		ft_to_frange(t_frange in, t_frange out, float x);
+t_vertex2i	ft_ver3f_proj(t_vertex3f v, t_matrix4 m, int width, int height);
 
 /*
 ** +-----------------+

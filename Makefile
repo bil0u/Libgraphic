@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/06/28 21:45:47 by upopee           ###   ########.fr        #
+#    Updated: 2017/07/05 04:12:53 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -149,6 +149,7 @@ LIB_FILES =		mlx_init \
 				ft_viewport_tlc \
 				ft_viewport_llc \
 				ft_to_frange \
+				ft_ver3f_proj \
 				\
 				print_vector \
 				print_matrix \
@@ -183,7 +184,7 @@ DEBUG_SRCS_DIR = ./src/debug_utils
 
 # Objects
 OBJECTS = $(patsubst %,$(OBJ_DIR)/%,$(LIB_FILES:=.o))
-OBJ_DIR = ./obj
+OBJ_DIR = ./.obj
 
 # -- RULES --
 

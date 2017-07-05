@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/28 21:55:03 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/01 14:41:16 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 ** +----------+
 */
 
-# define MLXWIN_WIDTH_MAX 1400
-# define MLXWIN_HEIGHT_MAX 800
+# define MLXWIN_WIDTH_MAX 1680
+# define MLXWIN_HEIGHT_MAX 1000
 # define MLXWIN_DEFAULT_OFFSET 50
 # define MLXWIN_MARGEX (MLXWIN_WIDTH_MAX * 0.15)
 # define MLXWIN_MARGEY (MLXWIN_HEIGHT_MAX * 0.15)
@@ -66,6 +66,13 @@ typedef struct	s_mlximg
 	int			endian;
 }				t_mlximg;
 
+typedef struct	s_mlxfbuf
+{
+	t_mlximg	*frame;
+	int			nb_frames;
+	int			curr;
+}				t_mlxfbuf;
+
 t_mlxenv	*init_mlxenv(void);
 void		del_mlxenv(t_mlxenv *m_env);
 
@@ -74,6 +81,9 @@ void		del_mlxwin(void *mlx_id, t_mlxwin *m_win);
 
 t_mlximg	*init_mlximg(void *mlx_id, int sz_x, int sz_y);
 void		del_mlximg(void *mlx_id, t_mlximg *m_img);
+
+t_mlxfbuf	*init_mlxfbuf(void *mlx_id, int n_frames, int sz_x, int sz_y);
+void		del_mlxfbuf(void *mlx_id, t_mlxfbuf *b);
 
 void		pixel_to_img(t_mlximg *img, int x, int y, unsigned int color);
 

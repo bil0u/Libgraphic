@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 16:54:56 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 19:08:49 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/01 02:04:55 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,23 @@ void	del_mlximg(void *mlx_id, t_mlximg *m_img)
 		if (mlx_id && m_img->id)
 			mlx_destroy_image(mlx_id, m_img->id);
 		free(m_img);
+	}
+}
+
+void	del_mlxfbuf(void *mlx_id, t_mlxfbuf *b)
+{
+	int		i;
+
+	if (b && mlx_id)
+	{
+		if (b->frame)
+		{
+			i = b->nb_frames;
+			while (i-- > 0)
+				if (b->frame[i].id)
+					mlx_destroy_image(mlx_id, b->frame[i].id);
+			free(b->frame);
+		}
+		free(b);
 	}
 }

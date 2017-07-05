@@ -6,14 +6,14 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 16:54:56 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 19:08:22 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/01 02:05:40 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libgraphic.h"
 
-t_mlxenv	*init_mlxenv()
+t_mlxenv		*init_mlxenv()
 {
 	t_mlxenv	*env;
 
@@ -29,7 +29,7 @@ t_mlxenv	*init_mlxenv()
 	return (env);
 }
 
-t_mlxwin	*init_mlxwin(void *mlx_ptr, int width, int height, char *title)
+t_mlxwin		*init_mlxwin(void *mlx_ptr, int width, int height, char *title)
 {
 	t_mlxwin	*win;
 
@@ -48,7 +48,7 @@ t_mlxwin	*init_mlxwin(void *mlx_ptr, int width, int height, char *title)
 	return (win);
 }
 
-t_mlximg	*init_mlximg(void *mlx_ptr, int	width, int height)
+t_mlximg		*init_mlximg(void *mlx_ptr, int	width, int height)
 {
 	t_mlximg	*img;
 
@@ -68,4 +68,32 @@ t_mlximg	*init_mlximg(void *mlx_ptr, int	width, int height)
 	img->limit = img->data + img->width * img->bpp + img->height * img->sz_line;
 	img->center = img->data + ((img->limit - img->data) / 2);
 	return (img);
+}
+
+t_mlxfbuf		*init_mlxfbuf(void *mlx_ptr, int n, int w, int h)
+{
+	t_mlxfbuf	*b;
+	int			i;
+
+	if ((b = (t_mlxfbuf *)malloc(sizeof(t_mlxfbuf))) == NULL)
+		return (NULL);
+	b->curr = 0;
+	i = 0;
+	if ((b->frame = (t_mlximg *)malloc(sizeof(t_mlximg) * n)) != NULL)
+	{
+		while (i < n && (b->frame[i].id = mlx_new_image(mlx_ptr, w, h)) != NULL)
+		{
+			b->frame[i].width = w;
+			b->frame[i].height = h;
+			b->frame[i].data = mlx_get_data_addr(b->frame[i].id,
+				&b->frame[i].bpp, &b->frame[i].sz_line, &b->frame[i].endian);
+			b->frame[i].limit = b->frame[i].data + b->frame[i].width
+				* b->frame[i].bpp + b->frame[i].height * b->frame[i].sz_line;
+			b->frame[i].center = b->frame[i].data
+				+ ((b->frame[i].limit - b->frame[i].data) / 2);
+			i++;
+		}
+	}
+	b->nb_frames = i;
+	return (b);
 }

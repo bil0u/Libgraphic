@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/07/05 04:11:11 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/06 21:38:31 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #ifndef LIBGRAPHIC_H
 # define LIBGRAPHIC_H
 
-#include <mlx.h>
+#include "mlx.h"
 #include <stdint.h>
 
 # define ABS(x) ((x) < 0 ? -(x) : (x))

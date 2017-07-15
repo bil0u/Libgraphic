@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/07/06 21:38:31 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/10 03:55:44 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 */
 
 # define MLXWIN_WIDTH_MAX 1680
-# define MLXWIN_HEIGHT_MAX 1000
+# define MLXWIN_HEIGHT_MAX 900
 # define MLXWIN_DEFAULT_OFFSET 50
 # define MLXWIN_MARGEX (MLXWIN_WIDTH_MAX * 0.15)
 # define MLXWIN_MARGEY (MLXWIN_HEIGHT_MAX * 0.15)

@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/07/05 04:12:53 by upopee           ###   ########.fr        #
+#    Updated: 2017/07/16 01:02:33 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = libgraphic.a
 CC = gcc
 
 # Flags
-CFLAGS = -Wall -Werror -Wextra $(INCLUDES) -g -O0
+CFLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
 # Sources path
 VPATH =$(COLOR_SRCS_DIR):$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(QUAT_SRCS_DIR):$(MLX_SRCS_DIR):$(CAMERA_SRCS_DIR):$(MATH_SRCS_DIR):$(DEBUG_SRCS_DIR)

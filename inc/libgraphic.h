@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 14:58:41 by upopee            #+#    #+#             */
-/*   Updated: 2017/07/23 16:20:04 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/24 01:23:06 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,6 +287,7 @@ void		ft_quat_to_spheric_rot(t_quater q, float *lon,
 t_quater	ft_spheric_rot_to_quat(float lat, float lon, float angle);
 
 int			ft_quat_equal(t_quater q1, t_quater q2);
+t_quater	ft_quat_lerp(t_quater a, t_quater b, float alpha);
 
 /*
 ** +-------------+

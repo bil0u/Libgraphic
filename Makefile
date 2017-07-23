@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/07/16 01:02:33 by upopee           ###   ########.fr        #
+#    Updated: 2017/07/24 01:23:20 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,6 +115,7 @@ LIB_FILES =		mlx_init \
 				ft_quat_to_spheric_rot \
 				ft_spheric_rot_to_quat \
 				ft_quat_equal \
+				ft_quat_lerp \
 				\
 				ft_gen_identity_mat4 \
 				ft_gen_translate_mat4 \

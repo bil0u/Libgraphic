@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 16:45:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/03 14:54:23 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:12:19 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 **	->	Multiply a vector with a scalar : v * n
 */
 
-
-t_vector3	ft_vec3_scale(t_vector3 v, float n)
+t_vector3		ft_vec3_scale(t_vector3 v, float n)
 {
 	t_vector3	dst;
 

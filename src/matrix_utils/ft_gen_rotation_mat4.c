@@ -6,14 +6,12 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 08:14:56 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 10:16:38 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:06:19 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "libgraphic.h"
-
-
 
 static t_matrix4	ft_gen_matrix(float rad_angle, t_vector3 v)
 {
@@ -44,8 +42,7 @@ static t_matrix4	ft_gen_matrix(float rad_angle, t_vector3 v)
 	return (dst);
 }
 
-
-t_matrix4	ft_gen_rotation_mat4(float deg_angle, t_vector3 v)
+t_matrix4			ft_gen_rotation_mat4(float deg_angle, t_vector3 v)
 {
 	ft_vec3_normalize(v);
 	return (ft_gen_matrix(TO_RADIAN(deg_angle), v));

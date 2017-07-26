@@ -6,14 +6,14 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 16:54:56 by upopee            #+#    #+#             */
-/*   Updated: 2017/07/01 02:05:40 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:10:15 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libgraphic.h"
 
-t_mlxenv		*init_mlxenv()
+t_mlxenv		*init_mlxenv(void)
 {
 	t_mlxenv	*env;
 
@@ -48,7 +48,7 @@ t_mlxwin		*init_mlxwin(void *mlx_ptr, int width, int height, char *title)
 	return (win);
 }
 
-t_mlximg		*init_mlximg(void *mlx_ptr, int	width, int height)
+t_mlximg		*init_mlximg(void *mlx_ptr, int width, int height)
 {
 	t_mlximg	*img;
 

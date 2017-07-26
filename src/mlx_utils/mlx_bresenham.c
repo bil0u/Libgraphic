@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/01 09:49:25 by upopee            #+#    #+#             */
-/*   Updated: 2017/05/23 13:47:45 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:08:34 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		is_visible(t_vertex2i pt, int w, int h)
 **		Drawing algorithm comply to bresenham integer only variant
 */
 
-void	mlx_bresenham(t_mlximg *img, t_vertex2i a, t_vertex2i b)
+void			mlx_bresenham(t_mlximg *img, t_vertex2i a, t_vertex2i b)
 {
 	int	delta_x;
 	int	delta_y;
@@ -34,7 +34,7 @@ void	mlx_bresenham(t_mlximg *img, t_vertex2i a, t_vertex2i b)
 	while (a.x <= b.x)
 	{
 		if (is_visible(a, img->width, img->height))
-			pixel_to_img(img, a.x, a.y, 0x00FFFFFF),
+			pixel_to_img(img, a.x, a.y, 0x00FFFFFF);
 		a.x++;
 		if ((error -= delta_y) <= 0)
 		{

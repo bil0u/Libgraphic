@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 08:14:56 by upopee            #+#    #+#             */
-/*   Updated: 2017/05/01 17:50:30 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:07:14 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ static t_matrix4	ft_gen_rot_z(float rad_angle_z)
 	return (rot_z);
 }
 
-
-t_matrix4	ft_gen_euler_rotation_mat4(float deg_x, float deg_y, float deg_z)
+t_matrix4			ft_gen_euler_rotation_mat4(float deg_x, float deg_y,
+																float deg_z)
 {
 	t_matrix4	rot_x;
 	t_matrix4	rot_y;

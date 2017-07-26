@@ -6,14 +6,24 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 05:40:10 by upopee            #+#    #+#             */
-/*   Updated: 2017/04/25 10:32:58 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:03:54 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libgraphic.h"
 
-void	print_camera(t_camera cam)
+static void		print_cam2(t_camera cam)
+{
+	printf("> Near :\t %2$ .*1$f\n", 6, cam.near);
+	printf("> Far :\t\t %2$ .*1$f\n", 6, cam.far);
+	printf("> Top limit :\t %2$ .*1$f\n", 6, cam.top_limit);
+	printf("> Bottom limit : %2$ .*1$f\n", 6, cam.bottom_limit);
+	printf("> Right limit :\t %2$ .*1$f\n", 6, cam.right_limit);
+	printf("> Left limit :\t %2$ .*1$f\n", 6, cam.left_limit);
+}
+
+void			print_camera(t_camera cam)
 {
 	int		precision;
 
@@ -28,20 +38,7 @@ void	print_camera(t_camera cam)
 			precision, cam.forward.x, cam.forward.y, cam.forward.z);
 	printf("> Side .\t{%2$ .*1$f, %3$ .*1$f, %4$ .*1$f }\n",
 			precision, cam.side.x, cam.side.y, cam.side.z);
-	printf("> View angle :\t %2$ .*1$f\n",
-			precision, cam.view_angle);
-	printf("> Aspect ratio : %2$ .*1$f\n",
-			precision, cam.aspect_ratio);
-	printf("> Near :\t %2$ .*1$f\n",
-			6, cam.near);
-	printf("> Far :\t\t %2$ .*1$f\n",
-			6, cam.far);
-	printf("> Top limit :\t %2$ .*1$f\n",
-			6, cam.top_limit);
-	printf("> Bottom limit : %2$ .*1$f\n",
-			6, cam.bottom_limit);
-	printf("> Right limit :\t %2$ .*1$f\n",
-			6, cam.right_limit);
-	printf("> Left limit :\t %2$ .*1$f\n",
-			6, cam.left_limit);
+	printf("> View angle :\t %2$ .*1$f\n", precision, cam.view_angle);
+	printf("> Aspect ratio : %2$ .*1$f\n", precision, cam.aspect_ratio);
+	print_cam2(cam);
 }

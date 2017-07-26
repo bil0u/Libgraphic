@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 16:57:17 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/03 15:25:25 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:08:58 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void		case_two(t_mlximg *img, int long_len, int inc, t_vertex2i pt)
 
 void			fast_line(t_mlximg *img, t_vertex2i a, t_vertex2i b)
 {
-   	int		y_longer;
+	int		y_longer;
 	int		short_len;
 	int		long_len;
 	int		inc;

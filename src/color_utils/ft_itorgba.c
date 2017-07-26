@@ -6,15 +6,15 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 08:55:52 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/07 00:57:20 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:23:49 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_colorRGBA		ft_itorgba(int color)
+t_colorrgba		ft_itorgba(int color)
 {
-	t_colorRGBA		dst;
+	t_colorrgba		dst;
 
 	dst.blue = color & 0xFF;
 	dst.green = (color >> 8) & 0xFF;

@@ -6,15 +6,15 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 21:06:05 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/28 21:48:29 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:24:45 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-t_colorRGBA	ft_rgba_lerp(t_colorRGBA a, t_colorRGBA b, float i)
+t_colorrgba	ft_rgba_lerp(t_colorrgba a, t_colorrgba b, float i)
 {
-	t_colorRGBA	shade;
+	t_colorrgba	shade;
 
 	shade.red = a.red + (b.red - a.red) * i;
 	shade.green = a.green + (b.green - a.green) * i;

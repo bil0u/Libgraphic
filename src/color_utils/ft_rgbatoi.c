@@ -6,13 +6,13 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 08:55:52 by upopee            #+#    #+#             */
-/*   Updated: 2017/06/28 22:10:43 by upopee           ###   ########.fr       */
+/*   Updated: 2017/07/26 20:24:52 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libgraphic.h"
 
-int		ft_rgbatoi(t_colorRGBA color)
+int		ft_rgbatoi(t_colorrgba color)
 {
 	int		dst;
 

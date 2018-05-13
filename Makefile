@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2018/05/14 01:32:47 by upopee           ###   ########.fr        #
+#    Updated: 2018/05/14 01:35:14 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -241,12 +241,12 @@ $(OBJ_DIR)/%.o: %.c Makefile
 
 # -- RULES --
 
-all:
+all: $(MLX_DEP)
 	@$(MAKE) -j $(NAME)
 
 $(NAME): $(LIB)
 
-$(LIB): $(MLX_DEP) $(OBJ_DIR) $(LIBGR_OBJS)
+$(LIB): $(OBJ_DIR) $(LIBGR_OBJS)
 	@$(AR) $(LIB) $(LIBGR_OBJS) $(MLX_OBJ)
 	@printf "\r$(ERASELN)$(GREEN_B)✓$(EOC) $(YELLOW)$(NAME)$(EOC) : Library created\n"
 

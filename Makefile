@@ -6,227 +6,280 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2017/07/24 01:23:20 by upopee           ###   ########.fr        #
+#    Updated: 2018/05/13 20:46:31 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # -- VARIABLES --
 
-# Name
-NAME = libgraphic.a
+NAME =				libgraphic
+LIB =				$(NAME).a
+CC =				gcc
+CFLAGS =			-Wall -Werror -Wextra
+CPPFLAGS =			$(INCLUDES)
+DEPFLAGS =			-MMD
 
-# Compiler
-CC = gcc
+SHELL =				/bin/bash
+AR =				ar -rcs
+MKDIR =				mkdir -p
+RMDIR =				rm -rf
+RM =				rm -f
+NORM =				norminette
 
-# Flags
-CFLAGS = -Wall -Werror -Wextra $(INCLUDES)
+VPATH =				$(MLXTOOLS_DIR)/$(SRC_DIR):\
+					$(COLOR_DIR)/$(SRC_DIR):\
+					$(VERTEX_DIR)/$(SRC_DIR):\
+					$(VECTOR_DIR)/$(SRC_DIR):\
+					$(QUATER_DIR)/$(SRC_DIR):\
+					$(MATRIX_DIR)/$(SRC_DIR):\
+					$(CAMERA_DIR)/$(SRC_DIR):\
+					$(GMATHS_DIR)/$(SRC_DIR):\
+					$(DEBUG_DIR)/$(SRC_DIR):\
 
-# Sources path
-VPATH =$(COLOR_SRCS_DIR):$(VERTEX_SRCS_DIR):$(VECTOR_SRCS_DIR):$(MATRIX_SRCS_DIR):$(QUAT_SRCS_DIR):$(MLX_SRCS_DIR):$(CAMERA_SRCS_DIR):$(MATH_SRCS_DIR):$(DEBUG_SRCS_DIR)
+INCLUDES =			-I $(MLXTOOLS_DIR)/$(INC_DIR) \
+					-I $(COLOR_DIR)/$(INC_DIR) \
+					-I $(VERTEX_DIR)/$(INC_DIR) \
+					-I $(VECTOR_DIR)/$(INC_DIR) \
+					-I $(QUATER_DIR)/$(INC_DIR) \
+					-I $(MATRIX_DIR)/$(INC_DIR) \
+					-I $(CAMERA_DIR)/$(INC_DIR) \
+					-I $(GMATHS_DIR)/$(INC_DIR) \
+					-I $(DEBUG_DIR)/$(INC_DIR) \
 
-# Includes path
-INCLUDES = -I ./inc
+SOURCES =			$(MLXTOOLS_SRC) \
+					$(COLOR_SRC) \
+					$(VERTEX_SRC) \
+					$(VECTOR_SRC) \
+					$(QUATER_SRC) \
+					$(MATRIX_SRC) \
+					$(CAMERA_SRC) \
+					$(GMATHS_SRC) \
+					$(DEBUG_SRC) \
 
-# Sources files
-LIB_FILES =		mlx_init \
-				mlx_end \
-				pixel_to_img \
-				\
-				ft_rgb_default \
-				ft_rgba_default \
-				ft_rgb_set \
-				ft_rgba_set \
-				ft_rgba_add \
-				ft_rgba_sub \
-				ft_itorgb \
-				ft_itorgba \
-				ft_rgbtoi \
-				ft_rgbatoi \
-				ft_rgb_lerp \
-				ft_rgba_lerp \
-				ft_icolor_lerp \
-				\
-				ft_to_ver2i \
-				ft_ver2i_add \
-				ft_ver2i_sub \
-				ft_ver2i_div \
-				ft_ver2i_mul \
-				ft_ver2i_opp \
-				\
-				ft_to_ver2f \
-				ft_ver2f_add \
-				ft_ver2f_sub \
-				ft_ver2f_div \
-				ft_ver2f_mul \
-				ft_ver2f_opp \
-				\
-				ft_to_ver3i \
-				ft_ver3i_add \
-				ft_ver3i_sub \
-				ft_ver3i_div \
-				ft_ver3i_mul \
-				ft_ver3i_opp \
-				\
-				ft_to_ver3f \
-				ft_ver3f_add \
-				ft_ver3f_sub \
-				ft_ver3f_div \
-				ft_ver3f_mul \
-				ft_ver3f_opp \
-				ft_ver3i_to_ver3f \
-				\
-				ft_to_vec2 \
-				ft_vec2_add \
-				ft_vec2_sub \
-				ft_vec2_scale \
-				ft_vec2_opp \
-				ft_vec2_dotprod \
-				ft_vec2_magn\
-				ft_vec2_normalize \
-				ft_vec2_equal \
-				\
-				ft_to_vec3 \
-				ft_vec3_add \
-				ft_vec3_sub \
-				ft_vec3_scale \
-				ft_vec3_opp \
-				ft_vec3_crossprod \
-				ft_vec3_dotprod \
-				ft_vec3_magn\
-				ft_vec3_normalize \
-				ft_vec3_equal \
-				\
-				ft_to_quat \
-				ft_quat_add \
-				ft_quat_add_n \
-				ft_quat_sub \
-				ft_quat_sub_n \
-				ft_quat_mul \
-				ft_quat_scale \
-				ft_quat_opp \
-				ft_quat_inv \
-				ft_quat_crossprod \
-				ft_quat_dotprod \
-				ft_quat_magn\
-				ft_quat_normalize \
-				ft_quat_dotnormalize \
-				ft_rot_to_quat \
-				ft_quat_to_rot \
-				ft_quat_to_spheric_rot \
-				ft_spheric_rot_to_quat \
-				ft_quat_equal \
-				ft_quat_lerp \
-				\
-				ft_gen_identity_mat4 \
-				ft_gen_translate_mat4 \
-				ft_gen_scale_mat4 \
-				ft_gen_rotation_mat4 \
-				ft_gen_euler_rotation_mat4 \
-				ft_mat4_premul_vec3 \
-				ft_mat4_postmul_vec3 \
-				ft_mat4_premul_quat \
-				ft_mat4_postmul_quat \
-				ft_mat4_premul_norm_quat \
-				ft_mat4_postmul_norm_quat \
-				ft_mat4_mul_mat4 \
-				ft_transpose_mat4 \
-				ft_mat4_to_quat \
-				ft_quat_to_mat4 \
-				ft_quat_to_vec3 \
-				ft_vec3_to_quat \
-				\
-				ft_init_cam \
-				ft_init_cam_new \
-				ft_lookat \
-				ft_view_mat4 \
-				ft_persproj_mat4 \
-				ft_orthoproj_mat4 \
-				\
-				mlx_bresenham \
-				fast_line \
-				\
-				ft_spheric_to_vec3 \
-				ft_spheric_to_quat \
-				ft_viewport_tlc \
-				ft_viewport_llc \
-				ft_to_frange \
-				ft_ver3f_proj \
-				\
-				print_vector \
-				print_matrix \
-				print_camera \
+LIBGR_OBJS =		$(patsubst %,$(OBJ_DIR)/%,$(notdir $(SOURCES:.c=.o)))
 
-COLOR_SRCS = $(patsubst %,$(COLOR_SRCS_DIR)/%,$(LIB_FILES:=.c))
-COLOR_SRCS_DIR = ./src/color_utils
+ALL_OBJS =			$(LIBGR_OBJS)
 
-VERTEX_SRCS = $(patsubst %,$(VERTEX_SRCS_DIR)/%,$(LIB_FILES:=.c))
-VERTEX_SRCS_DIR = ./src/vertex_utils
+# -- PATHS NAMES --
 
-VECTOR_SRCS = $(patsubst %,$(VECTOR_SRCS_DIR)/%,$(LIB_FILES:=.c))
-VECTOR_SRCS_DIR = ./src/vector_utils
+SRC_DIR =			sources
+INC_DIR =			includes
+OBJ_DIR =			.objects
 
-MATRIX_SRCS = $(patsubst %,$(MATRIX_SRCS_DIR)/%,$(LIB_FILES:=.c))
-MATRIX_SRCS_DIR = ./src/matrix_utils
+# -- FILES --
 
-QUAT_SRCS = $(patsubst %,$(QUAT_SRCS_DIR)/%,$(LIB_FILES:=.c))
-QUAT_SRCS_DIR = ./src/quaternion_utils
+MLXTOOLS_DIR =		mlx_tools
+MLXTOOLS_SRC =		$(patsubst %,$(MLXTOOLS_DIR)/$(SRC_DIR)/%,$(MLXTOOLS_FILES:=.c))
+MLXTOOLS_FILES =	mlx_init \
+					mlx_end \
+					mlx_bresenham \
+					fast_line \
+					pixel_to_img \
 
-MLX_SRCS = $(patsubst %,$(MLX_SRCS_DIR)/%,$(LIB_FILES:=.c))
-MLX_SRCS_DIR = ./src/mlx_utils
+COLOR_DIR =			colors
+COLOR_SRC =			$(patsubst %,$(COLOR_DIR)/$(SRC_DIR)/%,$(COLOR_FILES:=.c))
+COLOR_FILES =		ft_rgb_default \
+					ft_rgba_default \
+					ft_rgb_set \
+					ft_rgba_set \
+					ft_rgba_add \
+					ft_rgba_sub \
+					ft_itorgb \
+					ft_itorgba \
+					ft_rgbtoi \
+					ft_rgbatoi \
+					ft_rgb_lerp \
+					ft_rgba_lerp \
+					ft_icolor_lerp \
 
-CAMERA_SRCS = $(patsubst %,$(CAMERA_SRCS_DIR)/%,$(LIB_FILES:=.c))
-CAMERA_SRCS_DIR = ./src/camera_utils
+VERTEX_DIR =		vertex
+VERTEX_SRC =		$(patsubst %,$(VERTEX_DIR)/$(SRC_DIR)/%,$(VERTEX_FILES:=.c))
+VERTEX_FILES =		ft_to_ver2i \
+					ft_ver2i_add \
+					ft_ver2i_sub \
+					ft_ver2i_div \
+					ft_ver2i_mul \
+					ft_ver2i_opp \
+					\
+					ft_to_ver3i \
+					ft_ver3i_add \
+					ft_ver3i_sub \
+					ft_ver3i_div \
+					ft_ver3i_mul \
+					ft_ver3i_opp \
+					ft_ver3i_to_ver3f \
+					\
+					ft_to_ver2f \
+					ft_ver2f_add \
+					ft_ver2f_sub \
+					ft_ver2f_div \
+					ft_ver2f_mul \
+					ft_ver2f_opp \
+					\
+					ft_to_ver3f \
+					ft_ver3f_add \
+					ft_ver3f_sub \
+					ft_ver3f_div \
+					ft_ver3f_mul \
+					ft_ver3f_opp \
 
-MATH_SRCS = $(patsubst %,$(MATH_SRCS_DIR)/%,$(LIB_FILES:=.c))
-MATH_SRCS_DIR = ./src/math_utils
+VECTOR_DIR =		vector
+VECTOR_SRC =		$(patsubst %,$(VECTOR_DIR)/$(SRC_DIR)/%,$(VECTOR_FILES:=.c))
+VECTOR_FILES =		ft_to_vec2 \
+					ft_vec2_add \
+					ft_vec2_sub \
+					ft_vec2_scale \
+					ft_vec2_opp \
+					ft_vec2_dotprod \
+					ft_vec2_magn\
+					ft_vec2_normalize \
+					ft_vec2_equal \
+					\
+					ft_to_vec3 \
+					ft_vec3_add \
+					ft_vec3_sub \
+					ft_vec3_scale \
+					ft_vec3_opp \
+					ft_vec3_crossprod \
+					ft_vec3_dotprod \
+					ft_vec3_magn\
+					ft_vec3_normalize \
+					ft_vec3_equal \
 
-DEBUG_SRCS = $(patsubst %,$(DEBUG_SRCS_DIR)/%,$(LIB_FILES:=.c))
-DEBUG_SRCS_DIR = ./src/debug_utils
+QUATER_DIR =		quaternions
+QUATER_SRC =		$(patsubst %,$(QUATER_DIR)/$(SRC_DIR)/%,$(QUATER_FILES:=.c))
+QUATER_FILES =		ft_to_quat \
+					ft_quat_add \
+					ft_quat_add_n \
+					ft_quat_sub \
+					ft_quat_sub_n \
+					ft_quat_mul \
+					ft_quat_scale \
+					ft_quat_opp \
+					ft_quat_inv \
+					ft_quat_crossprod \
+					ft_quat_dotprod \
+					ft_quat_magn\
+					ft_quat_normalize \
+					ft_quat_dotnormalize \
+					ft_rot_to_quat \
+					ft_quat_to_rot \
+					ft_quat_to_spheric_rot \
+					ft_spheric_rot_to_quat \
+					ft_quat_equal \
+					ft_quat_lerp \
 
-# Objects
-OBJECTS = $(patsubst %,$(OBJ_DIR)/%,$(LIB_FILES:=.o))
-OBJ_DIR = ./.obj
+MATRIX_DIR =		matrix
+MATRIX_SRC =		$(patsubst %,$(MATRIX_DIR)/$(SRC_DIR)/%,$(MATRIX_FILES:=.c))
+MATRIX_FILES =		ft_gen_identity_mat4 \
+					ft_gen_translate_mat4 \
+					ft_gen_scale_mat4 \
+					ft_gen_rotation_mat4 \
+					ft_gen_euler_rotation_mat4 \
+					ft_mat4_premul_vec3 \
+					ft_mat4_postmul_vec3 \
+					ft_mat4_premul_quat \
+					ft_mat4_postmul_quat \
+					ft_mat4_premul_norm_quat \
+					ft_mat4_postmul_norm_quat \
+					ft_mat4_mul_mat4 \
+					ft_transpose_mat4 \
+					ft_mat4_to_quat \
+					ft_quat_to_mat4 \
+					ft_quat_to_vec3 \
+					ft_vec3_to_quat \
+
+CAMERA_DIR =		camera
+CAMERA_SRC =		$(patsubst %,$(CAMERA_DIR)/$(SRC_DIR)/%,$(CAMERA_FILES:=.c))
+CAMERA_FILES =		ft_init_cam \
+					ft_init_cam_new \
+					ft_lookat \
+					ft_view_mat4 \
+					ft_persproj_mat4 \
+					ft_orthoproj_mat4 \
+
+GMATHS_DIR =		g_maths
+GMATHS_SRC =		$(patsubst %,$(GMATHS_DIR)/$(SRC_DIR)/%,$(GMATHS_FILES:=.c))
+GMATHS_FILES =		ft_spheric_to_vec3 \
+					ft_spheric_to_quat \
+					ft_viewport_tlc \
+					ft_viewport_llc \
+					ft_to_frange \
+					ft_ver3f_proj \
+
+DEBUG_DIR =			debug
+DEBUG_SRC =			$(patsubst %,$(DEBUG_DIR)/$(SRC_DIR)/%,$(DEBUG_FILES:=.c))
+DEBUG_FILES =		print_vector \
+					print_matrix \
+					print_camera \
+
+# -- IMPLICIT RULES  / LINKING --
+
+$(OBJ_DIR)/%.o: %.c Makefile
+	@$(eval DONE=$(shell echo $$(($(INDEX)*20/$(NB)))))
+	@$(eval PERCENT=$(shell echo $$(($(INDEX)*100/$(NB)))))
+	@$(eval TO_DO=$(shell echo $$((20-$(INDEX)*20/$(NB) - 1))))
+	@$(eval COLOR=$(shell list=(160 196 202 208 215 221 226 227 190 154 118 82 46); index=$$(($(PERCENT) * $${#list[@]} / 100)); echo "$${list[$$index]}"))
+	@printf "\r> $(YELLOW)$(NAME)$(EOC) : Building objects...    %2d%% $(CNO)[`printf '#%.0s' {0..$(DONE)}`%*s]$(YELLOW)%*.*s%s$(EOC)$(ERASELN)" $(PERCENT) $(COLOR) $(TO_DO) "" $(DELTA) $(DELTA) "$(shell echo "$@" | sed 's/^.*\///')"
+	@$(CC) -c $< -o $@ $(CFLAGS) $(CPPFLAGS) $(DEPFLAGS)
+	@$(eval INDEX=$(shell echo $$(($(INDEX)+1))))
 
 # -- RULES --
 
-all: prep $(NAME)
+all:
+	@$(MAKE) -j $(NAME)
 
-$(NAME):
-	printf "> \e[31;33;1m$(NAME)\e[0m : \e[32mCreating objects\e[0m "
-	make obj
-	printf "\n"
-	printf "> \e[31;33;1m$(NAME)\e[0m : \e[32mCreating Library\e[0m "
-	ar rc $(NAME) $(OBJECTS)
-	ar -s $(NAME)
-	printf "\t\e[37;1m[\e[32;1mDONE\e[0m\e[37;1m]\e[0m\n"
+$(NAME): $(LIB)
 
-obj: $(OBJECTS)
-	echo >> /dev/null
+$(LIB): $(OBJ_DIR) $(LIBGR_OBJS)
+	@$(AR) $(LIB) $(LIBGR_OBJS)
+	@printf "\r$(ERASELN)$(GREEN_B)✓$(EOC) $(YELLOW)$(NAME)$(EOC) : Library created\n"
 
-$(OBJ_DIR)/%.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
-	printf "\e[32m.\e[0m"
+$(OBJ_DIR):
+	@$(MKDIR) $(OBJ_DIR)
 
 clean:
-	printf "> \e[31;33;1m$(NAME)\e[0m : \e[31mDeleting objects\e[0m "
-	rm -rf $(OBJ_DIR)
-	printf "\t\e[37;1m[\e[31;1mX\e[0m\e[37;1m]\e[0m\n"
+	@if [ -e $(OBJ_DIR) ]; \
+	then \
+		$(RMDIR) $(OBJ_DIR); \
+		printf "$(RED_B)✗$(EOC) $(YELLOW)$(NAME)$(EOC) : Objects deleted\n"; \
+	fi;
 
 fclean: clean
-	printf "> \e[31;33;1m$(NAME)\e[0m : \e[31mDeleting binary\e[0m "
-	rm -f $(NAME)
-	printf "\t\e[37;1m[\e[31;1mX\e[0m\e[37;1m]\e[0m\n"
+	@if [ -e $(LIB) ]; \
+	then \
+		$(RM) $(LIB); \
+		printf "$(RED_B)✗$(EOC) $(YELLOW)$(NAME)$(EOC) : Library deleted\n"; \
+	fi;
 
-re: fclean all
+re: fclean
+	@$(MAKE)
 
-lib: all clean
+norm:
+	@$(NORM)
 
-prep:
-	mkdir -p $(OBJ_DIR)
+.PHONY: all clean fclean re norm
 
-# This rule allow the library build process to complete even if there are
-# files named 'all, clean, fclean, re, lib' in the working directory
+-include $(ALL_OBJS:.o=.d)
 
-.PHONY: all obj clean fclean re lib prep
+# ------------------------------------------------------------------------------
+# --------------------------- DISPLAY ------------------------------------------
+# ------------------------------------------------------------------------------
 
-.SILENT: all obj clean fclean re lib prep $(NAME) $(OBJECTS)
+LEN_NAME =	`printf "%s" $(NAME) |wc -c`
+DELTA =		$$(echo "$$(tput cols)-54-$(LEN_NAME)"|bc)
+NB =		$(words $(SOURCES))
+INDEX=		0
+
+ERASELN =	\033[K
+CNO =		\033[38;5;%dm
+
+YELLOW =	\e[31;33m
+YELLOW_B =	\e[31;33;1m
+GREEN =		\e[32m
+GREEN_B =	\e[32;1m
+RED =		\e[31m
+RED_B =		\e[31;1m
+WHITE =		\e[37m
+WHITE_B =	\e[37;1m
+EOC =		\e[0m

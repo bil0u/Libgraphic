@@ -62,7 +62,7 @@ See [debug.h](debug/includes/debug.h) for details
 
 ## Makefile rules
 
-* all = libgraphic
+* all = libgraphic  
    Compile all the library components  
 
 * clean  

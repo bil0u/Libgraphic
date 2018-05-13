@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2018/05/14 01:17:07 by upopee           ###   ########.fr        #
+#    Updated: 2018/05/14 01:21:48 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ LDFLAGS =		-L$(MLX_DIR)
 
 MLX_DIR =		mlx
 MLX_DEP =		$(LIBFT_DIR)/libmlx.a
-MLX_OBJ =		$(patsubst %,$(OBJ_DIR)/%,$(MLX_FILES:=.o))
+MLX_OBJ =		$(patsubst %,$(MLX_DIR)/%,$(MLX_FILES:=.o))
 MLX_FILES =		mlx_init_loop \
 				mlx_int_str_to_wordtab \
 				mlx_new_image \

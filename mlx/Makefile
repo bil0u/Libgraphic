@@ -1,17 +1,21 @@
-#
-#
-NAME=libmlx
-NOM=$(NAME).a
-SRC= mlx_shaders.c mlx_new_window.m mlx_init_loop.m mlx_new_image.m mlx_xpm.c mlx_int_str_to_wordtab.c
-OBJ1=$(SRC:.c=.o)
-OBJ=$(OBJ1:.m=.o)
-CFLAGS+=-O2
+NAME =			libmlx
+MLX_LIB =		$(NAME).a
+SRC = 			mlx_shaders.c \
+				mlx_new_window.m \
+				mlx_init_loop.m \
+				mlx_new_image.m \
+				mlx_xpm.c \
+				mlx_int_str_to_wordtab.c \
 
-all: $(NOM)
+CFLAGS+=		-O2
+OBJ1 =			$(SRC:.c=.o)
+OBJ =			$(OBJ1:.m=.o)
 
-$(NOM):	$(OBJ)
-	@ar -r $(NOM) $(OBJ)
-	@ranlib $(NOM)
+all: $(MLX_LIB)
+
+$(MLX_LIB):	$(OBJ)
+	@ar -r $(MLX_LIB) $(OBJ)
+	@ranlib $(MLX_LIB)
 	@printf "$(GREEN_B)✓$(EOC) $(YELLOW)$(NAME)$(EOC) : Library created\n"
 
 clean:
@@ -20,6 +24,8 @@ clean:
 	@printf "$(RED_B)✗$(EOC) $(YELLOW)$(NAME)$(EOC) : Library deleted\n"
 
 re: clean all
+
+.SILENT: $(OBJ1) $(OBJ)
 
 # ------------------------------------------------------------------------------
 # --------------------------- DISPLAY ------------------------------------------

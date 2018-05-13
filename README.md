@@ -25,46 +25,47 @@ or call it from a parent one with the rule `make -C ./<libgraphic_path>`
 ## Sub libraries
 
 * `minilibx` made by Olivier Crouzet for 42 students  
+   See [mlx.h](mlx/mlx.h) for details  
 
 Note: you don't need to add the sublibraries flags to your project, the corresponding objects and includes are respectively merged inside `libgraphic.a` and `libgraphic.h`
 
 ## Components
 
 ### Mlx tools
-Utilities for 42's MLX graphics library  
-See [mlx_tools.h](mlx_tools/includes/mlx_tools.h) for details  
+   Utilities for 42's MLX graphics library  
+   See [mlx_tools.h](mlx_tools/includes/mlx_tools.h) for details  
 
 ### Colors
-`RGB & RGBA` colors utilities  
-See [colors.h](colors/includes/colors.h) for details  
+   `RGB & RGBA` colors utilities  
+   See [colors.h](colors/includes/colors.h) for details  
 
 ### Vertexes
-Functions for handling `2D & 3D integer/float` vertexes  
-See [vertex.h](vertex/includes/vertex.h) for details  
+   Functions for handling `2D & 3D integer/float` vertexes  
+   See [vertex.h](vertex/includes/vertex.h) for details  
 
 ### Vectors
-Functions for handling `2D & 3D integer/float` vectors  
-See [vector.h](vector/includes/vector.h) for details  
+   Functions for handling `2D & 3D integer/float` vectors  
+   See [vector.h](vector/includes/vector.h) for details  
 
 ### Quaternions
-Functions for handling `4D` vectors aka quaternions  
-See [quaternions.h](quaternions/includes/quaternions.h) for details  
+   Functions for handling `4D` vectors aka quaternions  
+   See [quaternions.h](quaternions/includes/quaternions.h) for details  
 
 ### Matrix
-Functions for handling `4D integer/float` matrix  
-See [matrix.h](matrix/includes/matrix.h) for details  
+   Functions for handling `4D integer/float` matrix  
+   See [matrix.h](matrix/includes/matrix.h) for details  
 
 ### Camera
-Tools to quickly set camera based on `pinhole model`  
-See [camera.h](camera/includes/camera.h) for details  
+   Tools to quickly set camera based on `pinhole model`  
+   See [camera.h](camera/includes/camera.h) for details  
 
 ### Graphics maths
-Useful graphics maths functions  
-See [g_maths.h](g_maths/includes/g_maths.h) for details  
+   Useful graphics maths functions  
+   See [g_maths.h](g_maths/includes/g_maths.h) for details  
 
 ### Debug
-Poor debug functions, still needs a big improvement  
-See [debug.h](debug/includes/debug.h) for details  
+   Poor debug functions, still needs a big improvement  
+   See [debug.h](debug/includes/debug.h) for details  
 
 ## Makefile rules
 

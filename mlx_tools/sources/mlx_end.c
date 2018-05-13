@@ -6,11 +6,12 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 16:54:56 by upopee            #+#    #+#             */
-/*   Updated: 2018/05/14 00:58:47 by upopee           ###   ########.fr       */
+/*   Updated: 2018/05/14 01:05:05 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "../../mlx/mlx.h"
 #include "../includes/mlx_tools.h"
 
 void	del_mlxenv(t_mlxenv *m_env)

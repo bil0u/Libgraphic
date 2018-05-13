@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 11:44:25 by upopee            #+#    #+#             */
-/*   Updated: 2018/05/13 19:35:34 by upopee           ###   ########.fr       */
+/*   Updated: 2018/05/14 00:31:35 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /*
 ** - LIBGRAPHIC INCLUDE MODULES
 */
+
+# include "./mlx/mlx.h"
 
 # include "./libgraphic_macros.h"
 # include "./mlx_tools/includes/mlx_tools.h"

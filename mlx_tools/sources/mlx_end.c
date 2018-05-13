@@ -6,7 +6,7 @@
 /*   By: upopee <upopee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 16:54:56 by upopee            #+#    #+#             */
-/*   Updated: 2018/05/13 20:37:44 by upopee           ###   ########.fr       */
+/*   Updated: 2018/05/14 00:58:47 by upopee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ void	del_mlxwin(void *mlx_id, t_mlxwin *m_win)
 {
 	if (m_win)
 	{
-		(void)mlx_id;
-		// if (mlx_id && m_win->id)
-		// 	mlx_destroy_window(mlx_id, m_win->id);
+		if (mlx_id && m_win->id)
+			mlx_destroy_window(mlx_id, m_win->id);
 		free(m_win);
 	}
 }
@@ -36,10 +35,8 @@ void	del_mlximg(void *mlx_id, t_mlximg *m_img)
 {
 	if (m_img)
 	{
-
-		(void)mlx_id;
-		// if (mlx_id && m_img->id)
-		// 	mlx_destroy_image(mlx_id, m_img->id);
+		if (mlx_id && m_img->id)
+			mlx_destroy_image(mlx_id, m_img->id);
 		free(m_img);
 	}
 }
@@ -52,12 +49,10 @@ void	del_mlxfbuf(void *mlx_id, t_mlxfbuf *b)
 	{
 		if (b->frame)
 		{
-
-			(void)i;
-			// i = b->nb_frames;
-			// while (i-- > 0)
-			// 	if (b->frame[i].id)
-			// 		mlx_destroy_image(mlx_id, b->frame[i].id);
+			i = b->nb_frames;
+			while (i-- > 0)
+				if (b->frame[i].id)
+					mlx_destroy_image(mlx_id, b->frame[i].id);
 			free(b->frame);
 		}
 		free(b);

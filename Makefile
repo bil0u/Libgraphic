@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2018/05/13 20:46:31 by upopee           ###   ########.fr        #
+#    Updated: 2018/05/14 00:48:24 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,15 @@ SOURCES =			$(MLXTOOLS_SRC) \
 LIBGR_OBJS =		$(patsubst %,$(OBJ_DIR)/%,$(notdir $(SOURCES:.c=.o)))
 
 ALL_OBJS =			$(LIBGR_OBJS)
+
+# -- SUB-LIBRARIES --
+
+LDLIBS =		-lmlx
+LDFLAGS =		-L$(MLX_DIR)
+
+MLX_DIR =		mlx
+MLX_DEP =		$(LIBFT_DIR)/libmlx.a
+MLX_OBJ =		$(patsubst %,$(OBJ_DIR)/%,$(notdir $(MLX_DEP:.a=.o)))
 
 # -- PATHS NAMES --
 
@@ -226,17 +235,21 @@ $(OBJ_DIR)/%.o: %.c Makefile
 
 # -- RULES --
 
-all:
+all: $(MLX_DEP)
 	@$(MAKE) -j $(NAME)
 
 $(NAME): $(LIB)
 
-$(LIB): $(OBJ_DIR) $(LIBGR_OBJS)
-	@$(AR) $(LIB) $(LIBGR_OBJS)
+$(LIB): $(MLX_DEP) $(OBJ_DIR) $(LIBGR_OBJS)
+	@ar -xv $(MLX_DEP) $(MLX_OBJ)
+	@$(AR) $(LIB) $(LIBGR_OBJS) $(MLX_OBJ)
 	@printf "\r$(ERASELN)$(GREEN_B)✓$(EOC) $(YELLOW)$(NAME)$(EOC) : Library created\n"
 
 $(OBJ_DIR):
 	@$(MKDIR) $(OBJ_DIR)
+
+$(MLX_DEP):
+	@$(MAKE) -C $(MLX_DIR)
 
 clean:
 	@if [ -e $(OBJ_DIR) ]; \

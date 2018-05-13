@@ -14,8 +14,7 @@ OBJ =			$(OBJ1:.m=.o)
 all: $(MLX_LIB)
 
 $(MLX_LIB):	$(OBJ)
-	@ar -r $(MLX_LIB) $(OBJ)
-	@ranlib $(MLX_LIB)
+	@ar -rcs $(MLX_LIB) $(OBJ)
 	@printf "$(GREEN_B)✓$(EOC) $(YELLOW)$(NAME)$(EOC) : Library created\n"
 
 clean:

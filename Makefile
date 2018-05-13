@@ -6,7 +6,7 @@
 #    By: upopee <upopee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 11:42:57 by upopee            #+#    #+#              #
-#    Updated: 2018/05/14 01:21:48 by upopee           ###   ########.fr        #
+#    Updated: 2018/05/14 01:32:47 by upopee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -241,7 +241,7 @@ $(OBJ_DIR)/%.o: %.c Makefile
 
 # -- RULES --
 
-all: $(MLX_DEP)
+all:
 	@$(MAKE) -j $(NAME)
 
 $(NAME): $(LIB)

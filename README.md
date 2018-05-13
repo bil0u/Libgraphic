@@ -27,7 +27,7 @@ or call it from a parent one with the rule `make -C ./<libgraphic_path>`
 * `minilibx` made by Olivier Crouzet for 42 students  
    See [mlx.h](mlx/mlx.h) for details  
 
-Note: you don't need to add the sublibraries flags to your project, the corresponding objects and includes are respectively merged inside `libgraphic.a` and `libgraphic.h`
+Note: you don't need to add the sublibraries flags and includes to your project, the corresponding objects and includes are respectively merged inside `libgraphic.a` and `libgraphic.h`
 
 ## Components
 

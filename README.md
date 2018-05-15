@@ -11,7 +11,7 @@ First, clone
 $ git clone https://github.com/bil0u/libgraphic.git
 ```
 
-You have to specify the include path `-I ./libgraphic` and the library flags `-lgraphic -Llibgraphic`  
+You have to specify the include path `-I <libgraphic_path>` and the library flags `-lgraphic -Llibgraphic`  
 
 Don't forget to `#include "libgraphic.h"` or `"libgraphic_macros.h"`
 (Note that `libgraphic.h` already includes `libgraphic_macros.h`)  
@@ -20,16 +20,13 @@ A Makefile is provided, just run in your shell
 ```sh
 $ make
 ```
-or call it from a parent one with the rule `make -C ./<libgraphic_path>`
-
-## Sub libraries
-
-* `minilibx` made by Olivier Crouzet for 42 students  
-   See [mlx.h](mlx/mlx.h) for details  
-
-Note: you don't need to add the sublibraries flags and includes to your project, the corresponding objects and includes are respectively merged inside `libgraphic.a` and `libgraphic.h`
+or call it from a parent one with the rule `make -C <libgraphic_path>`
 
 ## Components
+
+### Sub libraries
+* `minilibx` made by Olivier Crouzet for 42 students  
+   See [mlx.h](mlx/mlx.h) for details  
 
 ### Mlx tools
    Utilities for 42's MLX graphics library  
